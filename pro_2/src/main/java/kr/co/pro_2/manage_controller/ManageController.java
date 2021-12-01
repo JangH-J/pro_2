@@ -7,17 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.pro_2.manage_service.ManageService;
+import kr.co.pro_2.manage_vo.ManageVO;
 
 @Controller
 public class ManageController {
 	
 	@Autowired
-//	@Qualifier("ms")
+	@Qualifier("ms")
 	private ManageService service;
 	
 	@RequestMapping("manage_index")
 	public String manage_index() {
 		return "manage/home/manage_index";
+//		return service.manage_index();
 	}
 	
 	@RequestMapping("product_manage")

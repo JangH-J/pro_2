@@ -1,5 +1,8 @@
 package kr.co.pro_2.manage_service;
 
-public interface ManageService {
+import kr.co.pro_2.manage_vo.ManageVO;
 
+public interface ManageService {
+	
+//	public String manage_index();
 }
