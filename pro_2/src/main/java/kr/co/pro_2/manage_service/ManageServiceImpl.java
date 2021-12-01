@@ -12,8 +12,8 @@ import kr.co.pro_2.manage_vo.ManageVO;
 @Qualifier("ms")
 public class ManageServiceImpl implements ManageService {
 
-	@Autowired
-	private ManageMapper mapper;
+//	@Autowired
+//	private ManageMapper mapper;
 	
 //	@Override
 //	public String manage_index() {

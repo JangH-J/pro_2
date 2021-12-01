@@ -24,25 +24,21 @@ public class ManageController {
 	
 	@RequestMapping("product_manage")
 	public String product_manage() {
-		
 		return "manage/product/product_manage";
 	}
 	
 	@RequestMapping("member_manage")
 	public String member_manage() {
-		
 		return "manage/member/member_manage";
 	}
 	
 	@RequestMapping("gongji_manage")
 	public String gongji_manage() {
-		
 		return "manage/gongji/gongji_manage";
 	}
 	
 	@RequestMapping("review_manage")
 	public String review_manage() {
-		
 		return "manage/review/review_manage";
 	}
 }
