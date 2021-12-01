@@ -7,15 +7,6 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<table align="center" width="700px">
-			<tr>
-				<td><a href="member_manage">회원관리</a></td>
-				<td><a href="review_manage">후기관리</a></td>
-			</tr>
-			<tr>
-				<td><a href="product_manage">상품관리</a></td>
-				<td><a href="gongji_manage">공지사항관리</a></td>
-			</tr>
-		</table>
+		공지사항 관리 페이지 첫 화면
 	</body>
 </html>
