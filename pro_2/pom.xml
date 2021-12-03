@@ -119,12 +119,19 @@
 		
 		<!-- JDBC -->
 		<dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>6.0.5</version>
+        </dependency>
+ 
+		 <!-- JDBC -->
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.1.4.RELEASE</version>
 		</dependency>
 		     
-		 <!-- myBatis  : 스프링jdbc 랑 연결되어 있다-->
+		 <!-- myBatis  : 스프링jdbc 랑 연결되어 잇다-->
 		 <dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
@@ -135,7 +142,18 @@
 		   <artifactId>mybatis-spring</artifactId>
 		   <version>1.2.2</version>
 		 </dependency>
-         <!-- mybatis  2개 -->      
+         <!-- mybatis  2개 -->
+      <!--  sitemesh  -->
+      <dependency>
+        <groupId>opensymphony</groupId>
+        <artifactId>sitemesh</artifactId>
+        <version>2.4.2</version>
+      </dependency>  
+      <dependency>
+          <groupId>servlets.com</groupId>
+          <artifactId>cos</artifactId>
+          <version>05Nov2002</version>
+      </dependency>   
 	</dependencies>
     <build>
         <plugins>

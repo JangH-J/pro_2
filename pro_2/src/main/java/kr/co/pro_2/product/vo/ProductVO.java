@@ -6,7 +6,50 @@ public class ProductVO {
 	/*float glove 1개 ,product_shoes_ 1개, , product_bat_ 1개, product_guard_1개, product_resinbag_1개, product_leathercream_ 1개*/
 	private float product_glove_size,product_shoes_size, product_bat_size, product_uniform_size, product_guard_size, product_resinbag_size, product_leathercream_size;
 	/*String glove 7개, product_shoes_7개 , product_uniform_ 5개, product_uniform 6개, product_guard_6개, product_resinbag_5개, product_leathercream_5개*/
-	private String product_glove_productname, product_glove_detail, product_glove_material, product_glove_style, product_glove_color, product_glove_purpose, product_glove_writeday, product_shoes_productname, product_shoes_detail, product_shoes_material, product_shoes_style, product_shoes_color, product_shoes_purpose, product_shoes_writeday, product_bat_productname, product_bat_detail, product_bat_material, product_bat_style, product_bat_writeday, product_uniform_productname, product_uniform_detail, product_uniform_material, product_uniform_color, product_uniform_purpose, product_uniform_writeday, product_guard_productname, product_guard_detail, product_guard_material, product_guard_style, product_guard_color, product_guard_writeday, product_resinbag_productname, product_resinbag_detail, product_resinbag_style, product_resinbag_color, product_resinbag_writeday, product_leathercream_productname, product_leathercream_detail, product_leathercream_material, product_leathercream_color, product_leathercream_writeday;
+	private String product_glove_productname, product_glove_detail, product_glove_material, product_glove_style, product_glove_color, product_glove_purpose, product_glove_writeday, product_shoes_productname, product_shoes_detail, product_shoes_material, product_shoes_style, product_shoes_color, product_shoes_purpose, product_shoes_writeday, product_bat_productname, product_bat_detail, product_bat_material, product_bat_style, product_bat_writeday, product_uniform_productname, product_uniform_detail, product_uniform_material, product_uniform_color, product_uniform_purpose, product_uniform_writeday, product_guard_productname, product_guard_detail, product_guard_material, product_guard_style, product_guard_color, product_guard_writeday, product_resinbag_productname, product_resinbag_detail, product_resinbag_style, product_resinbag_color, product_resinbag_writeday, product_leathercream_productname, product_leathercream_detail, product_leathercream_material, product_leathercream_color, product_leathercream_writeday, product_glove_img, product_bat_img, product_uniform_img, product_shoes_img, product_leathercream_img, product_resinbag_img, product_guard_img;
+	
+	public String getProduct_glove_img() {
+		return product_glove_img;
+	}
+	public void setProduct_glove_img(String product_glove_img) {
+		this.product_glove_img = product_glove_img;
+	}
+	public String getProduct_bat_img() {
+		return product_bat_img;
+	}
+	public void setProduct_bat_img(String product_bat_img) {
+		this.product_bat_img = product_bat_img;
+	}
+	public String getProduct_uniform_img() {
+		return product_uniform_img;
+	}
+	public void setProduct_uniform_img(String product_uniform_img) {
+		this.product_uniform_img = product_uniform_img;
+	}
+	public String getProduct_shoes_img() {
+		return product_shoes_img;
+	}
+	public void setProduct_shoes_img(String product_shoes_img) {
+		this.product_shoes_img = product_shoes_img;
+	}
+	public String getProduct_leathercream_img() {
+		return product_leathercream_img;
+	}
+	public void setProduct_leathercream_img(String product_leathercream_img) {
+		this.product_leathercream_img = product_leathercream_img;
+	}
+	public String getProduct_resinbag_img() {
+		return product_resinbag_img;
+	}
+	public void setProduct_resinbag_img(String product_resinbag_img) {
+		this.product_resinbag_img = product_resinbag_img;
+	}
+	public String getProduct_guard_img() {
+		return product_guard_img;
+	}
+	public void setProduct_guard_img(String product_guard_img) {
+		this.product_guard_img = product_guard_img;
+	}
 	public int getProduct_glove_id() {
 		return product_glove_id;
 	}
