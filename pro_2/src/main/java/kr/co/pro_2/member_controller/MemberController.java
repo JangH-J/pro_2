@@ -20,7 +20,7 @@ import kr.co.pro_2.member_vo.MemberVO;
 public class MemberController {
 	
 	@Autowired
-	@Qualifier("ms")
+	@Qualifier("es")
 	private MemberService mservice;
 	
 	private final String module="/member";

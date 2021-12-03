@@ -10,7 +10,7 @@ import kr.co.pro_2.member_mapper.MemberMapper;
 import kr.co.pro_2.member_vo.MemberVO;
 
 @Service
-@Qualifier("ms")
+@Qualifier("es")
 public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
