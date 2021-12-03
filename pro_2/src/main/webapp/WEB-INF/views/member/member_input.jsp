@@ -10,10 +10,10 @@
  	var pchk=1; // 비밀번호 일치 관련 변수
  	var nchk=1; // 닉네임 중복체크 관련 변수
  	
-  	function userid_check(userid)
+  	function userid_check(member_userid)
   	{
   		var chk=new XMLHttpRequest();
-  		chk.open("get","userid_check?userid="+userid); // userid_check?userid=hong
+  		chk.open("get","userid_check?member_userid="+member_userid); // userid_check?userid=hong
   		chk.send();
   		
   		chk.onreadystatechange=function()
@@ -37,10 +37,10 @@
   		}
   	}
  	
-  	function nickname_check(nickname)
+  	function nickname_check(member_nickname)
   	{
   		var chk=new XMLHttpRequest();
-  		chk.open("get","nickname_check?nickname="+nickname); // nickname_check?nickname=hong
+  		chk.open("get","nickname_check?member_nickname="+member_nickname); // nickname_check?nickname=hong
   		chk.send();
   		
   		chk.onreadystatechange=function()
@@ -66,9 +66,9 @@
   	
   	function pwd_check(my)
   	{
-  	  if(my.pwd2.value.length>0)  //2번째 비밀번호가 비어있지 않을때
+  	  if(my.member_pwd2.value.length>0)  //2번째 비밀번호가 비어있지 않을때
   	  {
-  		if(my.pwd.value==my.pwd2.value)
+  		if(my.member_pwd.value==my.member_pwd2.value)
   		{
   			document.getElementById("pc").innerText="비밀번호가 일치합니다";
 			document.getElementById("pc").style.color="blue";
@@ -112,39 +112,39 @@
   <form method="post" action="member_input_ok" onsubmit="return send(this)">
    <table width="500" align="center">
      <tr>
-       <td> <input type="text" name="userid" placeholder="아이디" onblur="userid_check(this.value)">
+       <td> <input type="text" name="member_userid" placeholder="아이디" onblur="userid_check(this.value)">
        <br> <span id="uc"></span>
        </td>
      </tr>
      <tr>
-       <td> <input type="text" name="name" placeholder="이름"> </td>
+       <td> <input type="text" name="member_name" placeholder="이름"> </td>
      </tr>
      <tr>
-       <td> <input type="password" name="pwd" placeholder="비밀번호" onkeyup="pwd_check(this.form)"> </td>
+       <td> <input type="password" name="member_pwd" placeholder="비밀번호" onkeyup="pwd_check(this.form)"> </td>
      </tr>
      <tr>
-       <td> <input type="password" name="pwd2" placeholder="비밀번호확인" onkeyup="pwd_check(this.form)">
+       <td> <input type="password" name="member_pwd2" placeholder="비밀번호확인" onkeyup="pwd_check(this.form)">
        <br> <span id="pc"></span>
        </td>
      </tr>
      <tr>
-       <td> <input type="text" name="nickname" placeholder="닉네임" onblur="userid_check(this.value)">
+       <td> <input type="text" name="member_nickname" placeholder="닉네임" onblur="userid_check(this.value)">
        <br> <span id="nc"></span>
        </td>
      <tr>
        <td>
-			남<input type="radio" name="gender" value="남">
-			여<input type="radio" name="gender" value="여">
+			남<input type="radio" name="member_gender" value="남">
+			여<input type="radio" name="member_gender" value="여">
        </td>
      </tr>
      <tr>
-       <td> <input type="text" name="birthday" placeholder="20001231"> </td>
+       <td> <input type="text" name="member_birthday" placeholder="20001231"> </td>
      </tr>
      <tr>
-       <td> <input type="text" name="email" placeholder="이메일"> </td>
+       <td> <input type="text" name="member_email" placeholder="이메일"> </td>
      </tr>
      <tr>
-       <td> <input type="text" name="phone" placeholder="전화번호"> </td>
+       <td> <input type="text" name="member_phone" placeholder="전화번호"> </td>
      </tr>
      <tr>
        <td> <input type="submit" value="회원가입"> </td>

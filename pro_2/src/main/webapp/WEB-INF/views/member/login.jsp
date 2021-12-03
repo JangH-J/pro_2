@@ -12,10 +12,10 @@
       <table width="400" align="center">
        <caption> <h3> 로그인</h3></caption>
         <tr>
-          <td> <input type="text" name="userid"> </td>
+          <td> <input type="text" name="member_userid"> </td>
         </tr>
         <tr>
-          <td> <input type="password" name="pwd"> </td>
+          <td> <input type="password" name="member_pwd"> </td>
         </tr>
         <tr>
           <td> <input type="submit" value="로그인"> </td>

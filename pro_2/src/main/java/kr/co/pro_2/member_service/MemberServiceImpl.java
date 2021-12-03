@@ -22,8 +22,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public int userid_check(String userid) {
-		return mapper.userid_check(userid);
+	public int userid_check(String member_userid) {
+		return mapper.userid_check(member_userid);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class MemberServiceImpl implements MemberService {
 		}
 		else
 		{
-			session.setAttribute("userid", mvo2.getUserid());
-			session.setAttribute("name", mvo2.getName());
+			session.setAttribute("member_userid", mvo2.getMember_userid());
+			session.setAttribute("member_name", mvo2.getMember_name());
 			return "/main/index";
 		}
 	}
@@ -54,8 +54,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public int nickname_check(String nickname) {
-		return mapper.nickname_check(nickname);
+	public int nickname_check(String member_nickname) {
+		return mapper.nickname_check(member_nickname);
 	}
 	
 	@Override

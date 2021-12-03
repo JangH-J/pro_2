@@ -1,62 +1,60 @@
 package kr.co.pro_2.member_vo;
 
 public class MemberVO {
-	private int id;
-    private String name,nickname,userid,pwd,gender,birthday,email,phone, member_writeday;
-	//tges
-    public String getNickname() {
-		return nickname;
+	private int member_id;
+    public int getMember_id() {
+		return member_id;
 	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
-	public int getId() {
-		return id;
+	public String getMember_name() {
+		return member_name;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
-	public String getName() {
-		return name;
+	public String getMember_nickname() {
+		return member_nickname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMember_nickname(String member_nickname) {
+		this.member_nickname = member_nickname;
 	}
-	public String getUserid() {
-		return userid;
+	public String getMember_userid() {
+		return member_userid;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setMember_userid(String member_userid) {
+		this.member_userid = member_userid;
 	}
-	public String getPwd() {
-		return pwd;
+	public String getMember_pwd() {
+		return member_pwd;
 	}
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public void setMember_pwd(String member_pwd) {
+		this.member_pwd = member_pwd;
 	}
-	public String getGender() {
-		return gender;
+	public String getMember_gender() {
+		return member_gender;
 	}
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setMember_gender(String member_gender) {
+		this.member_gender = member_gender;
 	}
-	public String getBirthday() {
-		return birthday;
+	public String getMember_birthday() {
+		return member_birthday;
 	}
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setMember_birthday(String member_birthday) {
+		this.member_birthday = member_birthday;
 	}
-	public String getEmail() {
-		return email;
+	public String getMember_email() {
+		return member_email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
 	}
-	public String getPhone() {
-		return phone;
+	public String getMember_phone() {
+		return member_phone;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMember_phone(String member_phone) {
+		this.member_phone = member_phone;
 	}
 	public String getMember_writeday() {
 		return member_writeday;
@@ -64,5 +62,9 @@ public class MemberVO {
 	public void setMember_writeday(String member_writeday) {
 		this.member_writeday = member_writeday;
 	}
-	
+	private String member_name,member_nickname,member_userid,member_pwd,member_gender,member_birthday,member_email,member_phone, member_writeday;
+
+    
+    
+    
 }

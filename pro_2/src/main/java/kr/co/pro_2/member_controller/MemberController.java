@@ -42,7 +42,7 @@ public class MemberController {
 	@RequestMapping("/userid_check")
 	public void userid_check(HttpServletRequest request,PrintWriter out) // 아이디의 사용여부를 javascript로 전달
 	{
-		String userid=request.getParameter("userid");
+		String userid=request.getParameter("member_userid");
 		int cnt=mservice.userid_check(userid);
 		out.print(cnt); // 아이디로 검색한 레코드 수
 	}
@@ -50,7 +50,7 @@ public class MemberController {
 	@RequestMapping("/nickname_check")
 	public void nickname_check(HttpServletRequest request,PrintWriter out) // 아이디의 사용여부를 javascript로 전달
 	{
-		String nickname=request.getParameter("nickname");
+		String nickname=request.getParameter("member_nickname");
 		int cnt=mservice.nickname_check(nickname);
 		out.print(cnt); // 아이디로 검색한 레코드 수
 	}
