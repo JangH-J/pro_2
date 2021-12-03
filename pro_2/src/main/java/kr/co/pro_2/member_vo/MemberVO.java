@@ -3,7 +3,7 @@ package kr.co.pro_2.member_vo;
 public class MemberVO {
 	private int id;
     private String name,nickname,userid,pwd,gender,birthday,email,phone, member_writeday;
-	
+	//tges
     public String getNickname() {
 		return nickname;
 	}
