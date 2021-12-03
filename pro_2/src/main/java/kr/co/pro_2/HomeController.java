@@ -21,5 +21,8 @@ public class HomeController {
 		
 		return "redirect:/main/index";
 	}
-	
+	@RequestMapping("/main/index")
+	public String index() {
+		return "/main/index/";
+	}
 }
