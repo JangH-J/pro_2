@@ -13,7 +13,7 @@ import kr.co.pro_2.manage_vo.ManageVO;
 public class ManageController {
 	
 	@Autowired
-	@Qualifier("ms")
+	@Qualifier("mngs")
 	private ManageService service;
 	
 	@RequestMapping("manage_index")

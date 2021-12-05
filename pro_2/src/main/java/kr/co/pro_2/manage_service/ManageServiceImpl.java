@@ -9,7 +9,7 @@ import kr.co.pro_2.manage_vo.ManageVO;
 
 
 @Service
-@Qualifier("ms")
+@Qualifier("mngs")
 public class ManageServiceImpl implements ManageService {
 
 //	@Autowired
