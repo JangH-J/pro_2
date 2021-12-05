@@ -16,7 +16,7 @@ import kr.co.pro_2.member_service.MemberService;
 import kr.co.pro_2.member_vo.MemberVO;
 
 @Controller
-@RequestMapping("/mem")
+@RequestMapping("/member")
 public class MemberController {
 	
 	@Autowired
