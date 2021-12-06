@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -48,54 +47,3 @@
  </update>
 
 </mapper>
-=======
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.pro_2.member_mapper.MemberMapper">
-  <insert id="member_input_ok" parameterType="kr.co.pro_2.member_vo.MemberVO">
-    insert into member(member_userid,member_pwd,member_name,member_nickname,member_gender,member_birthday,member_email,member_phone,member_writeday)
-    values(#{member_userid},#{member_pwd},#{member_name},#{member_nickname},#{member_gender},#{member_birthday},#{member_email},#{member_phone},now());
-  </insert>
-  <select id="userid_check" resultType="Integer">
-  	select count(*) from member where member_userid=#{param1}
-  </select>
-  
-  <select id="login_ok" parameterType="kr.co.pro_2.member_vo.MemberVO" resultType="kr.co.pro_2.member_vo.MemberVO">
-  	select * from member where member_userid=#{member_userid} and member_pwd=#{member_pwd}
-  </select> 
-  
-  <select id="userid_search" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
-    select member_userid from member where member_name=#{member_name} and member_email=#{member_email}
- </select>
- 
- <select id="pwd_search" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
-    select member_pwd from member 
-    where member_name=#{member_name} and member_email=#{member_email} and member_userid=#{member_userid}
- </select> 
- 
- <select id="nickname_check" resultType="Integer">
-  	select count(*) from member where member_nickname=#{param1}
-  </select>
-  
-  <select id="mypage" resultType="kr.co.pro_2.member_vo.MemberVO">
- 	select * from member where member_userid=#{param1}
- </select>
- 
- <update id="mypage_update_ok" parameterType="kr.co.pro_2.member_vo.MemberVO">
-   update member set member_email=#{member_email},member_phone=#{member_phone}
-   where member_userid=#{member_userid}
- </update>
- 
- <select id="ispwd" resultType="Integer" parameterType="String">
-   select count(*) from member
-   where member_pwd=#{param1} and member_userid=#{param2}
- </select>
- 
- <update id="change_pwd">
-   update member set member_pwd=#{param1} where member_userid=#{param2}
- </update>
-
-</mapper>
->>>>>>> branch 'main' of https://github.com/JangH-J/pro_2.git
