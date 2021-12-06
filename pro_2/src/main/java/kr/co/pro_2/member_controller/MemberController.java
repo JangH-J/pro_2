@@ -94,5 +94,24 @@ public class MemberController {
 		else
 		    out.print(pwd);
 	}
+	
+	@RequestMapping("/mypage")
+	public String mypage(HttpSession session,Model model)
+	{
+		return mservice.mypage(session,model);
+	}
+	
+	@RequestMapping("/mypage_update")
+	public String mypage_update(HttpSession session,Model model)
+	{
+		// 현재 수정할 사용자의 레코드를 읽어와서 전달
+		return mservice.mypage_update(session,model);
+	}
+	
+	@RequestMapping("/mypage_update_ok")
+	public String mypage_update_ok(MemberVO mvo,HttpSession session)
+	{
+		return mservice.mypage_update_ok(mvo,session);
+	}
 
 }

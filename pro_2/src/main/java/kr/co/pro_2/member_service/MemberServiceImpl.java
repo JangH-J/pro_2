@@ -1,10 +1,12 @@
 package kr.co.pro_2.member_service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import kr.co.pro_2.member_mapper.MemberMapper;
 import kr.co.pro_2.member_vo.MemberVO;
@@ -43,6 +45,7 @@ public class MemberServiceImpl implements MemberService {
 		}
 	}
 	
+
 	@Override
 	public String userid_search_ok(MemberVO mvo) {
 		return mapper.userid_search_ok(mvo);
@@ -58,4 +61,42 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.nickname_check(member_nickname);
 	}
 	
+	@Override
+	public String mypage(HttpSession session, Model model) {
+		MemberVO mvo=mapper.mypage(session.getAttribute("member_userid").toString());
+		model.addAttribute("mvo",mvo);
+		return "/member/mypage";
+	}
+	
+	@Override
+	public String mypage_update(HttpSession session, Model model) {
+		MemberVO mvo=mapper.mypage(session.getAttribute("member_userid").toString());
+		model.addAttribute("mvo",mvo);
+		return "/member/mypage_update";
+	}
+	
+	@Override
+	public String mypage_update_ok(MemberVO mvo, HttpSession session) {
+		mvo.setMember_userid(session.getAttribute("member_userid").toString());
+		mapper.mypage_update_ok(mvo);
+		return "redirect:/member/mypage";
+	}
+	
+	@Override
+	public String change_pwd(HttpServletRequest request, HttpSession session) {
+		// 이전비밀번호가 맞는지 확인
+		String before_pwd=request.getParameter("before_pwd");
+		String pwd=request.getParameter("pwd");
+		int chk=mapper.ispwd(before_pwd,session.getAttribute("userid").toString());
+		if(chk==1) // 이전비밀번호가 맞다
+		{
+			mapper.change_pwd(pwd,session.getAttribute("userid").toString());
+			session.invalidate();
+			return "redirect:/main/index";
+		}
+		else
+		{
+			return "redirect:/member/mypage";
+		}
+	}
 }
