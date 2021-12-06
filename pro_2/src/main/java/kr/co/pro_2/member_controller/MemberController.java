@@ -16,7 +16,7 @@ import kr.co.pro_2.member_service.MemberService;
 import kr.co.pro_2.member_vo.MemberVO;
 
 @Controller
-@RequestMapping("/mem")
+@RequestMapping("/member")
 public class MemberController {
 	
 	@Autowired
@@ -84,15 +84,6 @@ public class MemberController {
 		    out.print(userid);
 	}
 	
-	@RequestMapping("/nickname_search_ok")
-	public void nickname_search_ok(MemberVO mvo,PrintWriter out)
-	{
-		String nickname=mservice.nickname_search_ok(mvo);
-		if(nickname==null)
-			out.print("0");
-		else
-		    out.print(nickname);
-	}
 	
 	@RequestMapping("/pwd_search_ok")
 	public void pwd_search_ok(MemberVO mvo,PrintWriter out)

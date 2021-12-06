@@ -27,8 +27,5 @@
  <select id="nickname_check" resultType="Integer">
   	select count(*) from member where member_nickname=#{param1}
   </select>
-  
-  <select id="nickname_search" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
-    select member_nickname from member where member_name=#{member_name} and member_email=#{member_email}
- </select>
+
 </mapper>

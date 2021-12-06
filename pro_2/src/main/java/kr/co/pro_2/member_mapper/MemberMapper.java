@@ -9,5 +9,4 @@ public interface MemberMapper {
 	public String userid_search_ok(MemberVO mvo);
 	public String pwd_search_ok(MemberVO mvo);
 	public int nickname_check(String member_nickname);
-	public String nickname_search_ok(MemberVO mvo);
 }

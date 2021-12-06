@@ -58,8 +58,4 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.nickname_check(member_nickname);
 	}
 	
-	@Override
-	public String nickname_search_ok(MemberVO mvo) {
-		return mapper.nickname_search_ok(mvo);
-	}
 }
