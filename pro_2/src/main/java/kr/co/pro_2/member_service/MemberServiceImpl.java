@@ -43,8 +43,7 @@ public class MemberServiceImpl implements MemberService {
 			session.setAttribute("member_name", mvo2.getMember_name());
 			return "/main/index";
 		}
-	}
-	
+	}	
 
 	@Override
 	public String userid_search_ok(MemberVO mvo) {
