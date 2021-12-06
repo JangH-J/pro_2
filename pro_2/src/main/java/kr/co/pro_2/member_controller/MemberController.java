@@ -113,5 +113,13 @@ public class MemberController {
 	{
 		return mservice.mypage_update_ok(mvo,session);
 	}
+	
+	@RequestMapping("/change_pwd")
+	public String change_pwd(HttpServletRequest request,
+			HttpSession session)
+	{
+		// 이전비밀번호확인, 새로운 비밀번호 변경, 로그아웃, main/index로 이동
+		return mservice.change_pwd(request,session);
+	}
 
 }

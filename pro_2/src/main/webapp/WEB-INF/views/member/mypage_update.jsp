@@ -28,10 +28,10 @@
        <td> ${member_birthday} </td>
      </tr>
      <tr>
-       <td> <input type="text" name="email" placeholder="이메일" value="${mvo.email}"> </td>
+       <td> <input type="text" name="email" placeholder="이메일" value="${mvo.member_email}"> </td>
      </tr>
      <tr>
-       <td> <input type="text" name="phone" placeholder="전화번호" value="${mvo.phone}"> </td>
+       <td> <input type="text" name="phone" placeholder="전화번호" value="${mvo.member_phone}"> </td>
      </tr>
      <tr>
        <td> <input type="submit" value="회원정보수정"> </td>
