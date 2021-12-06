@@ -21,7 +21,7 @@
  
  <select id="pwd_search" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
     select member_pwd from member 
-    where member_name=#{name} and member_email=#{member_email} and member_userid=#{member_userid}
+    where member_name=#{member_name} and member_email=#{member_email} and member_userid=#{member_userid}
  </select> 
  
  <select id="nickname_check" resultType="Integer">
