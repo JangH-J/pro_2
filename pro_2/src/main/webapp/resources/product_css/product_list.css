@@ -1,0 +1,23 @@
+@charset "UTF-8";
+.glove_lists{
+	visibility:visible;
+}
+.bat_lists{
+	visibility:collapse;
+}
+.shoes_lists{
+	visibility:collapse;
+}
+.uniform_lists{
+	visibility:collapse;
+}
+.equipment_lists{
+	visibility:collapse;
+}
+table, tr, td {
+	border:1px solid black;
+}
+caption {
+	display:inline;
+}
+	

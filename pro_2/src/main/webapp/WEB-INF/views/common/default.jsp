@@ -13,6 +13,6 @@
 <body>
 
 </body>
-하단
 <decorator:body/>
+하단
 </html>
