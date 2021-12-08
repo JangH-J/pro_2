@@ -15,7 +15,7 @@ public class ProductController {
 	@Qualifier("product_service")
 	private ProductService productservice;
 	
-	@RequestMapping("product_list")
+	@RequestMapping("/product/product_list")
 	public String product_list(Model model) {
 		
 		return productservice.product_list(model);
