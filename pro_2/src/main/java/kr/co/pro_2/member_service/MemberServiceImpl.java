@@ -86,10 +86,10 @@ public class MemberServiceImpl implements MemberService {
 		// 이전비밀번호가 맞는지 확인
 		String before_pwd=request.getParameter("before_pwd");
 		String pwd=request.getParameter("pwd");
-		int chk=mapper.ispwd(before_pwd,session.getAttribute("userid").toString());
+		int chk=mapper.ispwd(before_pwd,session.getAttribute("member_userid").toString());
 		if(chk==1) // 이전비밀번호가 맞다
 		{
-			mapper.change_pwd(pwd,session.getAttribute("userid").toString());
+			mapper.change_pwd(pwd,session.getAttribute("member_userid").toString());
 			session.invalidate();
 			return "redirect:/main/index";
 		}
@@ -98,4 +98,13 @@ public class MemberServiceImpl implements MemberService {
 			return "redirect:/member/mypage";
 		}
 	}
+
+	@Override
+	public String delete(int id) {
+		// TODO Auto-generated method stub
+		mapper.delete(id);
+		
+		return "redirect:/main/index";
+	}
+	
 }

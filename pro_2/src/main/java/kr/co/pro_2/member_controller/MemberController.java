@@ -121,5 +121,13 @@ public class MemberController {
 		// 이전비밀번호확인, 새로운 비밀번호 변경, 로그아웃, main/index로 이동
 		return mservice.change_pwd(request,session);
 	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request)
+	{
+		int id=Integer.parseInt(request.getParameter("member_id"));
+		
+		return mservice.delete(id);
+	}
 
 }

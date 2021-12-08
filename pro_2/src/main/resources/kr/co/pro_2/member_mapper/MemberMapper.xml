@@ -45,5 +45,8 @@
  <update id="change_pwd">
    update member set member_pwd=#{param1} where member_userid=#{param2}
  </update>
+ <delete id="delete">
+ 	delete from member where member_id=#{param1}
+ </delete>
 
 </mapper>
