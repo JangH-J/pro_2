@@ -42,7 +42,6 @@
   		var chk=new XMLHttpRequest();
   		chk.open("get","nickname_check?member_nickname="+member_nickname); // nickname_check?nickname=hong
   		chk.send();
-  		
   		chk.onreadystatechange=function()
   		{
   			if(chk.readyState==4)
@@ -56,7 +55,7 @@
   				}
   				else
   				{
-  					document.all.uc.innerText="사용 가능한 닉네임";
+  					document.all.nc.innerText="사용 가능한 닉네임";
   					document.getElementById("nc").style.color="blue";
   					nchk=0;
   				}
@@ -128,7 +127,7 @@
        </td>
      </tr>
      <tr>
-       <td> <input type="text" name="member_nickname" placeholder="닉네임" onblur="userid_check(this.value)">
+       <td> <input type="text" name="member_nickname" placeholder="닉네임" onblur="nickname_check(this.value)"> 
        <br> <span id="nc"></span>
        </td>
      <tr>
@@ -144,7 +143,7 @@
        <td> <input type="text" name="member_email" placeholder="이메일"> </td>
      </tr>
      <tr>
-       <td> <input type="text" name="member_phone" placeholder="전화번호"> </td>
+       <td> <input type="text" name="member_phone" placeholder="01012345678"> </td>
      </tr>
      <tr>
        <td> <input type="submit" value="회원가입"> </td>

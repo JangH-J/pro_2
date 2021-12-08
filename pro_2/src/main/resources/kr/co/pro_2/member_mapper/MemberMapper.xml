@@ -15,13 +15,13 @@
   	select * from member where member_userid=#{member_userid} and member_pwd=#{member_pwd}
   </select> 
   
-  <select id="userid_search" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
+  <select id="userid_search_ok" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
     select member_userid from member where member_name=#{member_name} and member_email=#{member_email}
  </select>
  
- <select id="pwd_search" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
+ <select id="pwd_search_ok" resultType="String" parameterType="kr.co.pro_2.member_vo.MemberVO">
     select member_pwd from member 
-    where member_name=#{member_name} and member_email=#{member_email} and member_userid=#{member_userid}
+    where member_name=#{name} and member_email=#{member_email} and member_userid=#{member_userid}
  </select> 
  
  <select id="nickname_check" resultType="Integer">
@@ -37,7 +37,7 @@
    where member_userid=#{member_userid}
  </update>
  
- <select id="ispwd" resultType="Integer" parameterType="String">
+ <select id="ispwd" resultType="Integer">
    select count(*) from member
    where member_pwd=#{param1} and member_userid=#{param2}
  </select>
@@ -45,5 +45,8 @@
  <update id="change_pwd">
    update member set member_pwd=#{param1} where member_userid=#{param2}
  </update>
+ <delete id="delete">
+ 	delete from member where member_id=#{param1}
+ </delete>
 
 </mapper>

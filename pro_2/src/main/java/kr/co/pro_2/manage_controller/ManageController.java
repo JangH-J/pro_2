@@ -1,6 +1,8 @@
 package kr.co.pro_2.manage_controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,9 +19,9 @@ public class ManageController {
 	private ManageService service;
 	
 	@RequestMapping("manage_index")
-	public String manage_index() {
+	public String manage_index(HttpSession session) {
+		service.isadmin(session);
 		return "manage/home/manage_index";
-//		return service.manage_index();
 	}
 	
 	@RequestMapping("product_manage")

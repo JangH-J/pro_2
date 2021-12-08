@@ -39,6 +39,17 @@
 		else
 			return false;
 	 }
+	 function member_delete(){
+		 if(confirm("정말로 탈퇴하시겠습니까? 탈퇴하시면 적립된 포인트 및 모든 정보가 사라집니다")==true)
+		 {
+			 location.href='delete?member_id=${mvo.member_id}'
+		 }
+		 else
+		 {
+			 return false;
+		 }
+	 	
+	 }
  </script>
 </head>
 <body>
@@ -83,6 +94,7 @@
         <td colspan="2" align="center">
          <input type="button" value="회원정보수정" onclick="location='mypage_update'">
          <input type="button" value="비밀번호수정" onclick="change_pwd()">
+         <input type="button" value="회원탈퇴하기" onclick="member_delete()">
         </td>
       </tr>
     </table>

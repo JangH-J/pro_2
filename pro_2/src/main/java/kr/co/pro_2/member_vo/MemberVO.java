@@ -4,8 +4,6 @@ public class MemberVO {
 	private int member_id;
 	private String member_name,member_nickname,member_userid,member_pwd,member_gender,member_birthday,member_email,member_phone, member_writeday;
 
-    
-	
     public int getMember_id() {
 		return member_id;
 	}

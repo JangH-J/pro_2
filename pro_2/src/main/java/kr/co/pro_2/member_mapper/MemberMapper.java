@@ -13,4 +13,5 @@ public interface MemberMapper {
 	public void mypage_update_ok(MemberVO mvo);
 	public int ispwd(String before_pwd,String member_userid);
 	public void change_pwd(String member_pwd,String member_userid);
+	public void delete(int id);
 }
