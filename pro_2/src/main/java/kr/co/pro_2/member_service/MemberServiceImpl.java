@@ -43,8 +43,7 @@ public class MemberServiceImpl implements MemberService {
 			session.setAttribute("member_name", mvo2.getMember_name());
 			return "/main/index";
 		}
-	}
-	
+	}	
 
 	@Override
 	public String userid_search_ok(MemberVO mvo) {
@@ -86,11 +85,11 @@ public class MemberServiceImpl implements MemberService {
 	public String change_pwd(HttpServletRequest request, HttpSession session) {
 		// 이전비밀번호가 맞는지 확인
 		String before_pwd=request.getParameter("before_pwd");
-		String member_pwd=request.getParameter("member_pwd");
-		int chk=mapper.ispwd(before_pwd,session.getAttribute("member_userid").toString());
+		String pwd=request.getParameter("pwd");
+		int chk=mapper.ispwd(before_pwd,session.getAttribute("userid").toString());
 		if(chk==1) // 이전비밀번호가 맞다
 		{
-			mapper.change_pwd(member_pwd,session.getAttribute("member_userid").toString());
+			mapper.change_pwd(pwd,session.getAttribute("userid").toString());
 			session.invalidate();
 			return "redirect:/main/index";
 		}

@@ -10,6 +10,11 @@
 		</style>
 	</head>
 	<body>
-		공지사항 관리 페이지 첫 화면
+		<table width="600px" align="center">
+			<tr>
+				<td>글번호</td>
+				<td></td>
+			</tr>
+		</table>
 	</body>
 </html>
