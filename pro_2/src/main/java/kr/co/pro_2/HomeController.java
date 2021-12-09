@@ -19,7 +19,12 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String home() {
-		return "main/index";
+		return "/main/index";
+	}
+	
+	@RequestMapping("/main/index")
+	public String index() {
+		return "/main/index";
 	}
 	
 }
