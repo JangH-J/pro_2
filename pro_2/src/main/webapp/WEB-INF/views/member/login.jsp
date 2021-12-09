@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style>
+   #userid_search,#pwd_search {
+     display:none;
+   }
+ </style>
 <script>
  function view_us()
  {
