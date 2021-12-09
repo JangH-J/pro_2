@@ -3,7 +3,7 @@
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybats-3-mapper.dtd">
 <mapper namespace="kr.co.pro_2.manage_mapper.ManageMapper">
-	<!-- <select>
-		select member_admin from member where id=#{param1}
-	</select> -->
+	<select id="isadmin" parameterType="String" resultType="Integer">
+		select member_admin from member where member_userid=#{param1}
+	</select>
 </mapper>
