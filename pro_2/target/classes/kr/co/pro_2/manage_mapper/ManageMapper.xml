@@ -6,4 +6,24 @@
 	<select id="isadmin" parameterType="String" resultType="Integer">
 		select member_admin from member where member_userid=#{param1}
 	</select>
+	
+	<insert id="gongji_write_ok" parameterType="kr.co.pro_2.manage_vo.ManageVO">
+    insert into gongji(gongji_title,gongji_content) values(#{gongji_title},#{gongji_content})
+  </insert>
+  
+  <select id="gongji_list" resultType="kr.co.pro_2.manage_vo.ManageVO">
+    select * from gongji order by gongji_id desc
+  </select>
+  
+  <update id="gongji_readnum">
+    update gongji set gongji_readnum=gongji_readnum+1 where gongji_id=#{param1}
+  </update>
+  
+  <select id="gongji_content"  resultType="kr.co.pro_2.manage_vo.ManageVO">
+    select * from gongji where gongji_id=#{param1}
+  </select>
+  
+  <delete id="gongji_delete">
+    delete from gongji where gongji_id=#{param1}
+  </delete>
 </mapper>
