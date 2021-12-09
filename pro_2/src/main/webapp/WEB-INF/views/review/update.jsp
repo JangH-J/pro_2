@@ -7,6 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  <form method="post" action="update_ok" id="review_form">
+    <input type="hidden" name="review_id" value="${rvo.review_name}">
+      <table width="800" align="center">
+    <c:if test="${member_userid == null}">
+      <tr>
+          <td> 이 름 </td>
+          <td> ${rvo.review_name} </td>
+        </tr> 
+        <tr>
+          <td> 비밀번호 </td>
+          <td> <input type="text" name="pwd" size="50"> </td>
+        </tr> 
+    </c:if>
+  </form>
+    
+    
+  
+  </table>
 </body>
 </html>

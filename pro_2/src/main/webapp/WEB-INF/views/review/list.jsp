@@ -12,7 +12,7 @@
     <tr>
       <td> 번호</td>
     <!--   <td> 상품정보</td> -->
-      <td> 제목</td>
+      <td>제목</td>
       <td> 작성자</td>
       <td> 작성일</td>
       <td> 조회수</td>
@@ -21,15 +21,17 @@
     <c:forEach items="${rlist}" var="rvo">
     <tr>
       <td> ${rvo.review_id}</td>
-      <td> ${rvo.review_title }</td>
+      <td><a href="review_readnum?review_id=${rvo.review_id}">${rvo.review_title }</a></td>
       <td> ${rvo.review_name}</td>
       <td> ${rvo.review_writeday }</td>
       <td> ${rvo.review_readnum }</td>
     </tr>
     </c:forEach>
+    <c:if test="${member_userid!=null}">
     <tr>
       <td colspan="3"><a href="write">글쓰기</a></td>
-    </tr>    
+    </tr>
+    </c:if>
   </table>
 </body>
 </html>

@@ -2,6 +2,8 @@ package kr.co.pro_2.review_sevice;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,23 @@ public class ReviewServiceImpl implements ReviewService {
 		ArrayList<ReviewVO> rlist=mapper.list();
 		model.addAttribute("rlist",rlist);
 		return module+"/list";
+	}
+
+	@Override
+	public String content(HttpServletRequest request, Model model) {
+		
+		String review_id = request.getParameter("review_id");
+		ReviewVO rvo = mapper.content(review_id);
+		model.addAttribute("rvo", rvo);
+		return module+"/content";
+	}
+
+	@Override
+	public String readnum(String review_id) {
+		
+		mapper.readnum(review_id);
+		return "redirect:"+module+"/content?review_id="+review_id;
+		
 	}
 	
 	

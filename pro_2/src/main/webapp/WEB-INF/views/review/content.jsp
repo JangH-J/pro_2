@@ -15,7 +15,7 @@
     </tr>
     <tr>
       <td>작성자</td>
-      <td>${rvo.review_name }</td>
+      <td>${rvo.review_name}</td>
     </tr>
     <tr>
       <td>조회수</td>
@@ -26,7 +26,10 @@
       <td>${rvo.review_content}</td>
 </table>
 <input type="button" value="목록" onclick="location.href='list'">
-수정
-삭제
+ <%--  <c:if test="${member_userid !== null}">
+    <input type="button" value="수정" onclick="location.href='update'">
+    <input type="button" value="삭제" onclick="location.href='delete'">
+  </c:if> --%>
+    
 </body>
 </html>

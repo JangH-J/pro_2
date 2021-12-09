@@ -1,6 +1,9 @@
 package kr.co.pro_2.review_controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -38,5 +41,16 @@ public class ReviewController {
 		return rservice.list(model);
 	}
 	
-
+	@RequestMapping("/content")
+	public String content(HttpServletRequest request,Model model)
+	{
+		return rservice.content(request, model);
+	}
+	
+	@RequestMapping("/review_readnum")
+	public String review_readnum(HttpServletRequest request)
+	{
+		return rservice.readnum(request.getParameter("review_id"));
+	}
 }
+	

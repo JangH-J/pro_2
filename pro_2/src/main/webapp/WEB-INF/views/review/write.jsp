@@ -16,6 +16,7 @@
 	 <input type="button" value="목록" onclick="location.href='list'">
 	 <input type="submit" value="등록">
 	 <input type="reset" value="취소">
+	 <input type="hidden" name="review_name" value="${member_userid}">
 	</form>
 </body>
 </html> 
