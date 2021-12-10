@@ -52,5 +52,11 @@ public class ReviewController {
 	{
 		return rservice.readnum(request.getParameter("review_id"));
 	}
+	
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request)
+	{
+		return rservice.delete(request);
+	}
 }
 	

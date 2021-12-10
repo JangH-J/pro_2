@@ -52,6 +52,12 @@ public class ReviewServiceImpl implements ReviewService {
 		return "redirect:"+module+"/content?review_id="+review_id;
 		
 	}
+
+	@Override
+	public String delete(HttpServletRequest request) {
+	
+		return null;
+	}
 	
 	
 }

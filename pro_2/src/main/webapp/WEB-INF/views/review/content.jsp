@@ -5,6 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+ <script>
+      function del()
+      {
+    	  document.getElementById("del").style.display="table-row";
+      }
+ </script>
 </head>
 <body>
 <table width="800" align="center" id="rcon">
@@ -26,10 +32,18 @@
       <td>${rvo.review_content}</td>
 </table>
 <input type="button" value="목록" onclick="location.href='list'">
- <%--  <c:if test="${member_userid !== null}">
-    <input type="button" value="수정" onclick="location.href='update'">
-    <input type="button" value="삭제" onclick="location.href='delete'">
-  </c:if> --%>
+<%-- <c:if test="${member_userid !== null}">
+    <input type="button" value="수정" onclick="location.href='update'"> --%>
+ <a href="javascript:del()">삭제</a>
+   <tr id="del" style="display:none;"> <!-- 삭제를 위한 비밀번호 입력폼 -->
+      <td colspan="2" align="center">
+        <form method="post" action="delete">
+          <input type="hidden" name="id" value="${cvo.id}">
+          <input type="password" name="pwd" placeholder="비밀번호" size="4">
+          <input type="submit" value="삭제">
+        </form>
+      </td>
+    </tr>
     
 </body>
 </html>

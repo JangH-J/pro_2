@@ -12,4 +12,5 @@ public interface ReviewService {
 	public String list(Model model);
 	public String content(HttpServletRequest request,Model model);
 	public String readnum(String review_id);
+	public String delete(HttpServletRequest request);
 }
