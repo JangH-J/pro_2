@@ -1,23 +1,19 @@
 @charset "UTF-8";
-.glove_lists{
-	visibility:visible;
+#glove_lists{
+	display:block;
 }
-.bat_lists{
-	visibility:collapse;
+#bat_lists{
+	display:none;
 }
-.shoes_lists{
-	visibility:collapse;
+#shoes_lists{
+	display:none;
 }
-.uniform_lists{
-	visibility:collapse;
+#uniform_lists{
+	display:none;
 }
-.equipment_lists{
-	visibility:collapse;
+#equipment_lists{
+	display:none;
 }
 table, tr, td {
 	border:1px solid black;
 }
-caption {
-	display:inline;
-}
-	

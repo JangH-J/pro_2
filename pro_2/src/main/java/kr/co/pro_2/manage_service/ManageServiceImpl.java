@@ -1,11 +1,12 @@
 package kr.co.pro_2.manage_service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
 
 import kr.co.pro_2.manage_mapper.ManageMapper;
 import kr.co.pro_2.manage_vo.ManageVO;
@@ -18,7 +19,7 @@ public class ManageServiceImpl implements ManageService {
 	@Autowired
 	private ManageMapper mapper;
 	
-	private final String module = "manage";
+	private final String module = "/manage";
 
 	@Override
 	public String isadmin(HttpSession session) {
@@ -35,4 +36,40 @@ public class ManageServiceImpl implements ManageService {
 			return "redirect:/main/index";
 		}
 	}
+
+	@Override
+	public void gongji_write_ok(ManageVO mvo) {
+		mapper.gongji_write_ok(mvo);		
+	}
+
+	@Override
+	public String gongji_list(Model model) {
+		model.addAttribute("gongji_list",mapper.gongji_list());
+		return module+"/gongji/gongji_list";
+	}
+
+	@Override
+	public String gongji_readnum(HttpServletRequest request) {
+		String gongji_id=request.getParameter("gongji_id");
+		mapper.gongji_readnum(gongji_id);
+		return "redirect:"+module+"/gongji/gongji_content?gongji_id="+gongji_id;
+	}
+
+	@Override
+	public String gongji_content(HttpServletRequest request, Model model) {
+		String gongji_id=request.getParameter("gongji_id");
+		ManageVO mvo=mapper.gongji_content(gongji_id);
+		mvo.setGongji_content(mvo.getGongji_content().replace("\r\n", "<br>"));
+		model.addAttribute("mvo",mvo);
+		return module+"/gongji/gongji_content";
+	}
+
+	@Override
+	public String gongji_delete(HttpServletRequest request) {
+		String gongji_id=request.getParameter("gongji_id");
+		mapper.gongji_delete(gongji_id);
+		return "redirect:"+module+"/gongji/gongji_list";
+	}
+	
+	
 }
