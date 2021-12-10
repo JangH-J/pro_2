@@ -13,6 +13,7 @@
     <c:if test="${member_userid == null}">
       <tr>
           <td> 이 름 </td>
+          <td> 이 름 </td>
           <td> ${rvo.review_name} </td>
         </tr> 
         <tr>
