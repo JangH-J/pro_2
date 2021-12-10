@@ -31,5 +31,26 @@
   <select id="leathercream_list" resultType="kr.co.pro_2.product_vo.ProductVO">
     select * from product where product_kinds=6 order by product_id desc
   </select>
+  <update id="product_readnum" >
+   	update product set product_readnum=product_readnum+1 where product_id=#{param1}
+  </update>
+  <select id="product_content" resultType="kr.co.pro_2.product_vo.ProductVO">
+  	select * from product where product_id=#{param1}
+  </select>
+  <select id="product_call_member_id" resultType="Integer">
+  	select member_id from member where member_userid=#{param1}
+  </select>
+  <insert id="cart_input_ordernum">
+  	insert into cart(cart_ordernum) values(#{param1})
+  </insert>
+<!--   <update>
+  	update cart set 
+  </update> -->
+<!--   <insert id="glove_buy" parameterType="kr.co.pro_2.product_vo.BuyVO">
+  	insert into buy(buy_throw) vlaues()
+  </insert>
+  <update id="cart_grouping" >
+  	update cart set cart_group	
+  </update> -->
   
 </mapper>
