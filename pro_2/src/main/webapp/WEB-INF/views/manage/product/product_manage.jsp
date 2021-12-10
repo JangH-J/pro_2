@@ -11,5 +11,6 @@
 	</head>
 	<body>
 		상품 관리 페이지 첫 화면
+		<a href="product_manage_regist">상품등록</a>
 	</body>
 </html>

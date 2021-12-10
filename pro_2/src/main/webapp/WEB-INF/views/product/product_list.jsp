@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,32 +22,36 @@
 	</ul>
 </div>
 <table id="glove_lists">
-	<tr>
-		<c:forEach items="${product_list0}" var="product" >
-			<td>
-				<table>
-					<tr>
-						<td>${product.product_id+10000}</td>
-					</tr>				
-					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
-					</tr>
-					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
-					</tr>
-					<tr>
-						<td>${product.product_price}원</td>
-					</tr>
-					<tr>
-						<td>
-						소재 : ${product.product_material} 
-						용도 : ${product.product_purpose}
-						</td>
-					</tr>
-				</table> 	
-			</td>
-		</c:forEach>
-	</tr>
+	<c:set var="i" value="${1}"/>
+		<tr>
+		<c:forEach items="${product_list0}" var="product">
+				<td>
+					<table>
+						<tr>
+							<td>${product.product_id+10000}</td>
+						</tr>				
+						<tr>
+							<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						</tr>
+						<tr>
+							<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
+						</tr>
+						<tr>
+							<td><fmt:formatNumber value="${product.product_price}"/>원</td>
+						</tr>
+						<tr>
+							<td>
+							소재 : ${product.product_material} 
+							용도 : ${product.product_purpose}
+							</td>
+						</tr>
+					</table> 	
+				</td>
+				<c:set var="i" value="${i+1}"/>
+			</c:forEach>
+		<c:if test="${i==5}">
+			</tr>
+		</c:if>
 </table>
 <table id="bat_lists">
 	<tr>
@@ -54,10 +59,10 @@
 			<td >
 				<table>
 					<tr>
-						<td>${product.product_img}</td>
+						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_name}</td>
+						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
 						<td>${product.product_price}원</td>
