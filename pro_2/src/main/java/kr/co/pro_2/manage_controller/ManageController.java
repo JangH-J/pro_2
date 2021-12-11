@@ -94,4 +94,9 @@ public class ManageController {
 	public String product_manage_regist_done(ProductVO pvo) {
 		return service.product_manage_regist_done(pvo);
 	}
+	@RequestMapping("product_manage_list")
+	public String product_manage_list(Model model) {
+		
+		return service.product_manage_list(model);
+	}
 }

@@ -22,15 +22,15 @@
 		<td><input type="text" name="product_kinds"></td>
 	</tr>
 	<tr>
-		<td>가격</td>
+		<td>가격(숫자만가능)</td>
 		<td><input type="text" name="product_price"></td>
 	</tr>
 	<tr>
-		<td>사이즈</td>
+		<td>사이즈(숫자,소수점가능)</td>
 		<td><input type="text" name="product_size"></td>
 	</tr>   
 	<tr>   
-		<td>좌투/우투</td>
+		<td>좌투/우투(좌투/우투 0/1)</td>
 		<td><input type="text" name="product_throw"></td>
 	</tr>   
 	<tr>    

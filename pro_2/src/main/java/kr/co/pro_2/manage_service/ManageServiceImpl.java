@@ -1,5 +1,7 @@
 package kr.co.pro_2.manage_service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -77,6 +79,17 @@ public class ManageServiceImpl implements ManageService {
 		mapper.product_manage_regist_done(pvo);
 		return "redirect:"+module+"/product/product_manage_list";
 	}
+
+	@Override
+	public String product_manage_list(Model model) {
+		ArrayList<ProductVO> product_manage_list=mapper.product_manage_list();
+		
+		model.addAttribute("product_manage_list",product_manage_list);
+		
+		
+		return module+"/product/product_manage_list";
+	}
+	
 	
 	
 }

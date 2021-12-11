@@ -16,5 +16,6 @@ public interface ManageMapper {
 	public ManageVO gongji_content(String gongji_id);
 	public void gongji_delete(String gongji_id);
 	public void product_manage_regist_done(ProductVO pvo);
+	public ArrayList<ProductVO> product_manage_list();
 	
 }

@@ -48,10 +48,11 @@
 					</table> 	
 				</td>
 				<c:set var="i" value="${i+1}"/>
+				<c:if test="${i==5}">
+				<tr>
+				</c:if>
 			</c:forEach>
-		<c:if test="${i==5}">
 			</tr>
-		</c:if>
 </table>
 <table id="bat_lists">
 	<tr>

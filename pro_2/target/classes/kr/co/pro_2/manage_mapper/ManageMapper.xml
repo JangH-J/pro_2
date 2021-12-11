@@ -27,8 +27,11 @@
     delete from gongji where gongji_id=#{param1}
   </delete>
   <insert id="product_manage_regist_done" parameterType="kr.co.pro_2.product_vo.ProductVO">
-  	insert into product(product_img,product_name,product_kinds,product_price,product_size,product_throw,product_material,product_style,product_color,product_purpose) values(#{product_img},#{product_name},#{product_kinds},#{product_price},#{product_size},#{product_throw},#{product_material},#{product_style},#{produt_color},#{product_purpose})
+  	insert into product(product_img,product_name,product_kinds,product_price,product_size,product_throw,product_material,product_style,product_color,product_purpose) values(#{product_img},#{product_name},#{product_kinds},#{product_price},#{product_size},#{product_throw},#{product_material},#{product_style},#{product_color},#{product_purpose})
   </insert>
+  <select id="product_manage_list" resultType="kr.co.pro_2.product_vo.ProductVO">
+  	select * from product order by product_id desc
+  </select>
 </mapper>
 
 
