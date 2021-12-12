@@ -11,16 +11,12 @@
 <link href="<c:url value='/resources/main_css/main_index.css'/>" rel="stylesheet"/>
 </head>
 <body onload="moving_front_ad()">
-<div id="front_ad01">
+<div id="show_front_ad"loo>
+</div>
+<div id="front_ad">
 <img src="resources/img/front_ad01.jpg" id="front_adimg01">
-</div>
-<div id="front_ad02">
 <img src="resources/img/front_ad02.jpg" id="front_adimg02">
-</div>
-<div id="front_ad03">
 <img src="resources/img/front_ad03.jpg" id="front_adimg03">
-</div>
-<div id="front_ad04">
 <img src="resources/img/front_ad04.jpg" id="front_adimg04">
 </div>
 <div>
