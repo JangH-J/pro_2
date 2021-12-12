@@ -16,8 +16,8 @@
 		setInterval(function(){
 			
 		},24000)
-		setInterval(function(){
+	/*	setInterval(function(){
 			
-		},32000)
+		},32000)*/
 			
 	}
