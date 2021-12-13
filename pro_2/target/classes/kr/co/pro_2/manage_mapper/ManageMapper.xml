@@ -32,6 +32,9 @@
   <select id="product_manage_list" resultType="kr.co.pro_2.product_vo.ProductVO">
   	select * from product order by product_id desc
   </select>
+  <select id="member_manage_list" resultType="kr.co.pro_2.member_vo.MemberVO">
+  	select * from member order by member_userid desc
+  </select>
 </mapper>
 
 

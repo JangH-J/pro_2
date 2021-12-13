@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 
 import kr.co.pro_2.manage_mapper.ManageMapper;
 import kr.co.pro_2.manage_vo.ManageVO;
+import kr.co.pro_2.member_vo.MemberVO;
 import kr.co.pro_2.product_vo.ProductVO;
 
 
@@ -91,6 +92,14 @@ public class ManageServiceImpl implements ManageService {
 		return module+"/product/product_manage_list";
 	}
 	
+	@Override
+	public String member_manage_list(Model model) {
+		ArrayList<MemberVO> member_manage_list=mapper.member_manage_list();
+		
+		model.addAttribute("member_manage_list",member_manage_list);
+		
+		return module+"/member/member_manage_list";
+	}
 	
 	
 }

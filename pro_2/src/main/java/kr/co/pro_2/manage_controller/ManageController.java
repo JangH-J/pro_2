@@ -81,6 +81,12 @@ public class ManageController {
 		return service.gongji_delete(request);
 	}
 	
+	@RequestMapping("member_manage_list")
+	public String member_manage_list(Model model)
+	{
+		return service.member_manage_list(model);
+	}
+	
 	@RequestMapping("review_manage")
 	public String review_manage() {
 		return module+"/review/review_manage";
