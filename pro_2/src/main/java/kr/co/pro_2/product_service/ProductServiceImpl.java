@@ -45,6 +45,17 @@ public class ProductServiceImpl implements ProductService {
 		
 		return "/product/product_list";
 	}
+	public String product_readnum() {
+		
+		return null;
+	}
+	public String product_content() {
+		
+		ProductVO pvo=productmapper.product_content();
+		return null;
+	}
+
+	
 
 	
 }

@@ -13,5 +13,9 @@ public interface ProductMapper {
 	public ArrayList<ProductVO> leathercream_list();
 	public ArrayList<ProductVO> resinbag_list();
 	public ArrayList<ProductVO> uniform_list();
-
+	public void product_readnum();
+	public ProductVO product_content();
+	public int product_call_member_id();
+	public void cart_input_ordernum();
+	
 }
