@@ -30,9 +30,14 @@ public class ProductController {
 		
 		return productservice.product_content();
 	}
+	@RequestMapping("product_buy")
+	public String product_buy() {
+		
+		return productservice.product_buy();
+	}
 	@RequestMapping("product_payment")
 	public String product_payment() {
-		return null;
+		return productservice.product_payment();
 	}
 
 }

@@ -11,7 +11,7 @@ import kr.co.pro_2.product_vo.ProductVO;
 
 public interface ManageService {
 	
-	public String isadmin(HttpSession session);
+	public String isadmin(HttpSession session,Model model);
 	public void gongji_write_ok(ManageVO mvo);
 	public String gongji_list(Model model);
 	public String gongji_readnum(HttpServletRequest request);

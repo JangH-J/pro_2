@@ -30,7 +30,7 @@
 					<c:if test="${member_userid!=null}">
 						<li class="top_index"><a href="../member/logout">로그아웃</a></li>
 						<li class="top_index"><a href="../member/mypage">마이페이지</a></li>
-						<c:if test="${member_userid==admin}">
+						<c:if test="${member_userid=='admin'}">
 							<li class="top_index"><a href="manage_index">관리자 페이지</a></li>
 						</c:if>
 					</c:if>

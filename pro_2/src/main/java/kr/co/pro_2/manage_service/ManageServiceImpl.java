@@ -25,16 +25,17 @@ public class ManageServiceImpl implements ManageService {
 	private final String module = "/manage";
 
 	@Override
-	public String isadmin(HttpSession session) {
+	public String isadmin(HttpSession session,Model model) {
 		// 세션변수에 userid가 있으면
 		if(session.getAttribute("member_userid").toString()!=null) {
 			String member_userid = session.getAttribute("member_userid").toString();
 			int isadmin = mapper.isadmin(member_userid);
-			if(isadmin==1) {	// admin 사용자이면 관리자 페이지로 이동
-				return module+"/home/manage_index";
-			}else {		// admin 사용자가 아니면 인덱스 페이지로 이동
-				return "redirect:/main/index";
-			}
+				if(isadmin==1) {	// admin 사용자이면 관리자 페이지로 이동
+					model.addAttribute("member_admin",session.getAttribute("member_userid"));
+					return module+"/home/manage_index";
+				}else {		// admin 사용자가 아니면 인덱스 페이지로 이동
+					return "redirect:/main/index";
+				}
 		}else {	// 세션변수에 userid가 없으면 인덱스 페이지로 이동(url 직접 쳐서 들어오는 것 방지)
 			return "redirect:/main/index";
 		}
@@ -77,7 +78,7 @@ public class ManageServiceImpl implements ManageService {
 	@Override
 	public String product_manage_regist_done(ProductVO pvo) {
 		mapper.product_manage_regist_done(pvo);
-		return "redirect:"+module+"/product/product_manage_list";
+		return "redirect:/product_manage_list";
 	}
 
 	@Override

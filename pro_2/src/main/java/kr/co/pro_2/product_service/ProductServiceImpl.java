@@ -54,6 +54,16 @@ public class ProductServiceImpl implements ProductService {
 		ProductVO pvo=productmapper.product_content();
 		return null;
 	}
+	@Override
+	public String product_payment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public String product_buy() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	
 

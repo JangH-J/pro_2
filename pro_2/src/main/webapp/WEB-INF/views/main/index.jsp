@@ -11,7 +11,7 @@
 <link href="<c:url value='/resources/main_css/main_index.css'/>" rel="stylesheet"/>
 </head>
 <body onload="moving_front_ad()">
-<div id="show_front_ad"loo>
+<div id="show_front_ad">
 </div>
 <div id="front_ad">
 <img src="resources/img/front_ad01.jpg" id="front_adimg01">

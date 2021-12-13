@@ -25,8 +25,8 @@ public class ManageController {
 	private final String module="/manage";
 	
 	@RequestMapping("manage_index")
-	public String manage_index(HttpSession session) {
-		return service.isadmin(session);		
+	public String manage_index(HttpSession session,Model model) {
+		return service.isadmin(session,model);		
 	}
 	
 	@RequestMapping("product_manage")

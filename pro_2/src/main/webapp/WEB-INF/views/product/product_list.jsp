@@ -21,9 +21,9 @@
 		<li><input type="button" name="product_equipment" id="product_equipment" onclick="product_equipment_show()" value="야구용품"></li>
 	</ul>
 </div>
+<c:set var="i" value="${1}"/>
 <table id="glove_lists">
-	<c:set var="i" value="${1}"/>
-		<tr>
+			<tr>
 		<c:forEach items="${product_list0}" var="product">
 				<td>
 					<table>
@@ -46,13 +46,13 @@
 							</td>
 						</tr>
 					</table> 	
-				</td>
-				<c:set var="i" value="${i+1}"/>
-				<c:if test="${i==5}">
-				<tr>
-				</c:if>
-			</c:forEach>
-			</tr>
+				</td>	
+			<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
+	</c:forEach>
 </table>
 <table id="bat_lists">
 	<tr>
@@ -76,6 +76,11 @@
 					</tr>
 				</table> 	
 			</td>
+				<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
 		</c:forEach>
 	</tr>
 </table>
@@ -104,6 +109,11 @@
 					</tr>
 				</table> 	
 			</td>
+				<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
 		</c:forEach>
 	</tr>
 </table>
@@ -132,6 +142,11 @@
 					</tr>
 				</table> 	
 			</td>
+				<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
 		</c:forEach>
 	</tr>
 </table>
@@ -160,6 +175,11 @@
 					</tr>
 				</table> 	
 			</td>
+				<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
 		</c:forEach>
 	</tr>
 	<tr>
@@ -189,6 +209,11 @@
 					</tr>
 				</table> 	
 			</td>
+				<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
 		</c:forEach>
 	</tr>
 	<tr>
@@ -218,6 +243,11 @@
 					</tr>
 				</table> 	
 			</td>
+				<c:set var="i" value="${i+1}"/>
+		<c:if test="${i==5}">
+		</tr>
+		<tr>
+		</c:if>
 		</c:forEach>
 	</tr>
 </table>

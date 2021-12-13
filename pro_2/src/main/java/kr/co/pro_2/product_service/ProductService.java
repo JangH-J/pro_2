@@ -9,5 +9,7 @@ public interface ProductService {
 	public String product_list(Model model);
 	public String product_readnum();
 	public String product_content();
+	public String product_buy();
+	public String product_payment();
 
 }

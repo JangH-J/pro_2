@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<a href="product_manage">상품관리</a>
 <table>
 	<tr>
 		<td>상품번호</td>
@@ -23,7 +24,7 @@
 	<tr>
 		<td>${pvo.product_id+10000}</td>
 		<td>${pvo.product_name}</td>
-		<td>${pvo.product_price}</td>
+		<td><fmt:formatNumber value="${pvo.product_price}"/>원</td>
 		<td>구매자수 미구현<%-- ${pvo.product_} --%></td>
 		<td>${pvo.product_readnum}</td>
 		<td>${pvo.product_writeday}</td>
