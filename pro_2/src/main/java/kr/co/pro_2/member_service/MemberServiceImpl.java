@@ -35,13 +35,13 @@ public class MemberServiceImpl implements MemberService {
 		// 로그인을 한다 => 아이디,비번체크 => 세션변수를 할당
 		if(mvo2==null) // 아이디, 비번 잘못입력
 		{
-			return "/member/login";
+			return "redirect:/member/login";
 		}
 		else
 		{
 			session.setAttribute("member_userid", mvo2.getMember_userid());
 			session.setAttribute("member_name", mvo2.getMember_name());
-			return "/main/index";
+			return "redirect:/main/index";
 		}
 	}	
 
