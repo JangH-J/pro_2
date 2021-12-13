@@ -1,0 +1,128 @@
+@charset "UTF-8";
+	body{
+				margin: 0;
+				padding: 0;
+			}
+			#top_top_wrapper{
+				width: 100%;
+				background: white;
+				vertical-align: middle;
+				border-bottom:2px solid black;
+				padding-top:3px;
+			}
+			#top_top_left{
+				width: 49%;
+				text-align: left;
+				display: inline-block;
+			}
+			#top_top_right{
+				width: 49%;
+				text-align: right;
+				display: inline-block;
+			}
+			#top_middle{
+				width: 100%;
+				height: auto;
+				text-align: center;
+				vertical-align: middle;
+				display: table;
+			}
+			#top_bottom{
+				text-align: center;
+				background: white;
+				vertical-align: middle;
+				padding: 10px 0;
+				border-bottom:2px solid black;
+				border-top:2px solid black;
+			}
+			#top_top_ul_left{
+				height: 30px;
+				margin: 0;
+				margin-left: 20px;
+				padding: 0;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			#top_top_ul_right{
+				height: 30px;
+				margin: 0;
+				padding: 0;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			#top_bottom_ul1, #top_bottom_ul2, #top_bottom_ul3, #top_bottom_ul4{
+				height: 30px;
+				margin: 0;
+				padding: 0;
+				vertical-align: middle;
+				display: inline;
+			}
+			#all_menu_detail, #recommended_menu_detail, #sale_menu_detail, #used_menu_detail{
+				display:none;
+			}
+			#logo{
+				width: 200px;
+			}
+			li.top_index{
+				height: 30px;
+				list-style-type: none;
+				text-align: center;
+				display: inline;
+				vertical-align: middle;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			li.top_menu{
+				height: 30px;
+				list-style-type: none;
+				text-align: center;
+				display: inline;
+				vertical-align: middle;
+				padding-left: 40px;
+				padding-right: 40px;
+			}
+			#searchform{
+				display: inline;
+			}
+			#logodiv, #searchdiv, #event_smalldiv{
+				display: table-cell;
+				vertical-align: middle;
+			}
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			#bottom{
+				background: lightgrey;
+			}
+			#bottom_link_ul{
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				padding-top: 10px;
+			}
+			li.bottom_index{
+				list-style-type: none;
+				display: inline;
+				padding-left: 40px;
+				padding-right: 40px;
+			}
+			#bottom_info{
+				text-align: center;
+				padding-bottom: 10px;
+			}
+			#bottom_info_container{
+				width:100%;
+				display: table;
+				text-align: center;
+				margin-left: 70px;
+			}
+			#contact, #bank, #notice, #quick{
+				display: table-cell;
+				text-align: left;
+			}
+			a {
+			color:black;
+			text-decoration:none;
+			
+			}

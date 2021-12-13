@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.pro_2.manage_service.ManageService;
 import kr.co.pro_2.manage_vo.ManageVO;
+import kr.co.pro_2.product_vo.ProductVO;
 
 @Controller
 //@RequestMapping("/manage")
@@ -83,5 +84,19 @@ public class ManageController {
 	@RequestMapping("review_manage")
 	public String review_manage() {
 		return module+"/review/review_manage";
+	}
+	@RequestMapping("product_manage_regist")
+	public String product_manage_regist() {
+		
+		return module+"/product/product_manage_regist";
+	}
+	@RequestMapping("product_manage_regist_done")
+	public String product_manage_regist_done(ProductVO pvo) {
+		return service.product_manage_regist_done(pvo);
+	}
+	@RequestMapping("product_manage_list")
+	public String product_manage_list(Model model) {
+		
+		return service.product_manage_list(model);
 	}
 }

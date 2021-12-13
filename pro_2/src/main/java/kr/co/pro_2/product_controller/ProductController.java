@@ -20,5 +20,19 @@ public class ProductController {
 		
 		return productservice.product_list(model);
 	}
+	@RequestMapping("product_readnum")
+	public String product_readnum() {
+		
+		return productservice.product_readnum();
+	}
+	@RequestMapping("product_content")
+	public String product_content() {
+		
+		return productservice.product_content();
+	}
+	@RequestMapping("product_payment")
+	public String product_payment() {
+		return null;
+	}
 
 }

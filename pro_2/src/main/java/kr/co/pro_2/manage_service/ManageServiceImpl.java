@@ -1,5 +1,7 @@
 package kr.co.pro_2.manage_service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +12,7 @@ import org.springframework.ui.Model;
 
 import kr.co.pro_2.manage_mapper.ManageMapper;
 import kr.co.pro_2.manage_vo.ManageVO;
+import kr.co.pro_2.product_vo.ProductVO;
 
 
 @Service
@@ -70,6 +73,23 @@ public class ManageServiceImpl implements ManageService {
 		mapper.gongji_delete(gongji_id);
 		return "redirect:"+module+"/gongji/gongji_list";
 	}
+
+	@Override
+	public String product_manage_regist_done(ProductVO pvo) {
+		mapper.product_manage_regist_done(pvo);
+		return "redirect:"+module+"/product/product_manage_list";
+	}
+
+	@Override
+	public String product_manage_list(Model model) {
+		ArrayList<ProductVO> product_manage_list=mapper.product_manage_list();
+		
+		model.addAttribute("product_manage_list",product_manage_list);
+		
+		
+		return module+"/product/product_manage_list";
+	}
+	
 	
 	
 }
