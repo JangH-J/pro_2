@@ -39,7 +39,7 @@
 		</div>
 		<div id="top_middle">
 			<div id="logodiv">
-				<a href="/main/index"><img src="resources/img/yaguya_main.png" id="logo"></a>
+				<a href="/"><img src="resources/img/yaguya_main.png" id="logo"></a>
 			</div>
 			<div id="searchdiv">
 				<form method="post" action="product" id="searchform">

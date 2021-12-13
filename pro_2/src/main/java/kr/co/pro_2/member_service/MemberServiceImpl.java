@@ -41,7 +41,7 @@ public class MemberServiceImpl implements MemberService {
 		{
 			session.setAttribute("member_userid", mvo2.getMember_userid());
 			session.setAttribute("member_name", mvo2.getMember_name());
-			return "redirect:/main/index";
+			return "redirect:/";
 		}
 	}	
 
@@ -91,7 +91,7 @@ public class MemberServiceImpl implements MemberService {
 		{
 			mapper.change_pwd(pwd,session.getAttribute("member_userid").toString());
 			session.invalidate();
-			return "redirect:/main/index";
+			return "redirect:/";
 		}
 		else
 		{
@@ -104,7 +104,7 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		mapper.delete(id);
 		
-		return "redirect:/main/index";
+		return "redirect:/";
 	}
 	
 }
