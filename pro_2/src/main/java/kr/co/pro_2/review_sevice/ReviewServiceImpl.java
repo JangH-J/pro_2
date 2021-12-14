@@ -3,6 +3,7 @@ package kr.co.pro_2.review_sevice;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,25 +40,41 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public String content(HttpServletRequest request, Model model) {
 		
-		String review_id = request.getParameter("review_id");
+		int review_id =Integer.parseInt( request.getParameter("review_id"));
 		ReviewVO rvo = mapper.content(review_id);
 		model.addAttribute("rvo", rvo);
+		
 		return module+"/content";
 	}
 
 	@Override
-	public String readnum(String review_id) {
+	public String readnum(int review_id) {
 		
 		mapper.readnum(review_id);
 		return "redirect:"+module+"/content?review_id="+review_id;
 		
 	}
 
+//	@Override
+//	public String delete(HttpServletRequest request) {
+//	
+//		return null;
+//	}
+
 	@Override
-	public String delete(HttpServletRequest request) {
-	
-		return null;
+	public String update(int review_id, Model model) {
+		
+		model.addAttribute("rvo",mapper.content(review_id));
+		return module+"/update";
 	}
+
+	@Override
+	public String update_ok(ReviewVO rvo, HttpSession session) {
+		
+		
+		return module+"/list";
+	}
+
 	
 	
 }

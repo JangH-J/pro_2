@@ -47,7 +47,7 @@
  <update id="change_pwd">
    update member set pwd=#{param1} where userid=#{param2}
  </update> -->
- <select id="content" parameterType="String" resultType="kr.co.pro_2.review_vo.ReviewVO">
+ <select id="content" parameterType="Integer" resultType="kr.co.pro_2.review_vo.ReviewVO">
  	select*from review where review_id=#{param1} 
  </select>
  <update id="readnum">

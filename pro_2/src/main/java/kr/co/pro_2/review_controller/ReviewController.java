@@ -2,6 +2,7 @@ package kr.co.pro_2.review_controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.junit.runner.Request;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,16 +48,29 @@ public class ReviewController {
 		return rservice.content(request, model);
 	}
 	
-	@RequestMapping("/review_readnum")
-	public String review_readnum(HttpServletRequest request)
+	@RequestMapping("/readnum")
+	public String readnum(HttpServletRequest request)
 	{
-		return rservice.readnum(request.getParameter("review_id"));
+		return rservice.readnum(Integer.parseInt(request.getParameter("review_id")));
 	}
 	
-	@RequestMapping("/delete")
+	
+	@RequestMapping("/update")
+	public String update(HttpServletRequest request,Model model)
+	{
+		return rservice.update(Integer.parseInt(request.getParameter("review_id")), model);
+	}	
+	
+	@RequestMapping("/update_ok")
+	public String update_ok(ReviewVO rvo,HttpSession session)
+	{
+		return rservice.update_ok(rvo,session);
+	}
+	
+	/*@RequestMapping("/delete")
 	public String delete(HttpServletRequest request)
 	{
 		return rservice.delete(request);
-	}
+	}*/
 }
 	

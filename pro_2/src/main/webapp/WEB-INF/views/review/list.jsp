@@ -21,7 +21,7 @@
     <c:forEach items="${rlist}" var="rvo">
     <tr>
       <td> ${rvo.review_id}</td>
-      <td><a href="review_readnum?review_id=${rvo.review_id}">${rvo.review_title }</a></td>
+      <td><a href="readnum?review_id=${rvo.review_id}">${rvo.review_title }</a></td>
       <td> ${rvo.review_name}</td>
       <td> ${rvo.review_writeday }</td>
       <td> ${rvo.review_readnum }</td>

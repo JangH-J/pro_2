@@ -7,24 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <form method="post" action="update_ok" id="review_form">
-    <input type="hidden" name="review_id" value="${rvo.review_name}">
-      <table width="800" align="center">
-    <c:if test="${member_userid == null}">
-      <tr>
-          <td> 이 름 </td>
-          <td> 이 름 </td>
-          <td> ${rvo.review_name} </td>
-        </tr> 
-        <tr>
-          <td> 비밀번호 </td>
-          <td> <input type="text" name="pwd" size="50"> </td>
-        </tr> 
-    </c:if>
-  </form>
-    
-    
-  
-  </table>
+	<h2>사용후기</h2>
+	<form method="post" action="update_ok">
+	  제목<input type="text" name="review_title" size="50" value="${rvo.review_title}"><p>
+	  내용<textarea cols="60" rows="10" name="review_content">${rvo.review_content}</textarea> <p>
+	  첨부파일 
+	  비밀번호<input type="password" name="review_pwd"> <p>
+	 <input type="button" value="목록" onclick="location.href='list'">
+	 <input type="submit" value="등록">
+	 <input type="reset" value="취소">
+	 <input type="hidden" name="review_name" value="${member_userid}">
+	</form>
 </body>
-</html>
+</html> 
