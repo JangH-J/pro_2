@@ -39,7 +39,7 @@ public class ManageController {
 		return module+"/member/member_manage";
 	}
 	
-	@RequestMapping("/gongji/gongji_manage")
+	@RequestMapping("gongji_manage")
 	public String gongji_manage() {
 		return module+"/gongji/gongji_manage";
 	}
