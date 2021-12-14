@@ -32,7 +32,7 @@
 					<td>${pvo.product_name}</td>
 				</tr>
 				<tr>
-					<td><fmt:formatNumber value="${pvo.product_price}"/></td>
+					<td><fmt:formatNumber value="${pvo.product_price}"/>원</td>
 				</tr>
 <!-- 좌투/우투 상품종류 0-->	
 					<c:if test="${pvo.product_kinds==0}">
@@ -333,9 +333,11 @@
 					</tr>
 					<tr>
 						<td>
-							<input type="button" name="count_down" id="count_down" value="-" onclick="count_down()">
-							<span name="cart_count" id="cart_count">1</span>
-							<input type="button" name="count_up" id="count_up" value="+">
+							<div>
+							<span class="cart_count" id="count_down" onclick="count_change(0)">-</span>
+							<span class="cart_count" id="count" >1</span>
+							<span class="cart_count" id="count_up" onclick="count_change(1)" >+</span>
+							</div>
 						</td>
 					</tr> 
 				<tr>
