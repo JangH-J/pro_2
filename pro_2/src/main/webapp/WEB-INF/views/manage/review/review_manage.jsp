@@ -10,6 +10,10 @@
 		</style>
 	</head>
 	<body>
-		후기 관리 페이지 첫 화면
+		<table width="600px" align="center">
+			<tr>
+				<td><a href="../review/list">후기목록</a></td>
+			</tr>
+		</table>
 	</body>
 </html>
