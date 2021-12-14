@@ -12,8 +12,7 @@
 	<body>
 		<table width="600px" align="center">
 			<tr>
-				<td>글번호</td>
-				<td></td>
+				<td><a href="/gongji/gongji_list">공지사항</a></td>
 			</tr>
 		</table>
 	</body>

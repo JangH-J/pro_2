@@ -1,0 +1,11 @@
+@charset "UTF-8";
+#select_bat_color{
+	display:block-inline;
+}
+.select_shirt{
+	display:none;
+}
+.select_pants{
+	display:none;
+}
+

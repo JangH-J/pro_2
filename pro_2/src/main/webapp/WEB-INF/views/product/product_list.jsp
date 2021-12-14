@@ -21,52 +21,23 @@
 		<li><input type="button" name="product_equipment" id="product_equipment" onclick="product_equipment_show()" value="야구용품"></li>
 	</ul>
 </div>
+<c:set var="i" value="${0}"/>
 <table id="glove_lists">
-	<c:set var="i" value="${1}"/>
 		<tr>
 		<c:forEach items="${product_list0}" var="product">
-				<td>
-					<table>
-						<tr>
-							<td>${product.product_id+10000}</td>
-						</tr>				
-						<tr>
-							<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
-						</tr>
-						<tr>
-							<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
-						</tr>
-						<tr>
-							<td><fmt:formatNumber value="${product.product_price}"/>원</td>
-						</tr>
-						<tr>
-							<td>
-							소재 : ${product.product_material} 
-							용도 : ${product.product_purpose}
-							</td>
-						</tr>
-					</table> 	
-				</td>
-				<c:set var="i" value="${i+1}"/>
-				<c:if test="${i==5}">
-				<tr>
-				</c:if>
-			</c:forEach>
-			</tr>
-</table>
-<table id="bat_lists">
-	<tr>
-		<c:forEach items="${product_list1}" var="product" >
-			<td >
+			<td>
 				<table>
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						<td>${product.product_id+10000}</td>
+					</tr>				
+					<tr>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_price}원</td>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
 					</tr>
 					<tr>
 						<td>
@@ -76,25 +47,63 @@
 					</tr>
 				</table> 	
 			</td>
-		</c:forEach>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
+	</tr>
+</table>
+<table id="bat_lists">
+		<tr>
+		<c:forEach items="${product_list0}" var="product">
+			<td>
+				<table>
+					<tr>
+						<td>${product.product_id+10000}</td>
+					</tr>				
+					<tr>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+					</tr>
+					<tr>
+						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
+					</tr>
+					<tr>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
+					</tr>
+					<tr>
+						<td>
+						소재 : ${product.product_material} 
+						용도 : ${product.product_purpose}
+						</td>
+					</tr>
+				</table> 	
+			</td>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
 	</tr>
 </table>
 <table id="shoes_lists">
-	<tr>
-		<c:forEach items="${product_list2}" var="product">
+		<tr>
+		<c:forEach items="${product_list0}" var="product">
 			<td>
 				<table>
 					<tr>
 						<td>${product.product_id+10000}</td>
-					</tr>
+					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_price}원</td>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
 					</tr>
 					<tr>
 						<td>
@@ -104,25 +113,30 @@
 					</tr>
 				</table> 	
 			</td>
-		</c:forEach>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
 	</tr>
 </table>
 <table id="uniform_lists">
-	<tr >
-		<c:forEach items="${product_list3}" var="product" >
+		<tr>
+		<c:forEach items="${product_list0}" var="product">
 			<td>
 				<table>
 					<tr>
 						<td>${product.product_id+10000}</td>
-					</tr>
+					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_price}원</td>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
 					</tr>
 					<tr>
 						<td>
@@ -132,25 +146,30 @@
 					</tr>
 				</table> 	
 			</td>
-		</c:forEach>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
 	</tr>
 </table>
 <table id="equipment_lists">
-	<tr>
-		<c:forEach items="${product_list4}" var="product" >
+		<tr>
+		<c:forEach items="${product_list0}" var="product">
 			<td>
 				<table>
 					<tr>
 						<td>${product.product_id+10000}</td>
-					</tr>
+					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_price}원</td>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
 					</tr>
 					<tr>
 						<td>
@@ -160,26 +179,28 @@
 					</tr>
 				</table> 	
 			</td>
-		</c:forEach>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
 	</tr>
-	<tr>
-		<c:forEach items="${product_list5}" var="product" >
+			<tr>
+		<c:forEach items="${product_list0}" var="product">
 			<td>
 				<table>
 					<tr>
 						<td>${product.product_id+10000}</td>
-					</tr>
+					</tr>				
 					<tr>
-						<td>${product.product_id+10000}</a></td>
-					</tr>
-					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_price}원</td>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
 					</tr>
 					<tr>
 						<td>
@@ -189,26 +210,28 @@
 					</tr>
 				</table> 	
 			</td>
-		</c:forEach>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
 	</tr>
-	<tr>
-		<c:forEach items="${product_list6}" var="product" >
+			<tr>
+		<c:forEach items="${product_list0}" var="product">
 			<td>
 				<table>
 					<tr>
 						<td>${product.product_id+10000}</td>
-					</tr>
+					</tr>				
 					<tr>
-						<td>${product.product_id+10000}</a></td>
-					</tr>
-					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_img}</a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
 					</tr>
 					<tr>
-						<td>${product.product_price}원</td>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
 					</tr>
 					<tr>
 						<td>
@@ -218,7 +241,43 @@
 					</tr>
 				</table> 	
 			</td>
-		</c:forEach>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
+	</tr>
+			<tr>
+		<c:forEach items="${product_list0}" var="product">
+			<td>
+				<table>
+					<tr>
+						<td>${product.product_id+10000}</td>
+					</tr>				
+					<tr>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+					</tr>
+					<tr>
+						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
+					</tr>
+					<tr>
+						<td><fmt:formatNumber value="${product.product_price}"/>원</td>
+					</tr>
+					<tr>
+						<td>
+						소재 : ${product.product_material} 
+						용도 : ${product.product_purpose}
+						</td>
+					</tr>
+				</table> 	
+			</td>
+		<c:set var="i" value="${i+1}"/>
+		<c:if test="${i%5==0}">
+			</tr>
+			<tr>	
+		</c:if>
+	</c:forEach>
 	</tr>
 </table>
 </body>

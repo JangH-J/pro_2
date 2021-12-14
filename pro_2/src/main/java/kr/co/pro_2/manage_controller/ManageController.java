@@ -25,8 +25,8 @@ public class ManageController {
 	private final String module="/manage";
 	
 	@RequestMapping("manage_index")
-	public String manage_index(HttpSession session) {
-		return service.isadmin(session);		
+	public String manage_index(HttpSession session,Model model) {
+		return service.isadmin(session,model);		
 	}
 	
 	@RequestMapping("product_manage")
@@ -39,7 +39,7 @@ public class ManageController {
 		return module+"/member/member_manage";
 	}
 	
-	@RequestMapping("/gongji/gongji_manage")
+	@RequestMapping("gongji_manage")
 	public String gongji_manage() {
 		return module+"/gongji/gongji_manage";
 	}
@@ -81,6 +81,12 @@ public class ManageController {
 		return service.gongji_delete(request);
 	}
 	
+	@RequestMapping("member_manage_list")
+	public String member_manage_list(Model model)
+	{
+		return service.member_manage_list(model);
+	}
+	
 	@RequestMapping("review_manage")
 	public String review_manage() {
 		return module+"/review/review_manage";
@@ -91,8 +97,9 @@ public class ManageController {
 		return module+"/product/product_manage_regist";
 	}
 	@RequestMapping("product_manage_regist_done")
-	public String product_manage_regist_done(ProductVO pvo) {
-		return service.product_manage_regist_done(pvo);
+	public String product_manage_regist_done(ProductVO pvo,HttpServletRequest request)throws Exception {
+		
+		return service.product_manage_regist_done(pvo,request);
 	}
 	@RequestMapping("product_manage_list")
 	public String product_manage_list(Model model) {

@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+ <script src="<c:url value="/resources/manage_js/product_manage_regist.js"/>"></script>
+<link href="<c:url value="/resources/manage_css/pproduct_manage_regist.css"/>" rel="stylesheet"/>
 </head>
 <body>
-<form method="post" action="product_manage_regist_done">
+<form enctype="multipart/form-data" method="post"  action="product_manage_regist_done" onsubmit="input_empty_value(this)">
 <table>
 	<tr>
 		<td>상품이미지</td>

@@ -3,6 +3,7 @@ package kr.co.pro_2.manage_mapper;
 import java.util.ArrayList;
 
 import kr.co.pro_2.manage_vo.ManageVO;
+import kr.co.pro_2.member_vo.MemberVO;
 import kr.co.pro_2.product_vo.ProductVO;
 
 
@@ -17,5 +18,9 @@ public interface ManageMapper {
 	public void gongji_delete(String gongji_id);
 	public void product_manage_regist_done(ProductVO pvo);
 	public ArrayList<ProductVO> product_manage_list();
+	public ArrayList<MemberVO> member_manage_list();
+	public String insert_img(ProductVO pvo);
+	
+	
 	
 }
