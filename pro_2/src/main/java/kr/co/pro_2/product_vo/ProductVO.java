@@ -1,9 +1,36 @@
 package kr.co.pro_2.product_vo;
 
+
 public class ProductVO {
 	private int product_id,product_throw,product_kinds,product_price,product_readnum;
-	private float product_size;
-	private String product_name,product_img,product_material,product_style,product_color,product_purpose,product_writeday;
+	private String product_name,product_material,product_style,product_color,product_purpose,product_writeday,product_img_name,product_img,product_size,product_detail;
+	
+	
+	
+	public String getProduct_detail() {
+		return product_detail;
+	}
+	public void setProduct_detail(String product_detail) {
+		this.product_detail = product_detail;
+	}
+	public String getProduct_size() {
+		return product_size;
+	}
+	public void setProduct_size(String product_size) {
+		this.product_size = product_size;
+	}
+	public String getProduct_img() {
+		return product_img;
+	}
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
+	public String getProduct_img_name() {
+		return product_img_name;
+	}
+	public void setProduct_img_name(String product_img_name) {
+		this.product_img_name = product_img_name;
+	}
 	public int getProduct_id() {
 		return product_id;
 	}
@@ -34,23 +61,12 @@ public class ProductVO {
 	public void setProduct_readnum(int product_readnum) {
 		this.product_readnum = product_readnum;
 	}
-	public float getProduct_size() {
-		return product_size;
-	}
-	public void setProduct_size(float product_size) {
-		this.product_size = product_size;
-	}
+
 	public String getProduct_name() {
 		return product_name;
 	}
 	public void setProduct_name(String product_name) {
 		this.product_name = product_name;
-	}
-	public String getProduct_img() {
-		return product_img;
-	}
-	public void setProduct_img(String product_img) {
-		this.product_img = product_img;
 	}
 	public String getProduct_material() {
 		return product_material;

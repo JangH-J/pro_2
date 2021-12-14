@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import kr.co.pro_2.manage_mapper.ManageMapper;
 import kr.co.pro_2.manage_vo.ManageVO;
 import kr.co.pro_2.member_vo.MemberVO;
@@ -77,15 +80,32 @@ public class ManageServiceImpl implements ManageService {
 	}
 
 	@Override
-	public String product_manage_regist_done(ProductVO pvo) {
-		mapper.product_manage_regist_done(pvo);
+	public String product_manage_regist_done(ProductVO pvo,HttpServletRequest request) throws Exception {
+		
+		String path=request.getRealPath("resources/img");
+		int max=1024*1024*10;
+		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
+		ProductVO pvo1=new ProductVO();
+		
+		pvo1.setProduct_img(multi.getFilesystemName("product_img"));
+		pvo1.setProduct_name(multi.getParameter("product_name"));
+		pvo1.setProduct_size(multi.getParameter("product_size"));
+		pvo1.setProduct_kinds(Integer.parseInt(multi.getParameter("product_kinds")));
+		pvo1.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
+		pvo1.setProduct_throw(Integer.parseInt(multi.getParameter("product_throw")));
+		pvo1.setProduct_material(multi.getParameter("product_material"));
+		pvo1.setProduct_style(multi.getParameter("product_style"));
+		pvo1.setProduct_color(multi.getParameter("product_color"));
+		pvo1.setProduct_purpose(multi.getParameter("product_purpose"));
+		
+		mapper.product_manage_regist_done(pvo1);
+		
 		return "redirect:/product_manage_list";
 	}
 
 	@Override
 	public String product_manage_list(Model model) {
 		ArrayList<ProductVO> product_manage_list=mapper.product_manage_list();
-		
 		model.addAttribute("product_manage_list",product_manage_list);
 		
 		

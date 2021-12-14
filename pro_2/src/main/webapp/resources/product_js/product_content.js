@@ -17,6 +17,10 @@ function select_shirt_pants(my){
 function cart_count(){
 	
 }
+function count_down(){
+	var num=document.getElementById("cart_count").innerText;
+	num
+}
 function cart_input_product(){
 	
 }

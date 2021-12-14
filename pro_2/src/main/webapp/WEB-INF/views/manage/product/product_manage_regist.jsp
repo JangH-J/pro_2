@@ -9,7 +9,7 @@
 <link href="<c:url value="/resources/manage_css/pproduct_manage_regist.css"/>" rel="stylesheet"/>
 </head>
 <body>
-<form method="post" action="product_manage_regist_done" onsubmit="input_empty_value(this)">
+<form enctype="multipart/form-data" method="post"  action="product_manage_regist_done" onsubmit="input_empty_value(this)">
 <table>
 	<tr>
 		<td>상품이미지</td>

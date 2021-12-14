@@ -19,5 +19,8 @@ public interface ManageMapper {
 	public void product_manage_regist_done(ProductVO pvo);
 	public ArrayList<ProductVO> product_manage_list();
 	public ArrayList<MemberVO> member_manage_list();
+	public String insert_img(ProductVO pvo);
+	
+	
 	
 }
