@@ -67,10 +67,10 @@ public class ReviewController {
 		return rservice.update_ok(rvo,session);
 	}
 	
-	/*@RequestMapping("/delete")
+	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request)
 	{
 		return rservice.delete(request);
-	}*/
+	}
 }
 	

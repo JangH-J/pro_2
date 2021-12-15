@@ -32,7 +32,10 @@
       <td>${rvo.review_content}</td>
 </table>
 <input type="button" value="목록" onclick="location.href='list'"> 
-<input type="button" value="수정" onclick="location.href='update?review_id=${rvo.review_id}'">
+<c:if test="${rvo.review_pwd==null && review_name==rvo.review_id }" > 
+  <input type="button" value="수정" onclick="location.href='update?review_id=${rvo.review_id}'">
+  <input type="button" value="삭제" onclick="location.href='delete?review_id=${rvo.review_id}&tt=1'">
+</c:if>
         </form>
       </td>
     </tr>

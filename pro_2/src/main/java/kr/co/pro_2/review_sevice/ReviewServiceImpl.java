@@ -55,12 +55,6 @@ public class ReviewServiceImpl implements ReviewService {
 		
 	}
 
-//	@Override
-//	public String delete(HttpServletRequest request) {
-//	
-//		return null;
-//	}
-
 	@Override
 	public String update(int review_id, Model model) {
 		
@@ -70,9 +64,50 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public String update_ok(ReviewVO rvo, HttpSession session) {
+		if(session.getAttribute("review_id")==null)
+		{
+			int chk=mapper.ispwd(rvo.getReview_id(),rvo.getReview_pwd());	
+			if(chk==1) // 맞으면
+			{ 
+				mapper.update_ok(rvo);
+				return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
+			}
+			else // 클리면
+			{
+				return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
+			}
+		}
+		else
+		{
+			mapper.update_ok(rvo);
+			return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
+		}
 		
+	}
+
+	@Override
+	public String delete(HttpServletRequest request) {
+		int review_id=Integer.parseInt(request.getParameter("review_id"));
+		String review_pwd=request.getParameter("review_pwd");
 		
-		return module+"/list";
+		if(request.getParameter("tt")!=null)   // 로그인한 회원이 자기글일 경우 tt의 값은 null이 아님
+		{
+			mapper.delete(review_id);
+			return "redirect:"+module+"/list";
+		}
+		else    // tt가 null인경우는 비밀번호를 입력후 삭제
+		{
+			int chk=mapper.ispwd(review_id,review_pwd);  // 비밀번호 체크
+			if(chk==1) // 맞으면
+			{ 
+				mapper.delete(review_id);
+				return "redirect:"+module+"/list";
+			}
+			else // 클리면
+			{
+				return "redirect:"+module+"/content?review_id="+review_id;
+			}
+		}
 	}
 
 	

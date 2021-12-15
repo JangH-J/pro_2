@@ -9,48 +9,19 @@
 <select id="list" resultType="kr.co.pro_2.review_vo.ReviewVO">
 	select * from review order by review_id desc;
 </select>	
-<!--  <insert id="member_input_ok" parameterType="kr.co.shop.member.vo.MemberVO">
-   insert into member(userid,pwd,name,email,phone,writeday)
-   values(#{userid},#{pwd},#{name},#{email},#{phone},now());
- </insert>
- <select id="userid_check" resultType="Integer">
-   select count(*) from member where userid=#{param1}
- </select>
- 
- <select id="login_ok" parameterType="kr.co.shop.member.vo.MemberVO" resultType="kr.co.shop.member.vo.MemberVO">
-   select * from member where userid=#{userid} and pwd=#{pwd}
- </select>
- 
- <select id="userid_search_ok" resultType="String" parameterType="kr.co.shop.member.vo.MemberVO">
-    select userid from member where name=#{name} and email=#{email}
- </select>
- 
- <select id="pwd_search_ok" resultType="String" parameterType="kr.co.shop.member.vo.MemberVO">
-    select pwd from member 
-    where name=#{name} and email=#{email} and userid=#{userid}
- </select>
- 
- <select id="mypage" resultType="kr.co.shop.member.vo.MemberVO">
-    select * from member where userid=#{param1}
- </select>
- 
- <update id="mypage_update_ok" parameterType="kr.co.shop.member.vo.MemberVO">
-   update member set email=#{email},phone=#{phone}
-   where userid=#{userid}
- </update>
- 
- <select id="ispwd" resultType="Integer">
-   select count(*) from member
-   where pwd=#{param1} and userid=#{param2}
- </select>
- 
- <update id="change_pwd">
-   update member set pwd=#{param1} where userid=#{param2}
- </update> -->
  <select id="content" parameterType="Integer" resultType="kr.co.pro_2.review_vo.ReviewVO">
  	select*from review where review_id=#{param1} 
  </select>
  <update id="readnum">
   update review set review_readnum=review_readnum+1 where review_id=#{param1}
  </update>
+<select id="ispwd" resultType="Integer">
+ 	select count(*) from review where review_id=#{param1} and review_pwd=#{param2}
+ </select>
+ <update id="update_ok" parameterType="kr.co.pro_2.review_vo.ReviewVO">
+ 	update review set review_title=#{review_title}, review_content=#{review_content} where review_id=#{review_id}
+ </update>
+ <delete id="delete">
+ 	delete from review where review_id=#{param1}
+ </delete>
 </mapper>    

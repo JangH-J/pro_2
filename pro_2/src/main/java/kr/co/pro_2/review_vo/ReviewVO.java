@@ -3,7 +3,9 @@ package kr.co.pro_2.review_vo;
 public class ReviewVO {
  private int review_id,review_bimil, review_readnum;
  private String review_name, review_title, review_pwd, review_writeday, review_content;
-public int getReview_id() {
+
+ 
+ public int getReview_id() {
 	return review_id;
 }
 public void setReview_id(int review_id) {

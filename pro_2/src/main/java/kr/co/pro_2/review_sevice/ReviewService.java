@@ -15,6 +15,6 @@ public interface ReviewService {
 	public String readnum(int review_id);
 	public String update(int review_id,Model model);
 	public String update_ok(ReviewVO rvo,HttpSession session);
-//	public String delete(HttpServletRequest request);
+    public String delete(HttpServletRequest request);
 	
 }
