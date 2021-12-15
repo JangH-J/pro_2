@@ -14,7 +14,17 @@ function select_shirt_pants(my){
 		document.getElementsByClassName("select_pants").style.display="block-inline";
 	}
 }
-function cart_count(){
+
+function count_down(){
+
+}
+function count_change(chk){
+	var num=parseInt(document.getElementById("count").innerText);
+	if(chk==1){
+		num++;
+	} else {
+		num--;
+	}
 	
 }
 function cart_input_product(){

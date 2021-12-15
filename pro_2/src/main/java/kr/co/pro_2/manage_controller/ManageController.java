@@ -39,7 +39,7 @@ public class ManageController {
 		return module+"/member/member_manage";
 	}
 	
-	@RequestMapping("/gongji/gongji_manage")
+	@RequestMapping("gongji_manage")
 	public String gongji_manage() {
 		return module+"/gongji/gongji_manage";
 	}
@@ -97,8 +97,9 @@ public class ManageController {
 		return module+"/product/product_manage_regist";
 	}
 	@RequestMapping("product_manage_regist_done")
-	public String product_manage_regist_done(ProductVO pvo) {
-		return service.product_manage_regist_done(pvo);
+	public String product_manage_regist_done(ProductVO pvo,HttpServletRequest request)throws Exception {
+		
+		return service.product_manage_regist_done(pvo,request);
 	}
 	@RequestMapping("product_manage_list")
 	public String product_manage_list(Model model) {

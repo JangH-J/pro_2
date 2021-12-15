@@ -31,6 +31,9 @@
   <select id="leathercream_list" resultType="kr.co.pro_2.product_vo.ProductVO">
     select * from product where product_kinds=6 order by product_id desc
   </select>
+  <select id="ball_list" resultType="kr.co.pro_2.product_vo.ProductVO">
+    select * from product where product_kinds=6 order by product_id desc
+  </select>
   <update id="product_readnum" >
    	update product set product_readnum=product_readnum+1 where product_id=#{param1}
   </update>
