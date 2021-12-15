@@ -26,7 +26,7 @@
       <caption> <h3> 공지사항 내용보기</h3></caption>
       <tr>
         <td> 제 목 </td>
-        <td> ${gvo.title} </td>
+        <td> ${mvo.gongji_title} </td>
       </tr>
       <tr>
         <td> 작성자 </td>
@@ -34,19 +34,19 @@
       </tr>
       <tr>
         <td> 내 용 </td>
-        <td> ${gvo.content} </td>
+        <td> ${mvo.gongji_content} </td>
       </tr>
       <tr>
         <td> 조회수 </td>
-        <td> ${gvo.readnum} </td>
+        <td> ${mvo.gongji_readnum} </td>
       </tr>
       <tr>
         <td> 작성일 </td>
-        <td> ${gvo.writeday} </td>
+        <td> ${mvo.gongji_writeday} </td>
       </tr>
       <tr>
         <td colspan="2" align="center">
-          <a href="../manage/gongji/gongji_list"> 목록 가기 </a>
+          <a href="/gongji/gongji_list"> 목록 가기 </a>
         </td>
       </tr>
     </table>

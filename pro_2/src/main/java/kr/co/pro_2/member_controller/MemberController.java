@@ -71,7 +71,7 @@ public class MemberController {
 	public String logout(HttpSession session)
 	{
 		session.invalidate();
-		return "/main/index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/userid_search_ok")

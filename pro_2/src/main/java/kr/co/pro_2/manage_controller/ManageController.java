@@ -54,7 +54,7 @@ public class ManageController {
 	public String gongji_write_ok(ManageVO mvo)
 	{
 		service.gongji_write_ok(mvo);
-		return "redirect:"+module+"/gongji/gongji_list";
+		return "redirect:/gongji/gongji_list";
 	}
 	
 	@RequestMapping("/gongji/gongji_list")
@@ -69,13 +69,13 @@ public class ManageController {
 		return service.gongji_readnum(request);
 	}
 	
-	@RequestMapping("/gongji/gongji_content")
+	@RequestMapping("/manage/gongji/gongji_content")
 	public String gongji_content(HttpServletRequest request,Model model)
 	{
 		return service.gongji_content(request,model);
 	}
 	
-	@RequestMapping("/gongji/gongji_delete")
+	@RequestMapping("/manage/gongji/gongji_delete")
 	public String gongji_delete(HttpServletRequest request)
 	{
 		return service.gongji_delete(request);

@@ -13,7 +13,7 @@
 		<table align="center" width="700px">
 		회원 관리 페이지 첫 화면
 			<tr>			
-				<td><a href="member_manage_list">회원리스트</a></td>
+				<td><a href="member_manage_list">회원목록</a></td>
 			</tr>
 			
 		</table>

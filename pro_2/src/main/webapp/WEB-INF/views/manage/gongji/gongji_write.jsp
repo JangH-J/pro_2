@@ -14,29 +14,15 @@
    #form {
      margin-top:50px;
    }
-   input[type=text] {
+   input[name=gongji_title] {
      width:500px;
      height:35px;
-     border:1px solid #6799FF;
-     font-size:17px;
- 
    }
    textarea {
      width:500px;
      height:200px;
-     border:1px solid #6799FF;
-     font-size:17px;
- 
    }
-   input[type=submit]
-   {
-     width:506px;
-     height:42px;
-     border:1px solid #6799FF;
-     font-size:17px;
-     background:#6799FF;
-     color:white;
-   }
+
   td {
    cellspacing:20px;
   }
@@ -48,10 +34,10 @@
     <table width="700" align="center" cellspacing="15">
       <caption> <h3> 공지사항 글쓰기 </h3></caption>
       <tr align="center">
-        <td> <input type="text" name="title" placeholder="제 목"> </td>
+        <td> <input type="text" name="gongji_title" placeholder="제 목"> </td>
       </tr>
       <tr align="center">
-        <td> <textarea cols="40" rows="5" name="content" placeholder="내 용"></textarea> </td>
+        <td> <textarea cols="40" rows="5" name="gongji_content" placeholder="내 용"></textarea> </td>
       </tr> 
       <tr align="center">
         <td> <input type="submit" value="글쓰기"> </td>
