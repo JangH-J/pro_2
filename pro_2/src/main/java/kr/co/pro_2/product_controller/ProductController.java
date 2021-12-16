@@ -16,31 +16,31 @@ public class ProductController {
 	
 	@Autowired
 	@Qualifier("product_service")
-	private ProductService productservice;
+	private ProductService service;
 	
 	@RequestMapping("/product/product_list")
 	public String product_list(Model model) {
 		
-		return productservice.product_list(model);
+		return service.product_list(model);
 	}
 	@RequestMapping("/product/product_readnum")
 	public String product_readnum(HttpServletRequest request) {
 		
-		return productservice.product_readnum(request);
+		return service.product_readnum(request);
 	}
 	@RequestMapping("/product/product_content")
 	public String product_content(Model model,HttpServletRequest request) {
 		
-		return productservice.product_content(model,request);
+		return service.product_content(model,request);
 	}
-	@RequestMapping("/product/product_buy")
-	public String product_buy(CartVO cvo) {
+	@RequestMapping("/product/product_cart")
+	public String product_cart(HttpServletRequest request,CartVO cvo) {
 		
-		return productservice.product_buy(cvo);
+		return service.product_cart(request,cvo);
 	}
 	@RequestMapping("/product/product_payment")
 	public String product_payment() {
-		return productservice.product_payment();
+		return service.product_payment();
 	}
 
 }

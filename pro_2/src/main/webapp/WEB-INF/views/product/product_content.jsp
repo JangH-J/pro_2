@@ -17,7 +17,7 @@ function count_change_push(chk){
 	} else if (chk==0 && num>1){
 		num--;
 	}
-	document.getElementById("product_price_input").value=price0*num;
+	document.getElementById("cart_price").value=price0*num;
 	document.getElementById("product_price_div").innerText=add_comma(price0*num)+"원";
 	document.getElementById("count").value=num;
 }
@@ -29,7 +29,7 @@ function count_change_input(){
 		alert("구매하실 수량을 다시 입력해주세요")
 	}
 		
-	document.getElementById("product_price_input").value=price0*num;
+	document.getElementById("cart_price").value=price0*num;
 	document.getElementById("product_price_div").innerText=add_comma(price0*num)+"원";
 	document.getElementById("count").value=num;
 		
@@ -38,7 +38,6 @@ function add_comma(val){
 	   return new Intl.NumberFormat().format(val);
 }
 
-
 </script>
 <script src="/resources/product_js/product_content.js"></script>
 <link href="/resources/product_css/product_content.css" rel="stylesheet">
@@ -46,14 +45,18 @@ function add_comma(val){
 <body>
 
 <!--  -->
-<form method="post" action="product_buy" name="product_content_cart"> 
-	<input type="hidden" name="cart_ordernum" 	id="cart_ordernum" value="${today*1000000+pvo.product_id+member_id}">
-	<input type="hidden" name="cart_name" value="${pvo.product_name}">
-	<input type="hidden" name="cart_price" id="product_price_input" value="${pvo.product_price}">
-	<input type="hidden" name="cart_img" value="${pvo.product_img}">
-	<input type="hidden" name="cart_kinds" value="${pvo.product_kinds}">
-	<input type="hidden" name="cart_userid" value="${member_userid}">
-	<input type="hidden" name="cart_group" value="${cart_group+1}">
+
+<form method="post" action="product_cart" name="product_content_cart" >
+	<input type="hidden" name="product_id" value="${pvo.product_id}">
+	<input type="hidden" name="buy_or_cart"> 
+	<input type="hidden" name="cart_ordernum" id="cart_ordernum" value="${today*1000000+pvo.product_id+member_id}">
+	<input type="hidden" name="cart_name" id="cart_name" value="${pvo.product_name}">
+	<input type="hidden" name="cart_price" id="cart_price" value="${pvo.product_price}">
+	<input type="hidden" name="cart_img" id="cart_img" value="${pvo.product_img}">
+	<input type="hidden" name="cart_kinds" id="cart_kinds" value="${pvo.product_kinds}">
+	<input type="hidden" name="cart_userid" id="cart_userid" value="${member_userid}">
+	<input type="hidden" name="cart_group" id="cart_group" value="${today*1000000+pvo.product_id+member_id+1}">
+
 <table>
 	<caption>상품번호${pvo.product_id+10000}</caption>
 	<tr>
@@ -367,17 +370,54 @@ function add_comma(val){
 						<td>
 							<div>
 							<input type="button" class="cart_count" id="count_down" onclick="count_change_push(0)" value="-">
-							<input type="text" class="cart_count" id="count" value="1" size="1" onfocusout="count_change_input()">
+							<input type="text" class="cart_count" id="count" name="cart_count" value="1" size="1" onfocusout="count_change_input()">
 							<input type="button" class="cart_count" id="count_up" onclick="count_change_push(1)" value="+">
 							</div>
 						</td>
 					</tr> 
 				<tr>
-					<td><input type="submit" value="바로구매"></td>
+					<td><input type="submit" id="input_buy" name="input_buy" value="바로구매"></td>
 				</tr>
+				<c:if test="${pvo.product_kinds==0}">
 				<tr>
-					<td><input type="button" onclick="cart_input_product()" value="장바구니 담기"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart0()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
 				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==1}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart1()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==2}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart2()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==3}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart3()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==4}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart4()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==5}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart5()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==6}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart6()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
+				<c:if test="${pvo.product_kinds==7}">
+				<tr>
+					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_cart7()" value="장바구니"></td><!-- product_content에 cart_input_product함수 만들고 해당의 모든 벨류를 담아서 cart에 담기 -->
+				</tr>
+				</c:if>
 			</table>
 		</td>
 	</tr>

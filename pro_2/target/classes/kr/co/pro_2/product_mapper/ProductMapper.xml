@@ -46,6 +46,10 @@
   <insert id="cart_input_ordernum">
   	insert into cart(cart_ordernum) values(#{param1})
   </insert>
+  <insert id="product_buy0" parameterType="kr.co.pro_2.product_vo.CartVO">
+  	insert into cart(cart_ordernum,cart_kinds,cart_count,cart_name,cart_price,cart_size,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12})
+  </insert>
+  
 <!--   <update>
   	update cart set 
   </update> -->
