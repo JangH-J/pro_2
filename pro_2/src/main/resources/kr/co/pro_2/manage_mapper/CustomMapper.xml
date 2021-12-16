@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.pro_2.manage_mapper.CustomMapper">
+  <insert id="member_write_ok" parameterType="kr.co.pro_2.manage_vo.CustomVO">
+    insert into custom(custom_userid,custom_title,custom_content,custom_grp,custom_seq,custom_depth)
+    values(#{custom_userid},#{custom_title},#{custom_content},#{custom_grp},#{custom_seq},#{custom_depth})
+  </insert>
+  <insert id="nonmember_write_ok" parameterType="kr.co.pro_2.manage_vo.CustomVO">
+    insert into custom(custom_userid,custom_pwd,custom_title,custom_content,custom_grp,custom_seq,custom_depth)
+    values(#{custom_userid},#{custom_pwd},#{custom_title},#{custom_content},#{custom_grp},#{custom_seq},#{custom_depth})
+  </insert> 
+  
+  <select id="get_custom_grp" resultType="Integer">
+    select ifnull(max(custom_grp),0) from custom
+  </select>
+  
+  <select id="custom_list" resultType="kr.co.pro_2.manage_vo.CustomVO">
+    select * from custom order by custom_grp desc, custom_seq asc;
+  </select>
+  
+  <update id="custom_readnum">
+    update custom set custom_readnum=custom_readnum+1 where custom_id=#{param1}
+  </update>
+  
+  <select id="custom_content" resultType="kr.co.pro_2.manage_vo.CustomVO">
+   select * from custom where custom_id=#{param1}
+ </select>
+ 
+ <insert id="member_rewrite_ok" parameterType="kr.co.pro_2.manage_vo.CustomVO">
+   insert into custom(custom_userid,custom_title,custom_content,custom_grp,custom_seq,custom_depth) 
+   values(#{custom_userid},#{custom_title},#{custom_content},#{custom_grp},#{custom_seq},#{custom_depth})
+ </insert>
+ <insert id="nonmember_rewrite_ok" parameterType="kr.co.pro_2.manage_vo.CustomVO">
+   insert into custom(custom_userid,custom_pwd,custom_title,custom_content,custom_grp,custom_seq,custom_depth)
+   values(#{custom_userid},#{custom_pwd},#{custom_title},#{custom_content},#{custom_grp},#{custom_seq},#{custom_depth})
+ </insert>
+ 
+ <update id="up_custom_seq">
+   update custom set custom_seq=custom_seq+1
+   where custom_seq>=#{param1} and custom_grp=#{param2}
+ </update>
+ 
+ <delete id="custom_delete">
+   delete from custom where custom_id=#{param1}
+ </delete>
+ 
+ <select id="custom_ispwd" resultType="Integer">
+   select count(*) from custom where custom_id=#{param1} and custom_pwd=#{param2}
+ </select>
+ 
+ <update id="custom_update_ok"  parameterType="kr.co.pro_2.manage_vo.CustomVO">
+   update custom set custom_title=#{custom_title}, custom_content=#{custom_content} where custom_id=#{custom_id}
+ </update>
+ 
+</mapper>
