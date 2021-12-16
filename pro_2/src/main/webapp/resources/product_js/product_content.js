@@ -38,4 +38,32 @@ function input_cart0(){
 function input_cart0(){
 	
 }
+function input_cart1(){
+	
+	
+}
+function input_cart2(){
+	
+	
+}
+function input_cart3(){
+	
+	
+}
+function input_cart4(){
+	
+	
+}
+function input_cart5(){
+	
+	
+}
+function input_cart6(){
+	
+	
+}
+function input_cart7(){
+	
+	
+}
 
