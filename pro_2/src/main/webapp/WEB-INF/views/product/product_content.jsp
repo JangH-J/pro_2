@@ -32,6 +32,8 @@ function count_change_input(){
 	document.getElementById("cart_price").value=price0*num;
 	document.getElementById("product_price_div").innerText=add_comma(price0*num)+"원";
 	document.getElementById("count").value=num;
+	
+	
 		
 }
 function add_comma(val){
