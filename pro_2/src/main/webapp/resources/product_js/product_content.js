@@ -14,8 +14,28 @@ function select_shirt_pants(my){
 		document.getElementsByClassName("select_pants").style.display="block-inline";
 	}
 }
-function input_cart(){
+function input_cart0(){
 
+}
+function input_cart0(){
+	
+}
+function input_cart0(){
+	
+}
+function input_cart0(){
+	
+}
+function input_cart0(){
+	
+}
+function input_cart0(){
+	
+}
+function input_cart0(){
+	
+}
+function input_cart0(){
 	
 }
 
