@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,6 +24,7 @@
       <td>작성자</td>
       <td>${rvo.review_name}</td>
     </tr>
+    
     <tr>
       <td>조회수</td>
       <td>${rvo.review_readnum}</td>
@@ -32,7 +34,8 @@
       <td>${rvo.review_content}</td>
 </table>
 <input type="button" value="목록" onclick="location.href='list'"> 
-<c:if test="${rvo.review_pwd==null && review_name==rvo.review_id }" > 
+
+ <c:if test="${member_userid==rvo.review_name}"> 
   <input type="button" value="수정" onclick="location.href='update?review_id=${rvo.review_id}'">
   <input type="button" value="삭제" onclick="location.href='delete?review_id=${rvo.review_id}&tt=1'">
 </c:if>

@@ -38,11 +38,13 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public String content(HttpServletRequest request, Model model) {
+	public String content(HttpServletRequest request, Model model,HttpSession session) {
 		
 		int review_id =Integer.parseInt( request.getParameter("review_id"));
 		ReviewVO rvo = mapper.content(review_id);
 		model.addAttribute("rvo", rvo);
+		model.addAttribute("session_member_userid",session.getAttribute("member_userid"));
+		
 		
 		return module+"/content";
 	}
@@ -64,25 +66,9 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public String update_ok(ReviewVO rvo, HttpSession session) {
-		if(session.getAttribute("review_id")==null)
-		{
-			int chk=mapper.ispwd(rvo.getReview_id(),rvo.getReview_pwd());	
-			if(chk==1) // 맞으면
-			{ 
-				mapper.update_ok(rvo);
-				return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
-			}
-			else // 클리면
-			{
-				return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
-			}
-		}
-		else
-		{
-			mapper.update_ok(rvo);
-			return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
-		}
 		
+		mapper.update_ok(rvo);
+		return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
 	}
 
 	@Override

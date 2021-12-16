@@ -4,7 +4,8 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.pro_2.review_mapper.ReviewMapper">
 <insert id="write_ok" parameterType="kr.co.pro_2.review_vo.ReviewVO">
-	insert into review(review_title, review_content,review_pwd, review_name, review_writeday) values(#{review_title},#{review_content},#{review_pwd},#{review_name},now());
+	insert into review(review_title, review_content, review_name)
+	 values(#{review_title},#{review_content},#{review_name});
 </insert>
 <select id="list" resultType="kr.co.pro_2.review_vo.ReviewVO">
 	select * from review order by review_id desc;
