@@ -43,9 +43,9 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/content")
-	public String content(HttpServletRequest request,Model model)
+	public String content(HttpServletRequest request,Model model,HttpSession session)
 	{
-		return rservice.content(request, model);
+		return rservice.content(request, model,session);
 	}
 	
 	@RequestMapping("/readnum")
