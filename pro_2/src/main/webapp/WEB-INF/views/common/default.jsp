@@ -19,6 +19,7 @@
 					<li class="top_index"><a href="consumer_center">고객센터</a></li>
 					<li class="top_index"><a href="event">이벤트</a></li>
 					<li class="top_index"><a href="../review/list">후기</a></li>
+					<li class="top_index"><a href="../product/product_list">구매</a></li>
 				</ul>
 			</div>
 			<div id="top_top_right">

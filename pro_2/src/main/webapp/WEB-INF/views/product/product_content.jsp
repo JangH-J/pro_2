@@ -8,16 +8,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="<c:url value="/resources/product_js/product_content.js"/>"></script>
-<link href="<c:url value="/resources/product_css/product_content.css"/>" rel="styleshee">
+<script>
+var price0=${pvo.product_price};
+function count_change_push(chk){
+	var num=parseInt(document.getElementById("count").value);
+	if(chk==1){
+		num++;
+	} else if (chk==0 && num>1){
+		num--;
+	}
+	document.getElementById("product_price_input").value=price0*num;
+	document.getElementById("product_price_div").innerText=add_comma(price0*num)+"원";
+	document.getElementById("count").value=num;
+}
+function count_change_input(){
+	
+	var num=parseInt(document.getElementById("count").value);
+	if(num==0){
+		num=1;
+		alert("구매하실 수량을 다시 입력해주세요")
+	}
+		
+	document.getElementById("product_price_input").value=price0*num;
+	document.getElementById("product_price_div").innerText=add_comma(price0*num)+"원";
+	document.getElementById("count").value=num;
+		
+}
+function add_comma(val){
+	   return new Intl.NumberFormat().format(val);
+}
+
+
+</script>
+<script src="/resources/product_js/product_content.js"></script>
+<link href="/resources/product_css/product_content.css" rel="stylesheet">
 </head>
 <body>
 
 <!--  -->
-<form method="post" action="product_buy" > 
-	<input type="hidden" name="cart_ordernum" value="${today*1000000+pvo.product_id+member_id}">
+<form method="post" action="product_buy" name="product_content_cart"> 
+	<input type="hidden" name="cart_ordernum" 	id="cart_ordernum" value="${today*1000000+pvo.product_id+member_id}">
 	<input type="hidden" name="cart_name" value="${pvo.product_name}">
-	<input type="hidden" name="cart_price" value="${pvo.product_price}">
+	<input type="hidden" name="cart_price" id="product_price_input" value="${pvo.product_price}">
 	<input type="hidden" name="cart_img" value="${pvo.product_img}">
 	<input type="hidden" name="cart_kinds" value="${pvo.product_kinds}">
 	<input type="hidden" name="cart_userid" value="${member_userid}">
@@ -25,21 +57,21 @@
 <table>
 	<caption>상품번호${pvo.product_id+10000}</caption>
 	<tr>
-		<td>${pvo.product_img}</td>
+		<td><img src="/resources/img/${pvo.product_img}"></td>
 		<td>
 			<table>
 				<tr>
 					<td>${pvo.product_name}</td>
 				</tr>
 				<tr>
-					<td><fmt:formatNumber value="${pvo.product_price}"/>원</td>
+					<td><div id="product_price_div" ><fmt:formatNumber value='${pvo.product_price}'/>원</div></td>
 				</tr>
 <!-- 좌투/우투 상품종류 0-->	
 					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td colspan="2">
-								좌투<input type="radio" name="cart_throw0" value="0"><!-- 좌투 -->
-								우투<input type="radio" name="cart_throw0" value="1"><!-- 우투 -->
+								좌투<input type="radio" name="cart_throw0" id="cart_throw0" value="0"><!-- 좌투 -->
+								우투<input type="radio" name="cart_throw0" id="cart_throw1" value="1"><!-- 우투 -->
 							</td>
 						</tr>
 					</c:if>
@@ -47,7 +79,7 @@
 					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td>
-								<select name="cart_material_0">
+								<select name="cart_material_0" id="cart_material_0">
 									<option value="0">선택</option>								
 									<option value="돈피">돈피</option>
 									<option value="우피">우피</option>
@@ -59,7 +91,7 @@
 					<c:if test="${pvo.product_kinds==1}">
 						<tr>
 							<td>
-								<select name="cart_material_1" onchange="select_color_formaterial(this)">
+								<select name="cart_material_1" onchange="select_color_formaterial(this)" id="cart_material_1">
 									<option value="0">선택</option>
 									<option value="나무">나무</option>
 									<option value="알루미늄">알루미늄</option>
@@ -71,7 +103,7 @@
 					<c:if test="${pvo.product_kinds==2}">
 						<tr>
 							<td>
-								<select name="cart_material_2">
+								<select name="cart_material_2" id="cart_material_2"> 
 									<option value="0">선택</option>							
 									<option value="소가죽">소가죽</option>
 									<option value="합성섬유">합성섬유</option>
@@ -83,7 +115,7 @@
 					<c:if test="${pvo.product_kinds==5}">
 						<tr>
 							<td>
-								<select name="cart_material_5">
+								<select name="cart_material_5" id="cart_material_5">
 									<option value="0">선택</option>								
 									<option value="달걀껍질">달걀껍질</option>
 									<option value="분말">분말</option>
@@ -95,7 +127,7 @@
 					<c:if test="${pvo.product_kinds==6}">
 						<tr>
 							<td>
-								<select name="cart_material_6">
+								<select name="cart_material_6" id="cart_material_6">
 									<option value="0">선택</option>
 									<option value="경화지방산">경화지방산</option>
 									<option value="동물성지방">동물성지방</option>
@@ -109,8 +141,8 @@
 						<tr>
 							<td>
 							<div onclick="select_shirt_pants(this)">
-								상의<input type="radio" name="cart_style0" id="shirt" value="0">
-								하의<input type="radio" name="cart_style1" id="pants" value="1">
+								상의<input type="radio" name="cart_style0" id="shirt" value="0" id="cart_style0">
+								하의<input type="radio" name="cart_style1" id="pants" value="1" id="cart_style1">
 							</div>
 							</td>
 						</tr>
@@ -120,7 +152,7 @@
  					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td>
-								<select name="cart_color0_0">
+								<select name="cart_color0_0" id="cart_color0_0">
 									<option value="0">선택</option>									
 									<option value="갈색">갈색</option>
 									<option value="적색">적색</option>
@@ -134,7 +166,7 @@
 					<c:if test="${pvo.product_kinds==1}">
 						<tr>
 							<td>
-								<select name="cart_color0_1">
+								<select name="cart_color0_1" id="cart_color0_1">
 									<option value="0">선택</option>								
 									<option value="은색">은색</option>
 									<option value="흑색">흑색</option>
@@ -146,7 +178,7 @@
 					<c:if test="${pvo.product_kinds==2}">
 						<tr>
 							<td>
-								<select name="cart_color0_2">
+								<select name="cart_color0_2" id="cart_color0_2">
 									<option value="0">선택</option>								
 									<option value="백색">백색</option>
 									<option value="연갈색">연갈색</option>
@@ -162,7 +194,7 @@
 						<tr>
 							<td>
 								<div class="select_shirt">
-									상의색상<select name="cart_color0_3">
+									상의색상<select name="cart_color0_3" id="cart_color0_3">
 										<option value="0">선택</option>
 										<option value="갈색">갈색</option>
 										<option value="백적색">백적색</option>
@@ -177,7 +209,7 @@
 									</select>
 								</div>
 								<div class="select_pants">
-									하의색상<select name="cart_color1_3">
+									하의색상<select name="cart_color1_3" id="cart_color1_3">
 										<option value="0">선택</option>
 										<option value="갈색">갈색</option>
 										<option value="백적색">백적색</option>
@@ -195,7 +227,7 @@
 						</tr>
 					</c:if>
 					<c:if test="${pvo.product_kinds==4}">
-						<input type="hidden" name="cart_color0_4" value="흑색">
+						<input type="hidden" name="cart_color0_4" value="흑색" id="cart_color0_4">
 					</c:if>
 <!-- 용도 상품종류 0,1,2,3,4,5-->
 					<c:if test="${pvo.product_kinds==0}">	
@@ -215,7 +247,7 @@
 					<c:if test="${pvo.product_kinds==1}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_1">
+								<select name="cart_purpose_1"  id="cart_purpose_1">
 									<option value="0">선택</option>
 									<option value="밸런스">밸런스</option>
 									<option value="미들밸런스">미들밸런스</option>
@@ -228,7 +260,7 @@
 					<c:if test="${pvo.product_kinds==2}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_2">
+								<select name="cart_purpose_2"  name="cart_purpose_2">
 									<option value="0">선택</option>
 									<option value="일체형">일체형</option>
 									<option value="교체형">교체형</option>
@@ -242,7 +274,7 @@
 					<c:if test="${pvo.product_kinds==3}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_3">
+								<select name="cart_purpose_3" id="cart_purpose_3">
 									<option value="0">선택</option>
 									<option value="동계용">동계용</option>
 									<option value="하계용">하계용</option>
@@ -253,7 +285,7 @@
 					<c:if test="${pvo.product_kinds==4}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_4">
+								<select name="cart_purpose_4" id="cart_purpose_4">
 									<option value="0">선택</option>
 									<option value="암가드">암가드</option>
 									<option value="풋가드">풋가드</option>
@@ -264,7 +296,7 @@
 					<c:if test="${pvo.product_kinds==5}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_5">
+								<select name="cart_purpose_5" id="cart_purpose_5">
 									<option value="0">선택</option>
 									<option value="타자용">타자용</option>
 									<option value="투수용">투수용</option>
@@ -276,7 +308,7 @@
 					<tr>
 						<td>
 							<c:if test="${pvo.product_kinds==0}">
-								<select name="cart_size_0">
+								<select name="cart_size_0" id="cart_size_0">
 									<option value="0">선택</option>
 									<option value="11.5">11.5인치</option>
 									<option value="12">12인치</option>
@@ -285,7 +317,7 @@
 								</select>
 							</c:if>
 							<c:if test="${pvo.product_kinds==1}">
-								<select name="cart_size_1">
+								<select name="cart_size_1" id="cart_size_1">
 									<option value="0">선택</option>
 									<option value="32">32인치</option>
 									<option value="33">33인치</option>
@@ -293,7 +325,7 @@
 								</select>
 							</c:if>
 							<c:if test="${pvo.product_kinds==2}">
-								<select name="cart_size_2">
+								<select name="cart_size_2" id="cart_size_2">
 									<option value="0">선택</option>
 									<option value="245">245</option>
 									<option value="250">250</option>
@@ -308,7 +340,7 @@
 							</c:if>
 							<c:if test="${pvo.product_kinds==3}">
 								<div class="select_shirt">
-									<select name="cart_size_0_3">
+									<select name="cart_size_0_3" id="cart_size_0_3">
 										<option value="0">선택</option>
 										<option value="95">95</option>
 										<option value="100">100</option>
@@ -319,7 +351,7 @@
 									</select>
 								</div>
 								<div class="select_pants">
-									<select name="cart_size_1_3">
+									<select name="cart_size_1_3" id="cart_size_1_3">
 										<option value="0">선택</option>
 										<option value="30">30</option>
 										<option value="32">32</option>
@@ -334,9 +366,9 @@
 					<tr>
 						<td>
 							<div>
-							<span class="cart_count" id="count_down" onclick="count_change(0)">-</span>
-							<span class="cart_count" id="count" >1</span>
-							<span class="cart_count" id="count_up" onclick="count_change(1)" >+</span>
+							<input type="button" class="cart_count" id="count_down" onclick="count_change_push(0)" value="-">
+							<input type="text" class="cart_count" id="count" value="1" size="1" onfocusout="count_change_input()">
+							<input type="button" class="cart_count" id="count_up" onclick="count_change_push(1)" value="+">
 							</div>
 						</td>
 					</tr> 

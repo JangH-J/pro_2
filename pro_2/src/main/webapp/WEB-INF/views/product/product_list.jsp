@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>야구야 상품 판매</title> 
- <script src="<c:url value="/resources/product_js/product_list.js"/>"></script>
-<link href="<c:url value="/resources/product_css/product_list.css"/>" rel="stylesheet"/>
+ <script src="/resources/product_js/product_list.js"></script>
+<link href="/resources/product_css/product_list.css" rel="stylesheet"/>
 </head>
-
 <body>
 <div id="product_top_list">
 	<ul>
