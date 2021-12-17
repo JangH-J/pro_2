@@ -20,13 +20,14 @@
 <body>
   <div id="section">
     <form method="post" action="custom_update_ok" id="form">
+      <input type="hidden" name="custom_userid" value="${member_name}">
       <input type="hidden" name="custom_id" value="${cvo.custom_id}">
       <table width="600" align="center">
         <caption> <h3> 수정하기 </h3></caption>
        <c:if test="${custom_userid == null}">
         <tr>
           <td> 이 름 </td>
-          <td> ${cvo.custom_userid}" </td>
+          <td> ${cvo.custom_userid} </td>
         </tr> 
         <tr>
           <td> 비밀번호</td>

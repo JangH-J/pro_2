@@ -36,7 +36,7 @@ public class CustomServiceImpl implements CustomService{
 			cvo.setCustom_userid(session.getAttribute("custom_userid").toString());
 			mapper.member_write_ok(cvo);
 		}
-		return "redirect:"+module+"/custom_list";
+		return "redirect:custom_list";
 	}
 	
 	@Override
@@ -73,7 +73,7 @@ public class CustomServiceImpl implements CustomService{
 			cvo.setCustom_userid(session.getAttribute("custom_userid").toString());
 			mapper.member_rewrite_ok(cvo);
 		}
-		return "redirect:"+module+"/custom_list";
+		return "redirect:custom_list";
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public class CustomServiceImpl implements CustomService{
 		if(request.getParameter("tt")!=null)   // 로그인한 회원이 자기글일 경우 tt의 값은 null이 아님
 		{
 			mapper.custom_delete(custom_id);
-			return "redirect:"+module+"/custom_list";
+			return "redirect:/custom_list";
 		}
 		else    // tt가 null인경우는 비밀번호를 입력후 삭제
 		{
@@ -92,11 +92,11 @@ public class CustomServiceImpl implements CustomService{
 			if(chk==1) // 맞으면
 			{ 
 				mapper.custom_delete(custom_id);
-				return "redirect:"+module+"/custom_list";
+				return "redirect:/custom_list";
 			}
 			else // 틀리면
 			{
-				return "redirect:"+module+"/custom_content?custom_id="+custom_id;
+				return "redirect:/custom_content?custom_id="+custom_id;
 			}
 		}
 	}
@@ -109,23 +109,23 @@ public class CustomServiceImpl implements CustomService{
 
 	@Override
 	public String custom_update_ok(CustomVO cvo, HttpSession session) {
-		if(session.getAttribute("member_userid")==null)
+		if(session.getAttribute("custom_userid")==null)
 		{
 			int chk=mapper.custom_ispwd(cvo.getCustom_id(),cvo.getCustom_pwd());	
 			if(chk==1) // 맞으면
 			{ 
 				mapper.custom_update_ok(cvo);
-				return "redirect:"+module+"/custom_content?custom_id="+cvo.getCustom_id();
+				return "redirect:/custom_content?custom_id="+cvo.getCustom_id();
 			}
 			else // 클리면
 			{
-				return "redirect:"+module+"/custom_content?custom_id="+cvo.getCustom_id();
+				return "redirect:/custom_content?custom_id="+cvo.getCustom_id();
 			}
 		}
 		else
 		{
 			mapper.custom_update_ok(cvo);
-			return "redirect:"+module+"/custom_content?custom_id="+cvo.getCustom_id();
+			return "redirect:/custom_content?custom_id="+cvo.getCustom_id();
 		}
  
 	}
