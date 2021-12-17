@@ -45,7 +45,7 @@
         <td colspan="2" align="center">
         <a href="custom_list"> 목록보기 </a>
         <!-- 삭제시 회원인 경우와 비회원인 경우를 구분하여야 함 -->
-        <c:if test="${cvo.custom_pwd==null && custom_userid==cvo.custom_userid}"> <!-- 로그인한 회원이 적은글 -->
+        <c:if test="${cvo.custom_pwd==null && custom_userid==mvo.member_userid}"> <!-- 로그인한 회원이 적은글 -->
         <a href="custom_update?id=${cvo.custom_id}"> 수정</a>
         <a href="custom_delete?id=${cvo.custom_id}&tt=1"> 삭제</a>
         </c:if>

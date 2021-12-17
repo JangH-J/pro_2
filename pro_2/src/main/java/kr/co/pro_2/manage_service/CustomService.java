@@ -14,6 +14,6 @@ public interface CustomService {
 	public String custom_content(String custom_id, Model model);
 	public String custom_rewrite_ok(CustomVO cvo,HttpSession session);
 	public String custom_delete(HttpServletRequest request);
-	public String custom_update(String id, Model model);
+	public String custom_update(String custom_id, Model model);
 	public String custom_update_ok(CustomVO cvo,HttpSession session);
 }
