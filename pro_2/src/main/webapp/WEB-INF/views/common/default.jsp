@@ -29,6 +29,7 @@
 						<li class="top_index"><a href="../member/member_input">회원가입</a></li>
 					</c:if>
 					<c:if test="${member_userid!=null}">
+						<li class="top_index"><a href="../product/product_cart_list">장바구니</a></li>
 						<li class="top_index"><a href="../member/logout">로그아웃</a></li>
 						<li class="top_index"><a href="../member/mypage">마이페이지</a></li>
 						<c:if test="${member_userid=='admin'}">

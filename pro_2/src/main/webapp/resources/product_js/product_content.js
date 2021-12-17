@@ -14,29 +14,15 @@ function select_shirt_pants(my){
 		document.getElementsByClassName("select_pants").style.display="block-inline";
 	}
 }
-function input_cart0(){
+function input_product(chk){
+	if(chk==0){
+		product_content_cart.buy_or_cart.value="0";
+	} else {
+		alert("장바구니에 저장하였습니다")
+		product_content_cart.buy_or_cart.value="1";
+	} 
+		
+}
 
-}
-function input_cart1(){
-	
-}
-function input_cart2(){
-	
-}
-function input_cart3(){
-	
-}
-function input_cart4(){
-	
-}
-function input_cart5(){
-	
-}
-function input_cart6(){
-	
-}
-function input_cart7(){
-	
-}
 
 

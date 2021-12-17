@@ -2,15 +2,18 @@ package kr.co.pro_2.product_service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import kr.co.pro_2.member_vo.MemberVO;
 import kr.co.pro_2.product_mapper.ProductMapper;
 import kr.co.pro_2.product_vo.CartVO;
 import kr.co.pro_2.product_vo.ProductVO;
@@ -60,27 +63,33 @@ public class ProductServiceImpl implements ProductService {
 		return "redirect:/product/product_content?product_id="+id;
 	}
 	
-	public String product_content(Model model,HttpServletRequest request) {
+	public String product_content(Model model,HttpServletRequest request,HttpSession session) {
 		LocalDate today=LocalDate.now();
 		int year=today.getYear();
 		int month=today.getMonthValue();
 		int day=today.getDayOfMonth();
-		
-		
+		LocalTime now_time=LocalTime.now();
+		int hour=now_time.getHour();
+		int minute=now_time.getMinute();
+		int second=now_time.getSecond();
+		String member_userid=session.getAttribute("member_userid").toString();
+		String member_phone=mapper.get_member_phone(member_userid);
 		int id=Integer.parseInt(request.getParameter("product_id"));
 		ProductVO pvo=mapper.product_content(id);
+		
+		model.addAttribute("member_phone",member_phone);
+		model.addAttribute("time",hour*10000+minute*100+second);
 		model.addAttribute("today",year*10000+month*100+day);
 		model.addAttribute("pvo",pvo);
 		
 		return "/product/product_content";
 	}
-	@Override
-	public String product_payment() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	@Override
 	public String product_cart(HttpServletRequest request,CartVO cvo)  {
+		int boc=Integer.parseInt(request.getParameter("buy_or_cart"));
+		String product_id=request.getParameter("product_id");
+		int cart_product_id=Integer.parseInt(request.getParameter("product_id"));
 		String cart_ordernum=request.getParameter("cart_ordernum");
 		int cart_kinds=Integer.parseInt(request.getParameter("cart_kinds"));
 		int cart_count=Integer.parseInt(request.getParameter("cart_count"));
@@ -88,36 +97,93 @@ public class ProductServiceImpl implements ProductService {
 		String cart_group=request.getParameter("cart_group");
 		String cart_name=request.getParameter("cart_name");
 		String cart_userid=request.getParameter("cart_userid");
+		String cart_order_phone=request.getParameter("cart_order_phone");
 		
+		if(boc==0) {
 			if(cart_kinds==0) {
-				String cart_size_0=request.getParameter("cart_size_0");
-				int cart_throw0=Integer.parseInt(request.getParameter("cart_throw0"));
-				String cart_material_0=request.getParameter("cart_material_0");
-				String cart_color0_0=request.getParameter("cart_color0_0");
-				String cart_purpose_0=request.getParameter("cart_purpose_0");
+				String cart_size=request.getParameter("cart_size_0");
+				int cart_throw=Integer.parseInt(request.getParameter("cart_throw0"));
+				String cart_material=request.getParameter("cart_material_0");
+				String cart_color0=request.getParameter("cart_color0_0");
+				String cart_purpose=request.getParameter("cart_purpose_0");
 				
 				
-				mapper.product_buy0(cart_ordernum,cart_kinds,cart_count,cart_name,cart_price,cart_size_0,cart_throw0,cart_material_0,cart_color0_0,cart_purpose_0,cart_group,cart_userid);
-				return "redirect:/product/product_payment";
+				mapper.product_buy0(cart_ordernum,cart_kinds,cart_count,cart_name,cart_price,cart_size,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==1) {
-				return "redirect:/product/product_payment";
+				String cart_size=request.getParameter("cart_size_1");
+				String cart_material=request.getParameter("cart_material_1");
+				String cart_color0=request.getParameter("cart_color0_1");
+				String cart_purpose=request.getParameter("cart_purpose_1");
+				
+				mapper.product_buy1(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_size, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==2) {
-				return "redirect:/product/product_payment";
+				String cart_material=request.getParameter("cart_material_2");
+				String cart_color0=request.getParameter("cart_color0_2");
+				String cart_purpose=request.getParameter("cart_purpose_2");
+				String cart_size=request.getParameter("cart_size_2");
+
+				mapper.product_buy2(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price,cart_size,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==3) {
-				return "redirect:/product/product_payment";
+				String cart_style0=request.getParameter("cart_style_0");
+				String cart_style1=request.getParameter("cart_style_1");
+				String cart_color0=request.getParameter("cart_color0_3");
+				String cart_color1=request.getParameter("cart_color1_3");
+				String cart_purpose=request.getParameter("cart_purpose_3");
+				String cart_size0=request.getParameter("cart_size_0_3");
+				String cart_size1=request.getParameter("cart_size_1_3");
+
+				mapper.product_buy3(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1,cart_style0,cart_style1,cart_color0,cart_color1, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==4) {
-				return "redirect:/product/product_payment";
+				String cart_color0=request.getParameter("cart_color0_4");
+				String cart_purpose=request.getParameter("cart_purpose_4");
+
+				
+				mapper.product_buy4(cart_ordernum, cart_kinds, cart_count,cart_name, cart_price,cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==5) {
-				return "redirect:/product/product_payment";
+				String cart_purpose=request.getParameter("cart_purpose_5");
+				String cart_material=request.getParameter("cart_material_5");
+
+				mapper.product_buy5(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price,cart_material,cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==6) {
-				return "redirect:/product/product_payment";
+				String cart_material=request.getParameter("cart_material_6");
+
+				
+				mapper.product_buy6(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price,cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			} else if(cart_kinds==7) {
-				return "redirect:/product/product_payment";
+				
+				mapper.product_buy7(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone);
+				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
 			}
+		} else {
 			
+			return "redirect:/product/product_content?product_id="+product_id;
+		}
+		
 		return null;
 	}
-
+	@Override
+	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {
+		
+		String cart_ordernum=request.getParameter("cart_ordernum");
+		CartVO cvo=mapper.product_payment(cart_ordernum);
+		String member_userid=cvo.getCart_userid();
+		MemberVO mvo=mapper.show_member_information(member_userid);
+		int cart_product_id=cvo.getCart_product_id();
+		ProductVO pvo=mapper.product_content(cart_product_id);
+		
+		model.addAttribute("mvo",mvo);
+		model.addAttribute("cvo",cvo);
+		model.addAttribute("pvo",pvo);
+		
+		return "/product/product_payment";
+	}
 	
 
 	
