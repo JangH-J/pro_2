@@ -9,7 +9,7 @@ import kr.co.pro_2.review_vo.ReviewVO;
 
 public interface ReviewService {
 
-	public String write_ok(ReviewVO rvo);
+	public String write_ok(ReviewVO rvo,HttpServletRequest request) throws Exception;
 	public String list(Model model);
 	public String content(HttpServletRequest request,Model model,HttpSession session);
 	public String readnum(int review_id);

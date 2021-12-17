@@ -1,5 +1,6 @@
 package kr.co.pro_2.review_sevice;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.co.pro_2.review_mapper.ReviewMapper;
 import kr.co.pro_2.review_vo.ReviewVO;
@@ -22,10 +26,21 @@ public class ReviewServiceImpl implements ReviewService {
 	private final String module="/review";
 
 	@Override
-	public String write_ok(ReviewVO rvo) {
-		// TODO Auto-generated method stub
+	public String write_ok(ReviewVO rvo,HttpServletRequest request) throws Exception{
 		
-		mapper.write_ok(rvo);
+		String path=request.getRealPath("resources/img");
+		int max=1024*1024*25;
+		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
+		ReviewVO rvo1=new ReviewVO();
+		
+		rvo1.setReview_filename(multi.getFilesystemName("review_filename"));
+		rvo1.setReview_title(multi.getParameter("review_title"));
+		rvo1.setReview_content(multi.getParameter("review_content"));
+		rvo1.setReview_name(multi.getParameter("review_name"));
+		
+		mapper.write_ok(rvo1);
+		
+		
 		return "redirect:"+module+"/list";
 	}
 	

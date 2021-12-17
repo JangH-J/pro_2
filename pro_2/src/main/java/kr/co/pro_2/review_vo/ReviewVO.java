@@ -2,11 +2,17 @@ package kr.co.pro_2.review_vo;
 
 public class ReviewVO {
  private int review_id,review_bimil, review_readnum;
- private String review_name, review_title, review_pwd, review_writeday, review_content;
+ private String review_name, review_title, review_pwd, review_writeday, review_content, review_filename;
  
 
  
 
+public String getReview_filename() {
+	return review_filename;
+}
+public void setReview_filename(String review_filename) {
+	this.review_filename = review_filename;
+}
 public int getReview_id() {
 	return review_id;
 }

@@ -27,13 +27,14 @@ public class ReviewController {
 	
 	@RequestMapping("/write")
 	public String write() {
+		
 		return module+"/write";
 	}
 	
 	@RequestMapping("/write_ok")
-	public String write_ok(ReviewVO rvo)
+	public String write_ok(ReviewVO rvo,HttpServletRequest request)throws Exception
 	{
-		return rservice.write_ok(rvo);
+		return rservice.write_ok(rvo,request);
 	}
 	
 	@RequestMapping("/list")
@@ -72,5 +73,6 @@ public class ReviewController {
 	{
 		return rservice.delete(request);
 	}
+	
 }
 	

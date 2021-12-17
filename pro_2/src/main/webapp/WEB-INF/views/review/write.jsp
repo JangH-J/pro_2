@@ -5,14 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+
+</script>
 </head>
 <body>
 	<h2>사용후기</h2>
-	<form method="post" action="write_ok">
+	<form enctype="multipart/form-data" method="post" action="write_ok">
 	  제목<input type="text" name="review_title" size="50"><p>
 	  내용<textarea cols="60" rows="10" name="review_content"></textarea> <p>
-	  첨부파일 
-	
+	  첨부파일<input type="file" name="review_filename">
 	 <input type="button" value="목록" onclick="location.href='list'">
 	 <input type="submit" value="등록">
 	 <input type="reset" value="취소">

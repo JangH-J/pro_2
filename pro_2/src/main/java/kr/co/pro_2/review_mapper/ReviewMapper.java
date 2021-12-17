@@ -6,7 +6,7 @@ import kr.co.pro_2.review_vo.ReviewVO;
 
 public interface ReviewMapper {
 
-	public void write_ok(ReviewVO rvo);
+	public void write_ok(ReviewVO rvo1);
 	public ArrayList<ReviewVO> list();
 	public ReviewVO content(int review_id);
 	public void readnum(int review_id);
