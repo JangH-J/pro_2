@@ -184,6 +184,18 @@ public class ProductServiceImpl implements ProductService {
 		
 		return "/product/product_payment";
 	}
+
+	@Override
+	public String product_payment_done(HttpServletRequest request, Model model, HttpSession session) {
+		String member_userid=request.getParameter("member_userid");
+		String cart_ordernum=request.getParameter("cart_ordernum");
+		CartVO cvo=mapper.product_payment(cart_ordernum);
+		MemberVO mvo=mapper.show_member_information(member_userid);
+		mapper.input_cart_information(cvo);
+		mapper.input_member_information(mvo);
+		
+		return "/product/product_payment_done";
+	}
 	
 
 	

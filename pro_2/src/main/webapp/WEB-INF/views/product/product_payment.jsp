@@ -9,25 +9,36 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form>
+<form method="post" action="product_payment_done">
+<input type="hidden" name="buy_ordernum" value="${cvo.cart_id}">
+<input type="hidden" name="buy_userid" value="${mvo.member_id}">
+
 <table>
 <caption>주문번호  ${cvo.cart_ordernum}</caption>
 	<tr>
 		<td>
-		주문자명 : ${mvo.member_name}
-		이메일주소 : ${mvo.member_email}</td>
-		<td>전화번호 : <input type="text" value="${mvo.member_phone}"><input type="button" onclick="phone_fixing()"></td>
+			<div>
+			주문자명 : ${mvo.member_name} |			
+			<input type="text" name="buy_order_phone" value="${mvo.member_phone}"><input type="button" onclick="phone_fixing()" value="수정"></div>
+			<div>이메일주소 : ${mvo.member_email}</div>
+		</td>
 	</tr>
 	<tr>
-		<td></td>
-		
+		<td>
+			<div>
+				<div>
+				수령인명 : <input type="text" name="buy_recipient_name" value="${mvo.member_name}">
+				| <input type="text" name="buy_recipient_phone" value="${mvo.member_phone}"></div>
+				<div>주소 : <input type="text" name="buy_recipient_address" size="30"></div>
+			</div>
+		</td>
 	</tr>
 	<tr>
 		<td>
 			제품명 ${cvo.cart_name} / 수량 : ${cvo.cart_count}
 		</td> 
 	</tr>
-	<span id="show_buy_product_detail">
+	<span id="show_buy_product_detail">	
 		<tr>
 			<td>
 				<img src="resources/img/${pvo.product_img}">
@@ -86,7 +97,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td><input type="button" onclick="" value="결제하기" ></td>
+		<td><input type="submit" value="결제하기"></td>
 	</tr>
 </table>
 </form>
