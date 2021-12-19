@@ -43,5 +43,9 @@ public class ProductController {
 	public String product_payment_done(HttpServletRequest request,Model model,HttpSession session) {
 		return service.product_payment_done(request,model,session);
 	}
+	@RequestMapping("/product/product_buy_done")
+	public String product_buy_done(HttpServletRequest request,Model model,HttpSession session) {
+		return service.product_payment_done(request,model,session);
+	}
 
 }

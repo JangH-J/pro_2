@@ -194,7 +194,16 @@ public class ProductServiceImpl implements ProductService {
 		mapper.input_cart_information(cvo);
 		mapper.input_member_information(mvo);
 		
-		return "/product/product_payment_done";
+		return "redirect:/product/product_buy_done?cart_ordernum="+cart_ordernum;
+	}
+
+	@Override
+	public String product_buy_done(HttpServletRequest request, Model model, HttpSession session) {
+		String cart_ordernum=request.getParameter("cart_ordernum");
+		CartVO cvo=mapper.product_payment(cart_ordernum);
+		model.addAttribute("cvo",cvo);
+		
+		return null;
 	}
 	
 
