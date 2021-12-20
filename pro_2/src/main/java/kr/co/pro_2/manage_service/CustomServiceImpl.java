@@ -26,17 +26,18 @@ public class CustomServiceImpl implements CustomService{
 		int custom_grp=mapper.get_custom_grp();
 		cvo.setCustom_grp(custom_grp+1);
 		// 회원인 경우, 비회원인 경우 처리가 달라야 된다..
-		if(session.getAttribute("custom_userid")==null)
+		if(session.getAttribute("member_userid")==null)
 		{
 			mapper.nonmember_write_ok(cvo);
 		}
 		else
 		{
 			// 회원인 경우 세션변수의 아이디를 vo에 userid변수에 setter
-			cvo.setCustom_userid(session.getAttribute("custom_userid").toString());
+			cvo.setCustom_userid(session.getAttribute("member_userid").toString());
+			System.out.println(cvo.getCustom_userid());
 			mapper.member_write_ok(cvo);
 		}
-		return "redirect:custom_list";
+		return "redirect:/custom/custom_list";
 	}
 	
 	@Override
@@ -48,7 +49,7 @@ public class CustomServiceImpl implements CustomService{
 	@Override
 	public String custom_readnum(String custom_id) {
 		mapper.custom_readnum(custom_id);
-		return "redirect:/custom_content?custom_id="+custom_id;
+		return "redirect:/custom/custom_content?custom_id="+custom_id;
 	}
 	
 	@Override
@@ -63,17 +64,17 @@ public class CustomServiceImpl implements CustomService{
 		// 새로운 레코드 추가 전에 새로운 레코드보다 뒤에 출력될 내용은 seq값을 1증가시킨다..
 		mapper.up_custom_seq(cvo.getCustom_seq(),cvo.getCustom_grp());
 		
-		if(session.getAttribute("custom_userid")==null)
+		if(session.getAttribute("member_userid")==null)
 		{
 			mapper.nonmember_rewrite_ok(cvo);
 		}
 		else
 		{
 			// 회원인 경우 세션변수의 아이디를 vo에 userid변수에 setter
-			cvo.setCustom_userid(session.getAttribute("custom_userid").toString());
+			cvo.setCustom_userid(session.getAttribute("member_userid").toString());
 			mapper.member_rewrite_ok(cvo);
 		}
-		return "redirect:custom_list";
+		return "redirect:/custom/custom_list";
 	}
 
 	@Override
@@ -84,7 +85,7 @@ public class CustomServiceImpl implements CustomService{
 		if(request.getParameter("tt")!=null)   // 로그인한 회원이 자기글일 경우 tt의 값은 null이 아님
 		{
 			mapper.custom_delete(custom_id);
-			return "redirect:/custom_list";
+			return "redirect:/custom/custom_list";
 		}
 		else    // tt가 null인경우는 비밀번호를 입력후 삭제
 		{
@@ -92,11 +93,11 @@ public class CustomServiceImpl implements CustomService{
 			if(chk==1) // 맞으면
 			{ 
 				mapper.custom_delete(custom_id);
-				return "redirect:/custom_list";
+				return "redirect:/custom/custom_list";
 			}
 			else // 틀리면
 			{
-				return "redirect:/custom_content?custom_id="+custom_id;
+				return "redirect:/custom/custom_content?custom_id="+custom_id;
 			}
 		}
 	}
@@ -115,17 +116,17 @@ public class CustomServiceImpl implements CustomService{
 			if(chk==1) // 맞으면
 			{ 
 				mapper.custom_update_ok(cvo);
-				return "redirect:/custom_content?custom_id="+cvo.getCustom_id();
+				return "redirect:/custom/custom_content?custom_id="+cvo.getCustom_id();
 			}
 			else // 클리면
 			{
-				return "redirect:/custom_content?custom_id="+cvo.getCustom_id();
+				return "redirect:/custom/custom_content?custom_id="+cvo.getCustom_id();
 			}
 		}
 		else
 		{
 			mapper.custom_update_ok(cvo);
-			return "redirect:/custom_content?custom_id="+cvo.getCustom_id();
+			return "redirect:/custom/custom_content?custom_id="+cvo.getCustom_id();
 		}
  
 	}

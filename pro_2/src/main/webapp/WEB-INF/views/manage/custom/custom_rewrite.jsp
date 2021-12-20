@@ -17,7 +17,6 @@
 <body>
   <div id="section">
     <form method="post" action="custom_rewrite_ok">
-      <input type="hidden" name="custom_userid" value="${member_name}">
       <input type="hidden" name="custom_grp" value="${custom_grp}">
       <input type="hidden" name="custom_seq" value="${custom_seq+1}">
       <input type="hidden" name="custom_depth" value="${custom_depth+1}">

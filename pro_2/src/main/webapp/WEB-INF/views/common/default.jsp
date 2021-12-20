@@ -16,7 +16,7 @@
 			<div id="top_top_left">
 				<ul id="top_top_ul_left">
 					<li class="top_index"><a href="../gongji/gongji_list">공지사항</a></li>
-					<li class="top_index"><a href="custom_list">고객센터</a></li>
+					<li class="top_index"><a href="../custom/custom_list">고객센터</a></li>
 					<li class="top_index"><a href="event">이벤트</a></li>
 					<li class="top_index"><a href="../review/list">후기</a></li>
 					<li class="top_index"><a href="../product/product_list">구매</a></li>

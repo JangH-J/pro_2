@@ -31,7 +31,7 @@
         </tr> 
         <tr>
           <td> 비밀번호</td>
-          <td> <input type="text" name="custom_pwd" size="50"> </td>
+          <td> <input type="password" name="custom_pwd" size="50"> </td>
         </tr>
        </c:if>
         <tr>

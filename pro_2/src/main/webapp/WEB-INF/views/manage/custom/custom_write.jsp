@@ -17,7 +17,7 @@
 <body>
   <div id="section">
     <form method="post" action="custom_write_ok">
-      <input type="hidden" name="custom_userid" value="${member_name}">
+      
       <input type="hidden" name="custom_seq" value="0">
       <input type="hidden" name="custom_depth" value="0">
       <table width="600" align="center">
