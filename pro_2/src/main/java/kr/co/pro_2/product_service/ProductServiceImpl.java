@@ -176,10 +176,10 @@ public class ProductServiceImpl implements ProductService {
 		MemberVO mvo=mapper.show_member_information(session.getAttribute("member_userid").toString());
 		/*ProductVO pvo=mapper.product_content();*/
 		
-		ProductVO pimg=mapper.product_output_img(c_buy_list.get(18).toString());
+		ArrayList<ProductVO> imglist=mapper.product_output_img(cart_group);
 		model.addAttribute("mvo",mvo);
 		model.addAttribute("c_buy_list",c_buy_list);
-		model.addAttribute("pimg",pimg);
+		model.addAttribute("imglist",imglist);
 		
 		return "/product/product_payment";
 	}
@@ -190,7 +190,6 @@ public class ProductServiceImpl implements ProductService {
 		String cart_group=request.getParameter("cart_group");
 		ArrayList<CartVO> clist=mapper.product_payment(cart_group);
 		MemberVO mvo=mapper.show_member_information(member_userid);
-		
 		/*mapper.input_cart_information(clist);*/
 		mapper.input_member_information(mvo);
 		
@@ -200,10 +199,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public String product_buy_done(HttpServletRequest request, Model model, HttpSession session) {
 		String cart_group=request.getParameter("cart_group");
-		ArrayList<CartVO> cvo=mapper.product_payment(cart_group);
-		model.addAttribute("cvo",cvo);
-		
-		return null;
+		mapper.product_buy_done(cart_group);
+		return "/product/product_buy_done";
 	}
 
 	@Override

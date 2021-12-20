@@ -64,7 +64,7 @@
   	insert into cart(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
   </insert>
   <select id="product_payment" parameterType="String" resultType="kr.co.pro_2.product_vo.CartVO">
-  	select * from cart where cart_ordernum=#{param1}
+  	select * from cart where cart_group=#{param1} order by cart_id desc
   </select>
   <select id="show_member_information" resultType="kr.co.pro_2.member_vo.MemberVO">
   	select * from member where member_userid=#{param1}
@@ -72,12 +72,18 @@
   <select id="get_member_phone" resultType="String">
   	select member_phone from member where member_userid=#{param1}
   </select>
-  <select id="product_output_img" resultType="kr.co.pro_2.product_vo.ProductVO">
-  	select product_img from product where product_id=#{param1}
+  <select id="product_output_img" resultType="kr.co.pro_2.product_vo.ProductVO" >
+  	select product_img from product join cart on cart.cart_product_id=product.product_id where cart.cart_group=#{param1}
   </select>
   <select id="product_cart_list" resultType="kr.co.pro_2.product_vo.CartVO" parameterType="String">
   	select * from cart where cart_userid=#{parame1}
   </select>
+  <delete id="product_buy_done">
+  	delete from cart where cart_group=#{param1}
+  </delete>
+  <insert >
+  
+  </insert>
   
   
 <!--   <update>

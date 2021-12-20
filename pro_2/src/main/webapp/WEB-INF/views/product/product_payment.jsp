@@ -33,55 +33,59 @@
 		</td>
 	</tr>
 	<c:forEach items="${c_buy_list}" var="cvo">
+	
 		<tr>
 			<td>
 				제품명 ${cvo.cart_name} / 수량 : ${cvo.cart_count}
 			</td> 
 		</tr>
-		<span id="show_buy_product_detail">	
-			<tr>
-				<td>
-					<img src="/resources/img/${pimg }"><!-- 판매상품 이미지 구현 고민중 -->
-				</td>
-				<td>
-					<div>
-						<b>${cvo.cart_name}</b>
-					</div>
-					<div>
-						<span>${cvo.cart_price}</span>
-						<span>${cvo.cart_count}</span>
-					</div>
-					<c:if test="${cvo.cart_size0!=null}">
-						사이즈 : ${cvo.cart_size0}
-					</c:if>
-					<c:if test="${cvo.cart_size1!=null}">
-					 	, ${cvo.cart_size1} 
-					</c:if>
-					<c:if test="${cvo.cart_throw=null}">
-						_좌투&우투 : ${cvo.cart_throw} 
-					</c:if>
-				
-					<c:if test="${cvo.cart_material!=null}">
-						_소재 : ${cvo.cart_material} 
-					</c:if>
-					<c:if test="${cvo.cart_style0!=null}">
-						_스타일 : ${cvo.cart_style0} 
-					</c:if>
-					<c:if test="${cvo.cart_style1!=null}">
-						, ${cvo.cart_style1} 
-					</c:if>
-					<c:if test="${cvo.cart_color0!=null}">
-						_색상 : ${cvo.cart_color0} 
-					</c:if>
-					<c:if test="${cvo.cart_color1!=null}">
-						, ${cvo.cart_color1} 
-					</c:if>
-					<c:if test="${cvo.cart_purpose!=null}">
-						_용도 : ${cvo.cart_purpose}
-					</c:if>
-				</td>
-			</tr>
-		</span>
+	<%-- </c:forEach> --%>
+				<tr>
+					<td>
+						<img src="/resources/img/${img.product_img}"><!-- 판매상품 이미지 구현 고민중 -->
+					</td>
+				</tr>
+	<%-- <c:forEach items="${c_buy_list}" var="cvo">		 --%>	
+				<tr>
+					<td>
+						<div>
+							<b>${cvo.cart_name}</b>
+							<input >
+						</div>
+						<div>
+							<span>${cvo.cart_price}</span>
+							<span>${cvo.cart_count}</span>
+						</div>
+						<c:if test="${cvo.cart_size0!=null}">
+							사이즈 : ${cvo.cart_size0}
+						</c:if>
+						<c:if test="${cvo.cart_size1!=null}">
+						 	, ${cvo.cart_size1} 
+						</c:if>
+						<c:if test="${cvo.cart_throw=null}">
+							_좌투&우투 : ${cvo.cart_throw} 
+						</c:if>
+					
+						<c:if test="${cvo.cart_material!=null}">
+							_소재 : ${cvo.cart_material} 
+						</c:if>
+						<c:if test="${cvo.cart_style0!=null}">
+							_스타일 : ${cvo.cart_style0} 
+						</c:if>
+						<c:if test="${cvo.cart_style1!=null}">
+							, ${cvo.cart_style1} 
+						</c:if>
+						<c:if test="${cvo.cart_color0!=null}">
+							_색상 : ${cvo.cart_color0} 
+						</c:if>
+						<c:if test="${cvo.cart_color1!=null}">
+							, ${cvo.cart_color1} 
+						</c:if>
+						<c:if test="${cvo.cart_purpose!=null}">
+							_용도 : ${cvo.cart_purpose}
+						</c:if>
+					</td>
+				</tr>
 	</c:forEach>
 	<tr>
 		<td></td>

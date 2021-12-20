@@ -30,8 +30,9 @@ public interface ProductMapper {
 	public ArrayList<CartVO> product_payment (String cart_group);
 	public MemberVO show_member_information (String member_userid);
 	public void input_member_information (MemberVO mvo);
-	/*public void input_cart_information (ArrayList<CartVO> cvo);*/
+	/*public void input_cart_information (String cart_group);*/
 	public String get_member_phone (String member_userid);
 	public ArrayList<CartVO> product_cart_list(String member_userid);
-	public ProductVO product_output_img(String product_id);
+	public ArrayList<ProductVO> product_output_img(String cart_group);
+	public void product_buy_done(String cart_group);
 }
