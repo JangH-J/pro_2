@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
+import kr.co.pro_2.member_vo.MemberVO;
 import kr.co.pro_2.product_vo.CartVO;
 import kr.co.pro_2.product_vo.ProductVO;
 
@@ -17,5 +18,5 @@ public interface ProductService {
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session);
 	public String product_payment_done(HttpServletRequest request,Model model,HttpSession session);
 	public String product_buy_done(HttpServletRequest request,Model model,HttpSession session);
-	public String product_cart_list(Model model);
+	public String product_cart_list(Model model,HttpSession session,MemberVO mvo);
 }

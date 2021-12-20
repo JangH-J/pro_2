@@ -72,6 +72,13 @@
   <select id="get_member_phone" resultType="String">
   	select member_phone from member where member_userid=#{param1}
   </select>
+  <select id="product_output_img" resultType="kr.co.pro_2.product_vo.ProductVO">
+  	select product_img from product where product_id=#{param1}
+  </select>
+  <select id="product_cart_list" resultType="kr.co.pro_2.product_vo.CartVO" parameterType="String">
+  	select * from cart where cart_userid=#{parame1}
+  </select>
+  
   
 <!--   <update>
   	update cart set 

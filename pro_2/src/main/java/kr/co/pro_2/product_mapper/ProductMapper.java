@@ -27,10 +27,11 @@ public interface ProductMapper {
 	public void product_buy7 (String cart_ordernum,int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_group,    String cart_userid,  int cart_product_id, String cart_order_phone);
 	public int product_call_member_id ();
 	public void cart_input_ordernum ();
-	public CartVO product_payment (String cart_ordernum);
+	public ArrayList<CartVO> product_payment (String cart_group);
 	public MemberVO show_member_information (String member_userid);
 	public void input_member_information (MemberVO mvo);
-	public void input_cart_information (CartVO cvo);
+	/*public void input_cart_information (ArrayList<CartVO> cvo);*/
 	public String get_member_phone (String member_userid);
-	public ArrayList<CartVO> product_cart_list();
+	public ArrayList<CartVO> product_cart_list(String member_userid);
+	public ProductVO product_output_img(String product_id);
 }

@@ -53,7 +53,7 @@ function add_comma(val){
 	<input type="hidden" name="cart_kinds" id="cart_kinds" value="${pvo.product_kinds}">
 	<input type="hidden" name="cart_userid" id="cart_userid" value="${member_userid}">
 	<input type="hidden" name="cart_order_phone" id="cart_order_phone" value="${member_phone}">
-	<input type="hidden" name="cart_group" id="cart_group" value="${today*1000000+pvo.product_id+member_id+1}">
+	<input type="hidden" name="cart_group" id="cart_group" value="${pvo.product_id+member_id+1}">
 
 <table>
 	<caption>상품번호${pvo.product_id+10000}</caption>

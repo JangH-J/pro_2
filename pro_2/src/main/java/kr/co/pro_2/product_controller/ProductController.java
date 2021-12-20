@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.pro_2.member_vo.MemberVO;
 import kr.co.pro_2.product_service.ProductService;
 import kr.co.pro_2.product_vo.CartVO;
 
@@ -48,7 +49,7 @@ public class ProductController {
 		return service.product_payment_done(request,model,session);
 	}
 	@RequestMapping("/product/product_cart_list")
-	public String product_cart_list(Model model) {
-		return service.product_cart_list(model);
+	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
+		return service.product_cart_list(model,session,mvo);
 	}
 }

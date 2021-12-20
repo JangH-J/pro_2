@@ -109,7 +109,7 @@ public class ProductServiceImpl implements ProductService {
 				
 				
 				mapper.product_buy0(cart_ordernum,cart_kinds,cart_count,cart_name,cart_price,cart_size,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==1) {
 				String cart_size=request.getParameter("cart_size_1");
 				String cart_material=request.getParameter("cart_material_1");
@@ -117,7 +117,7 @@ public class ProductServiceImpl implements ProductService {
 				String cart_purpose=request.getParameter("cart_purpose_1");
 				
 				mapper.product_buy1(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_size, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==2) {
 				String cart_material=request.getParameter("cart_material_2");
 				String cart_color0=request.getParameter("cart_color0_2");
@@ -125,7 +125,7 @@ public class ProductServiceImpl implements ProductService {
 				String cart_size=request.getParameter("cart_size_2");
 
 				mapper.product_buy2(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price,cart_size,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==3) {
 				String cart_style0=request.getParameter("cart_style_0");
 				String cart_style1=request.getParameter("cart_style_1");
@@ -136,30 +136,30 @@ public class ProductServiceImpl implements ProductService {
 				String cart_size1=request.getParameter("cart_size_1_3");
 
 				mapper.product_buy3(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1,cart_style0,cart_style1,cart_color0,cart_color1, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==4) {
 				String cart_color0=request.getParameter("cart_color0_4");
 				String cart_purpose=request.getParameter("cart_purpose_4");
 
 				
 				mapper.product_buy4(cart_ordernum, cart_kinds, cart_count,cart_name, cart_price,cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==5) {
 				String cart_purpose=request.getParameter("cart_purpose_5");
 				String cart_material=request.getParameter("cart_material_5");
 
 				mapper.product_buy5(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price,cart_material,cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==6) {
 				String cart_material=request.getParameter("cart_material_6");
 
 				
 				mapper.product_buy6(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price,cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			} else if(cart_kinds==7) {
 				
 				mapper.product_buy7(cart_ordernum, cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone);
-				return "redirect:/product/product_payment?cart_ordernum="+cart_ordernum;
+				return "redirect:/product/product_payment?cart_group="+cart_group;
 			}
 		} else {
 			
@@ -171,44 +171,44 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {
 		
-		String cart_ordernum=request.getParameter("cart_ordernum");
-		CartVO cvo=mapper.product_payment(cart_ordernum);
-		String member_userid=cvo.getCart_userid();
-		MemberVO mvo=mapper.show_member_information(member_userid);
-		int cart_product_id=cvo.getCart_product_id();
-		ProductVO pvo=mapper.product_content(cart_product_id);
+		String cart_group=request.getParameter("cart_group");
+		ArrayList<CartVO> c_buy_list=mapper.product_payment(cart_group);
+		MemberVO mvo=mapper.show_member_information(session.getAttribute("member_userid").toString());
+		/*ProductVO pvo=mapper.product_content();*/
 		
+		ProductVO pimg=mapper.product_output_img(c_buy_list.get(18).toString());
 		model.addAttribute("mvo",mvo);
-		model.addAttribute("cvo",cvo);
-		model.addAttribute("pvo",pvo);
+		model.addAttribute("c_buy_list",c_buy_list);
+		model.addAttribute("pimg",pimg);
 		
 		return "/product/product_payment";
 	}
 
 	@Override
 	public String product_payment_done(HttpServletRequest request, Model model, HttpSession session) {
-		String member_userid=request.getParameter("member_userid");
-		String cart_ordernum=request.getParameter("cart_ordernum");
-		CartVO cvo=mapper.product_payment(cart_ordernum);
+		String member_userid=request.getParameter("buy_userid");
+		String cart_group=request.getParameter("cart_group");
+		ArrayList<CartVO> clist=mapper.product_payment(cart_group);
 		MemberVO mvo=mapper.show_member_information(member_userid);
-		mapper.input_cart_information(cvo);
+		
+		/*mapper.input_cart_information(clist);*/
 		mapper.input_member_information(mvo);
 		
-		return "redirect:/product/product_buy_done?cart_ordernum="+cart_ordernum;
+		return "redirect:/product/product_buy_done?cart_group="+cart_group;
 	}
 
 	@Override
 	public String product_buy_done(HttpServletRequest request, Model model, HttpSession session) {
-		String cart_ordernum=request.getParameter("cart_ordernum");
-		CartVO cvo=mapper.product_payment(cart_ordernum);
+		String cart_group=request.getParameter("cart_group");
+		ArrayList<CartVO> cvo=mapper.product_payment(cart_group);
 		model.addAttribute("cvo",cvo);
 		
 		return null;
 	}
 
 	@Override
-	public String product_cart_list(Model model) {
-		ArrayList<CartVO> clist=mapper.product_cart_list();
+	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
+		ArrayList<CartVO> clist=mapper.product_cart_list(session.getAttribute("member_userid").toString());
 		model.addAttribute("clist",clist);
 		return "/product/product_cart_list";
 	}
