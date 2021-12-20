@@ -47,5 +47,8 @@ public class ProductController {
 	public String product_buy_done(HttpServletRequest request,Model model,HttpSession session) {
 		return service.product_payment_done(request,model,session);
 	}
-
+	@RequestMapping("/product/product_cart_list")
+	public String product_cart_list(Model model) {
+		return service.product_cart_list(model);
+	}
 }

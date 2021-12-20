@@ -32,4 +32,5 @@ public interface ProductMapper {
 	public void input_member_information (MemberVO mvo);
 	public void input_cart_information (CartVO cvo);
 	public String get_member_phone (String member_userid);
+	public ArrayList<CartVO> product_cart_list();
 }

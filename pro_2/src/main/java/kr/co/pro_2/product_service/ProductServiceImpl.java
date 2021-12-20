@@ -205,6 +205,13 @@ public class ProductServiceImpl implements ProductService {
 		
 		return null;
 	}
+
+	@Override
+	public String product_cart_list(Model model) {
+		ArrayList<CartVO> clist=mapper.product_cart_list();
+		model.addAttribute("clist",clist);
+		return "/product/product_cart_list";
+	}
 	
 
 	
