@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Insert title here</title>
   <script>
   	var uchk=1; // 아이디 중복체크 관련 변수
@@ -99,16 +100,42 @@
   					alert("닉네임 중복체크가 안되었거나 사용불가능 닉네임입니다")
   					return false;
   				}
-  			else
-  				{
-  					return true;
-  				}
+  				else if($("input:checkbox[name=agreement1]").is(":checked") == false)
+  					{
+  	        			alert("이용약관에 동의해주세요");
+  	        			return false;
+  					}
+  					else if($("input:checkbox[name=agreement2]").is(":checked") == false)
+						{
+	        				alert("개인정보 취급방침에 동의해주세요");
+	        				return false;
+						}
+  						else
+  							{
+  								return true;
+  							}
   	}
   </script>
 </head>
 <body>
  <div id="section">
-  <form method="post" action="member_input_ok" onsubmit="return send(this)">
+  <form method="post" action="member_input_ok" onsubmit="return send(this)" align="center">
+   <table width="500">
+     <span>이용 약관</span>
+       <p> 
+         <label for="agreement1">아래 사항에 동의 합니다.</label> <br/>
+           <input id="agreement1" type="checkbox" name="agreement1"/> 
+             <textarea id="text1" readonly> 이용약관 </textarea> 
+       </p>
+   </table>
+   <table width="500">
+     <span>개인정보 취급방침</span>
+       <p> 
+         <label for="agreement2">아래 사항에 동의 합니다.</label> <br/>
+           <input id="agreement2" type="checkbox" name="agreement2"/> 
+             <textarea id="text1" readonly> 개인정보 방침 및 안내 </textarea> 
+       </p>
+   </table>
    <table width="500" align="center">
      <tr>
        <td> <input type="text" name="member_userid" placeholder="아이디" onblur="userid_check(this.value)">
