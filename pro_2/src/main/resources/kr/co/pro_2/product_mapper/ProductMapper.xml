@@ -81,9 +81,7 @@
   <delete id="product_buy_done">
   	delete from cart where cart_group=#{param1}
   </delete>
-  <insert >
-  
-  </insert>
+
   
   
 <!--   <update>
