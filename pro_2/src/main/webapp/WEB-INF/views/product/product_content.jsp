@@ -46,14 +46,15 @@ function add_comma(val){
 <form method="post" action="product_cart" name="product_content_cart" >
 	<input type="hidden" name="product_id" value="${pvo.product_id}">
 	<input type="hidden" name="buy_or_cart"> 
-	<input type="hidden" name="cart_ordernum" id="cart_ordernum" value="${today*1000000+pvo.product_id+member_id+time}">
 	<input type="hidden" name="cart_name" id="cart_name" value="${pvo.product_name}">
 	<input type="hidden" name="cart_price" id="cart_price" value="${pvo.product_price}">
 	<input type="hidden" name="cart_img" id="cart_img" value="${pvo.product_img}">
 	<input type="hidden" name="cart_kinds" id="cart_kinds" value="${pvo.product_kinds}">
 	<input type="hidden" name="cart_userid" id="cart_userid" value="${member_userid}">
 	<input type="hidden" name="cart_order_phone" id="cart_order_phone" value="${member_phone}">
-	<input type="hidden" name="cart_group" id="cart_group" value="${pvo.product_id+member_id+1}">
+	<c:set var="cart_writeday" value='${today*100000+time}'/>
+	<input type="hidden" name="cart_writeday" value="${cart_writeday}">
+	<span id="create_cart_group"></span>
 
 <table>
 	<caption>상품번호${pvo.product_id+10000}</caption>

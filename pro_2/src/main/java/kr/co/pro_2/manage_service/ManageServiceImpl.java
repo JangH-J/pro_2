@@ -86,7 +86,6 @@ public class ManageServiceImpl implements ManageService {
 		int max=1024*1024*10;
 		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
 		ProductVO pvo1=new ProductVO();
-		
 		pvo1.setProduct_img(multi.getFilesystemName("product_img"));
 		pvo1.setProduct_name(multi.getParameter("product_name"));
 		pvo1.setProduct_size(multi.getParameter("product_size"));
