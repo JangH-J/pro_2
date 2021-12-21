@@ -43,7 +43,7 @@
         <td> ${mvo.gongji_readnum} </td>
         <td> ${mvo.gongji_writeday} </td>
        <c:if test="${member_userid=='admin'}">
-        <td> <a href="gongji_delete?id=${mvo.gongji_id}"> click </a> </td> 
+        <td> <a href="gongji_delete?gongji_id=${mvo.gongji_id}"> click </a> </td> 
        </c:if>
       </tr>
      </c:forEach>  
