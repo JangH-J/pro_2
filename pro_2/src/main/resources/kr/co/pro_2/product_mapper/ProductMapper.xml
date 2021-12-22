@@ -30,7 +30,7 @@
   <update id="product_readnum">
    	update product set product_readnum=product_readnum+1 where product_id=#{param1}
   </update>
-  <select id="product_content" resultType="kr.co.pro_2.product_vo.ProductVO">
+  <select id="product_content"  resultType="kr.co.pro_2.product_vo.ProductVO" >
   	select * from product where product_id=#{param1}
   </select>
   <select id="product_call_member_id" resultType="Integer">
@@ -63,8 +63,8 @@
   <insert id="product_buy7">
   	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
   </insert>
-  <select id="output_cart_id" resultType="Integer">
-  	select cart_id from cart where cart_count=#{param1} and cart_price=#{param2} and cart_name=#{param3} and cart_userid=#{param4} and cart_writeday=#{param5}
+  <select id="output_cart_id" resultType="Interger">
+  	select cart_id from cart where cart_count=#{param1} and cart_price=#{param2} and cart_name=#{param3} and cart_userid=#{param4} and cart_inputdaytime=#{param5}
   </select>
   <select id="product_payment" parameterType="String" resultType="kr.co.pro_2.product_vo.CartVO">
   	select * from cart where cart_group=#{param1} order by cart_id desc
@@ -84,9 +84,6 @@
   <delete id="product_buy_done">
   	delete from cart where cart_group=#{param1}
   </delete>
-  <insert id="input_cart_information">
-  	insert into buy(cart_ordernum) values()
-  </insert>
   <select id="output_cart_ordernum">
   	select cart_ordernum from cart where cart_group=#{param1}
   </select>

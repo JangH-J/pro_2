@@ -11,7 +11,6 @@
 <body>
 
 <form method="post" action="product_payment_done">
-
 <input type="hidden" name="buy_userid" value="${mvo.member_userid}">
 <input type="hidden" name="buy_ordernum" value="${today*1000000+pvo.product_id+member_id+time}">
 <input type="hidden" name="buy_group" value="${cvo.cart_group}">
@@ -24,7 +23,7 @@
 			<input type="text" name="buy_order_phone" value="${mvo.member_phone}"></div>
 			<div>이메일주소 : ${mvo.member_email}</div>
 		</td>
-	</tr>
+	</tr>주문번호 20211222185400
 	<tr>
 		<td>
 			<div>

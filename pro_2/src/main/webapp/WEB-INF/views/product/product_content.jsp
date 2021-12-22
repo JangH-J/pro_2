@@ -35,6 +35,7 @@ function count_change_input(){
 function add_comma(val){
 	   return new Intl.NumberFormat().format(val);
 }
+
 </script>
 <script src="/resources/product_js/product_content.js"></script>
 <link href="/resources/product_css/product_content.css" rel="stylesheet">
@@ -43,16 +44,15 @@ function add_comma(val){
 
 <!--  -->
 
-<form method="post" action="product_cart" name="product_content_cart" >
+<form method="post" action="product_cart0" id="product_content_form">
 	<input type="hidden" name="product_id" value="${pvo.product_id}">
-	<input type="hidden" name="buy_or_cart"> 
+	<input type="hidden" name="buy_or_cart" id="buy_or_cart"> 
 	<input type="hidden" name="cart_name" id="cart_name" value="${pvo.product_name}">
 	<input type="hidden" name="cart_price" id="cart_price" value="${pvo.product_price}">
 	<input type="hidden" name="cart_img" id="cart_img" value="${pvo.product_img}">
 	<input type="hidden" name="cart_kinds" id="cart_kinds" value="${pvo.product_kinds}">
 	<c:set var="cart_writeday" value='${today*100000+time}'/>
 	<input type="hidden" name="cart_writeday" value="${cart_writeday}">
-	<span id="create_cart_group"></span>
 
 <table>
 	<caption>상품번호${pvo.product_id+10000}</caption>
@@ -373,10 +373,10 @@ function add_comma(val){
 						</td>
 					</tr> 
 				<tr>
-					<td><input type="submit" id="input_buy" name="input_buy" onclick="input_product(0)" value="바로구매"></td>
+					<td><input type="submit" name="input_buy" value="바로구매"></td>
 				</tr>
 				<tr>
-					<td><input type="submit" id="input_cart" name="input_cart" onclick="input_product(1)" value="장바구니"></td>
+					<td><input type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1'" value="장바구니"></td>
 				</tr>
 			</table>
 		</td>
