@@ -76,7 +76,7 @@ public class ManageServiceImpl implements ManageService {
 	public String gongji_delete(HttpServletRequest request) {
 		String gongji_id=request.getParameter("gongji_id");
 		mapper.gongji_delete(gongji_id);
-		return "redirect:"+module+"/gongji/gongji_list";
+		return "redirect:/gongji/gongji_list";
 	}
 
 	@Override

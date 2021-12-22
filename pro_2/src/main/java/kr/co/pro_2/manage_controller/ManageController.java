@@ -75,7 +75,7 @@ public class ManageController {
 		return service.gongji_content(request,model);
 	}
 	
-	@RequestMapping("/manage/gongji/gongji_delete")
+	@RequestMapping("/gongji/gongji_delete")
 	public String gongji_delete(HttpServletRequest request)
 	{
 		return service.gongji_delete(request);
