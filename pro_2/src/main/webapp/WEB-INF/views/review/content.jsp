@@ -29,9 +29,16 @@
       <td>조회수</td>
       <td>${rvo.review_readnum}</td>
       <td>작성일</td>
+      
       <td>${rvo.review_writeday }</td>
     <tr>
       <td>${rvo.review_content}</td>
+    </tr>
+    <c:if test="${rvo.review_filename!=null}">
+	   <tr>
+	     <td> <img src="../resources/img/${rvo.review_filename}">
+	   </tr>
+    </c:if>
 </table>
 <input type="button" value="목록" onclick="location.href='list'"> 
 

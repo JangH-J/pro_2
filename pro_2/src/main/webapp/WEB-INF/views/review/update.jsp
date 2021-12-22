@@ -9,13 +9,14 @@
 </head>
 <body>
 	<h2>사용후기</h2>
-	<form method="post" action="update_ok">
-	<input type="hidden" name="review_id" value="${rvo.review_id}">
+	<form enctype="multipart/form-data" method="post" action="update_ok">
+	<input enctype = "multipart/form-data" type="hidden" name="review_id" value="${rvo.review_id}">
 	 <input type="hidden" name="review_name" value="${member_userid}">
 	  제목<input type="text" name="review_title" size="50" value="${rvo.review_title}"><p>
 	  내용<textarea cols="60" rows="10" name="review_content">${rvo.review_content}</textarea> <p>
-	  첨부파일 
-	  <p>
+	 <!-- 첨부파일 -->
+	<div>첨부파일 <input type="file" name="review_filename"></div>
+		
 	 <input type="button" value="목록" onclick="location.href='list'">
 	 <input type="submit" value="수정">
 	 <input type="reset" value="취소">

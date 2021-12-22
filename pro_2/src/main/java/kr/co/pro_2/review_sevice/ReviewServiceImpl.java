@@ -74,18 +74,33 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public String update(int review_id, Model model) {
-		
+			
 		model.addAttribute("rvo",mapper.content(review_id));
 		return module+"/update";
 	}
 
 	@Override
-	public String update_ok(ReviewVO rvo, HttpSession session) {
+	public String update_ok(ReviewVO rvo, HttpSession session, HttpServletRequest request)throws Exception {
 		
-		mapper.update_ok(rvo);
+		String path=request.getRealPath("resources/img");
+		int max=1024*1024*25;
+		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
+		ReviewVO rvo2=new ReviewVO();
+		
+		rvo2.setReview_filename(multi.getFilesystemName("review_filename"));
+		rvo2.setReview_title(multi.getParameter("review_title"));
+		rvo2.setReview_content(multi.getParameter("review_content"));
+		rvo2.setReview_name(multi.getParameter("review_name"));
+		
+		mapper.update_ok(rvo2);
+		
+		
 		return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
 	}
 
+	
+	
+	
 	@Override
 	public String delete(HttpServletRequest request) {
 		int review_id=Integer.parseInt(request.getParameter("review_id"));
