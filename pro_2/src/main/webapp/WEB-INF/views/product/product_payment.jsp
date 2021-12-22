@@ -12,7 +12,7 @@
 
 <form method="post" action="product_payment_done">
 
-<input type="hidden" name="buy_userid" value="${mvo.member_id}">
+<input type="hidden" name="buy_userid" value="${mvo.member_userid}">
 <input type="hidden" name="buy_ordernum" value="${today*1000000+pvo.product_id+member_id+time}">
 <input type="hidden" name="buy_group" value="${cvo.cart_group}">
 <table>
@@ -101,9 +101,9 @@
 				</tr>
 	</c:if>
 	<c:if test="${single_revenge==1}">
+	<input type="hidden" name="buy_group">
 	<input type="hidden" name="single_revenge" value="1">
 		<c:forEach items="${cvolist}" var="cvo">
-		<input type="hidden" name="buy_etc" value="${cvo.cart_id}">
 		<tr>
 			<td>
 				제품명 ${cvo.cart_name} / 수량 : ${cvo.cart_count}
@@ -176,7 +176,7 @@
 							<fmt:formatNumber value="${cvo.cart_price}"/> 원
 						</c:when>
 						<c:otherwise>
-							<fmt:formatNumber value="${cvo.cart_price}원"/> + 택배비 3000원
+							<fmt:formatNumber value="${cvo.cart_price}"/> 원 + 택배비 3000원
 							총액 : <fmt:formatNumber value="${cvo.cart_price+3000}"/> 원
 						</c:otherwise>
 					</c:choose>

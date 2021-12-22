@@ -33,8 +33,8 @@ public class ProductController {
 		return service.product_content(model,request,session);
 	}
 	@RequestMapping("/product/product_cart")
-	public String product_cart(HttpServletRequest request,CartVO cvo) {
-		return service.product_cart(request,cvo);
+	public String product_cart(HttpServletRequest request,CartVO cvo,HttpSession session) {
+		return service.product_cart(request,cvo,session);
 	}
 	@RequestMapping("/product/product_payment")
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {
@@ -45,11 +45,12 @@ public class ProductController {
 		return service.product_payment_done(request,model,session);
 	}
 	@RequestMapping("/product/product_buy_done")
-	public String product_buy_done(HttpServletRequest request,Model model,HttpSession session) {
-		return service.product_payment_done(request,model,session);
+	public String product_buy_done(HttpServletRequest request,Model model) {
+		return service.product_buy_done(request,model);
 	}
 	@RequestMapping("/product/product_cart_list")
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
 		return service.product_cart_list(model,session,mvo);
 	}
+
 }

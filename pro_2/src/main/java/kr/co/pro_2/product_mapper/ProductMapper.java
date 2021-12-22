@@ -3,6 +3,7 @@ package kr.co.pro_2.product_mapper;
 import java.util.ArrayList;
 
 import kr.co.pro_2.member_vo.MemberVO;
+import kr.co.pro_2.product_vo.BuyVO;
 import kr.co.pro_2.product_vo.CartVO;
 import kr.co.pro_2.product_vo.ProductVO;
 
@@ -30,7 +31,7 @@ public interface ProductMapper {
 	public ArrayList<CartVO> product_payment (String cart_group);
 	public MemberVO show_member_information (String member_userid);
 	public void input_member_information (MemberVO mvo);
-	public void input_cart_information ();
+	/*public void input_cart_information (CartVO cvo);*/
 	public String get_member_phone (String member_userid);
 	public ArrayList<CartVO> product_cart_list(String member_userid);
 	public ArrayList<ProductVO> product_output_img(String cart_group);
@@ -39,7 +40,8 @@ public interface ProductMapper {
 	public int output_cart_id(int cart_count, int cart_price, String cart_name, String cart_userid,String cart_writeday);
 	public CartVO cart_single_output(String cart_id);
 	public ArrayList<CartVO> cart_revenge_output(String cart_group);
-	public void input_recipient_information(String buy_ordernum,String buy_order_phone,String buy_recipient_name,String buy_recipient_phone,String buy_recipient_address,String cart_id,MemberVO mvo,CartVO cvo);
-	public String output_buy_id(String buy_ordernum);
+	public void input_recipient_member_information(String buy_ordernum,String buy_userid,String buy_order_phone,String buy_recipient_name,String buy_recipient_phone,String buy_recipient_address,String cart_id);
+	public int output_buy_id(String buy_etc);
 	public CartVO show_cart_information(String cart_id);
+	public String output_member_userid(String buy_id);
 }

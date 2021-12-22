@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 
 import kr.co.pro_2.member_vo.MemberVO;
 import kr.co.pro_2.product_mapper.ProductMapper;
+import kr.co.pro_2.product_vo.BuyVO;
 import kr.co.pro_2.product_vo.CartVO;
 import kr.co.pro_2.product_vo.ProductVO;
 
@@ -72,31 +73,30 @@ public class ProductServiceImpl implements ProductService {
 		int hour=now_time.getHour();
 		int minute=now_time.getMinute();
 		int second=now_time.getSecond();
-		String member_userid=session.getAttribute("member_userid").toString();
-		String member_phone=mapper.get_member_phone(member_userid);
+
 		int id=Integer.parseInt(request.getParameter("product_id"));
 		ProductVO pvo=mapper.product_content(id);
 		
 		model.addAttribute("time",hour*10000+minute*100+second);
 		model.addAttribute("today",year*10000+month*100+day);
-		model.addAttribute("member_phone",member_phone);
 		model.addAttribute("pvo",pvo);
 		
 		return "/product/product_content";
 	}
 
 	@Override
-	public String product_cart(HttpServletRequest request,CartVO cvo)  {
+	public String product_cart(HttpServletRequest request,CartVO cvo,HttpSession session)  {
 		int boc=Integer.parseInt(request.getParameter("buy_or_cart"));
 		String product_id=request.getParameter("product_id");
 		int cart_product_id=Integer.parseInt(request.getParameter("product_id"));
 		int cart_kinds=Integer.parseInt(request.getParameter("cart_kinds"));
 		int cart_count=Integer.parseInt(request.getParameter("cart_count"));
 		int cart_price=Integer.parseInt(request.getParameter("cart_price"));
+		
 		String cart_group=request.getParameter("cart_group");
 		String cart_name=request.getParameter("cart_name");
-		String cart_userid=request.getParameter("cart_userid");
-		String cart_order_phone=request.getParameter("cart_order_phone");
+		String cart_userid=session.getAttribute("member_userid").toString();
+		String cart_order_phone=mapper.get_member_phone(cart_userid);
 		String cart_writeday=request.getParameter("cart_writeday");
 		
 		if(boc==0) {
@@ -236,13 +236,11 @@ public class ProductServiceImpl implements ProductService {
 		String buy_recipient_address=request.getParameter("buy_recipient_address");
 		
 		if(single_revenge==0) {
-			String cart_id=request.getParameter("cart_id");
-			MemberVO mvo=mapper.show_member_information(buy_userid);
-			CartVO cvo=mapper.show_cart_information(cart_id);
-			mapper.input_recipient_information(buy_ordernum,buy_order_phone,buy_recipient_name,buy_recipient_phone,buy_recipient_address,cart_id,mvo,cvo);
-			String buy_id=mapper.output_buy_id(buy_ordernum);
 			
-			return "redirect:/product/product_buy_done?buy_id="+buy_id;
+			String cart_id=request.getParameter("cart_id");
+			mapper.input_recipient_member_information(buy_ordernum,buy_userid,buy_order_phone,buy_recipient_name,buy_recipient_phone,buy_recipient_address,cart_id);
+			int buy_id=mapper.output_buy_id(cart_id);
+			return "redirect:/product/product_buy_done?buy_ordernum="+buy_ordernum+"&single_revenge="+single_revenge+"&cart_id="+cart_id+"&buy_id="+buy_id;
 			
 		} else if(single_revenge==1) {			
 			String buy_group=request.getParameter("buy_group");
@@ -264,10 +262,27 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String product_buy_done(HttpServletRequest request, Model model, HttpSession session) {
-		String cart_group=request.getParameter("cart_group");
-		mapper.product_buy_done(cart_group);
-		return "/product/product_buy_done";
+	public String product_buy_done(HttpServletRequest request, Model model) {
+		int single_revenge=Integer.parseInt(request.getParameter("single_revenge"));
+		String cart_id=request.getParameter("cart_id");
+		String buy_id=request.getParameter("buy_id");
+/*		String cart_group=request.getParameter("cart_group");
+		mapper.product_buy_done(cart_group);*/
+		if(single_revenge==0) {
+			CartVO cvo=mapper.show_cart_information(cart_id);
+			String userid=mapper.output_member_userid(buy_id);
+			MemberVO mvo=mapper.show_member_information(userid);
+			model.addAttribute("buy_id",buy_id);
+			model.addAttribute("userid",userid);
+			model.addAttribute("mvo",mvo);
+			model.addAttribute("cvo",cvo);
+			model.addAttribute("single_revenge",single_revenge);
+			return "/product/product_buy_done";
+		} else if(single_revenge==1) {
+			model.addAttribute("single_revenge",single_revenge);
+			return "/product/product_buy_done";
+		}
+		return null;
 	}
 
 	@Override

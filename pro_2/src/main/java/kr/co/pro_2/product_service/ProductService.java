@@ -14,9 +14,9 @@ public interface ProductService {
 	public String product_list(Model model);
 	public String product_readnum(HttpServletRequest request);
 	public String product_content(Model model,HttpServletRequest request,HttpSession session);
-	public String product_cart(HttpServletRequest request,CartVO cvo);
+	public String product_cart(HttpServletRequest request,CartVO cvo,HttpSession session);
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session);
 	public String product_payment_done(HttpServletRequest request,Model model,HttpSession session);
-	public String product_buy_done(HttpServletRequest request,Model model,HttpSession session);
+	public String product_buy_done(HttpServletRequest request,Model model);
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo);
 }
