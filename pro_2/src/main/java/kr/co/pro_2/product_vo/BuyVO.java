@@ -141,6 +141,4 @@ public class BuyVO {
 	public void setBuy_writeday(String buy_writeday) {
 		this.buy_writeday = buy_writeday;
 	}
-	
-
 }
