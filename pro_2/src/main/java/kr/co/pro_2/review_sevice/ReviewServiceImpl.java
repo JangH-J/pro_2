@@ -81,22 +81,30 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public String update_ok(ReviewVO rvo, HttpServletRequest request, HttpSession session)throws Exception {
+//		
+//		if(request.getParameter("review_filename") !=null)
+//		{
+//			
+//		}
 		
+		int review_id=Integer.parseInt(request.getParameter("review_id"));
+		ReviewVO rvo2=new ReviewVO();
+		if(request.getParameter("review_filename")!=null) {
 		String path=request.getRealPath("resources/img");
 		int max=1024*1024*25;
 		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
-		ReviewVO rvo2=new ReviewVO();
-		System.out.println(multi.getFilesystemName("review_filename"));
 		rvo2.setReview_filename(multi.getFilesystemName("review_filename"));
 	    rvo2.setReview_id(Integer.parseInt(multi.getParameter("review_id")));
 		rvo2.setReview_title(multi.getParameter("review_title"));
 		rvo2.setReview_content(multi.getParameter("review_content"));
 		rvo2.setReview_name(multi.getParameter("review_name"));
-		System.out.println(rvo2.getReview_filename()+" "+rvo2.getReview_content());
 		mapper.update_ok(rvo2);
-		
-		
-		return "redirect:"+module+"/content?review_id="+rvo2.getReview_id();
+		} else {
+			String title=request.getParameter("review_title");
+			String content=request.getParameter("review_content");
+			mapper.noimg_update_ok(title,content,review_id);
+		}
+		return "redirect:"+module+"/content?review_id="+review_id;
 	}
 
 	
