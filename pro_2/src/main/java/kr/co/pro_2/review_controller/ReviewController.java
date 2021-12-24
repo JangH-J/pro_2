@@ -63,9 +63,9 @@ public class ReviewController {
 	}	
 	
 	@RequestMapping("/update_ok")
-	public String update_ok(ReviewVO rvo, HttpSession session,HttpServletRequest request)throws Exception
+	public String update_ok(ReviewVO rvo,HttpServletRequest request,HttpSession session)throws Exception
 	{
-		return rservice.update_ok(rvo, session,request);
+		return rservice.update_ok(rvo,request, session);
 	}
 	
 	@RequestMapping("/delete")

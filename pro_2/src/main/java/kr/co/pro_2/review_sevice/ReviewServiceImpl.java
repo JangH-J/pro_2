@@ -80,22 +80,23 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public String update_ok(ReviewVO rvo, HttpSession session, HttpServletRequest request)throws Exception {
+	public String update_ok(ReviewVO rvo, HttpServletRequest request, HttpSession session)throws Exception {
 		
 		String path=request.getRealPath("resources/img");
 		int max=1024*1024*25;
 		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
 		ReviewVO rvo2=new ReviewVO();
-		
+		System.out.println(multi.getFilesystemName("review_filename"));
 		rvo2.setReview_filename(multi.getFilesystemName("review_filename"));
+	    rvo2.setReview_id(Integer.parseInt(multi.getParameter("review_id")));
 		rvo2.setReview_title(multi.getParameter("review_title"));
 		rvo2.setReview_content(multi.getParameter("review_content"));
 		rvo2.setReview_name(multi.getParameter("review_name"));
-		
+		System.out.println(rvo2.getReview_filename()+" "+rvo2.getReview_content());
 		mapper.update_ok(rvo2);
 		
 		
-		return "redirect:"+module+"/content?review_id="+rvo.getReview_id();
+		return "redirect:"+module+"/content?review_id="+rvo2.getReview_id();
 	}
 
 	
