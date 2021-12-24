@@ -44,4 +44,5 @@ public interface ProductMapper {
 	public CartVO show_cart_information(String cart_id);
 	public int output_buy_id(String buy_etc);
 	public String output_member_userid(String buy_id);
+	public void product_cart_delete(String cart_id);
 }

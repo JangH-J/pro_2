@@ -56,5 +56,9 @@ public class ProductController {
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
 		return service.product_cart_list(model,session,mvo);
 	}
+	@RequestMapping("/product/product_cart_delete")
+	public String product_cart_delete(HttpServletRequest request) {
+		return service.product_cart_delete(request);
+	}
 
 }

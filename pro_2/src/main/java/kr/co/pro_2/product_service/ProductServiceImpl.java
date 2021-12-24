@@ -338,8 +338,17 @@ public class ProductServiceImpl implements ProductService {
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
 		ArrayList<CartVO> clist=mapper.product_cart_list(session.getAttribute("member_userid").toString());
 		model.addAttribute("clist",clist);
+		
 		return "/product/product_cart_list";
 	}
+
+	@Override
+	public String product_cart_delete(HttpServletRequest request) {
+		String cart_id=request.getParameter("cart_id");
+		mapper.product_cart_delete(cart_id);
+		return "redirect:/product/product_cart_list";
+	}
+	
 	
 
 	

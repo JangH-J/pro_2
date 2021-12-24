@@ -105,6 +105,9 @@
   <select id="output_member_userid" resultType="String">
   	select buy_userid from buy where buy_id=#{param1}
   </select>
+  <delete id="product_cart_delete">
+  	delete from cart where cart_id=#{param1}
+  </delete>
   
 
 <!-- product_kinds=0 glove
