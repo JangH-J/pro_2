@@ -20,8 +20,7 @@
  	select count(*) from review where review_id=#{param1} and review_pwd=#{param2}
  </select>
  <update id="update_ok" parameterType="kr.co.pro_2.review_vo.ReviewVO">
- 	update review set review_title=#{review_title}, review_content=#{review_content}, review_filename=#{review_filename}
- 	 where review_id=#{review_id}
+ 	update review set review_title=#{review_title}, review_content=#{review_content}, review_filename=#{review_filename} where review_id=#{review_id}
  </update>
  <delete id="delete">
  	delete from review where review_id=#{param1}
