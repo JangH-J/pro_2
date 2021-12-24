@@ -7,16 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-  <style>
-   #section {
-     width:1000px;
-     height:500px;
-     margin:auto;
-   }
-   #tab {
-     margin-top:50px;
-   }
- </style>
+
 </head>
 <body>
   <div id="section">
