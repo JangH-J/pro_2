@@ -23,7 +23,7 @@
 			<input type="text" name="buy_order_phone" value="${mvo.member_phone}"></div>
 			<div>이메일주소 : ${mvo.member_email}</div>
 		</td>
-	</tr>주문번호 20211222185400
+	</tr>
 	<tr>
 		<td>
 			<div>

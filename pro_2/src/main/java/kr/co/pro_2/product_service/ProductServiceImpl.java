@@ -64,7 +64,6 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	public String product_content(Model model,HttpServletRequest request,HttpSession session) {
-
 		LocalDate today=LocalDate.now();
 		int year=today.getYear();
 		int month=today.getMonthValue();
@@ -90,6 +89,8 @@ public class ProductServiceImpl implements ProductService {
 		int cart_kinds=Integer.parseInt(request.getParameter("cart_kinds"));
 		int cart_count=Integer.parseInt(request.getParameter("cart_count"));
 		int cart_price=Integer.parseInt(request.getParameter("cart_price"));
+		
+		
 		
 		String cart_group=request.getParameter("cart_group");
 		String cart_name=request.getParameter("cart_name");
@@ -228,7 +229,7 @@ public class ProductServiceImpl implements ProductService {
 			mapper.product_buy7( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
 			
 		}
-		return "redirect:/product/product_content?product_id="+product_id;
+		return "redirect:/product/product_content?product_id="+product_id+"&cart_chk=0";
 	}
 	@Override
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {

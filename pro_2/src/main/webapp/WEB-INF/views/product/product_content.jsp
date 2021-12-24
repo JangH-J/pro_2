@@ -40,7 +40,7 @@ function add_comma(val){
 <script src="/resources/product_js/product_content.js"></script>
 <link href="/resources/product_css/product_content.css" rel="stylesheet">
 </head>
-<body>
+<body >
 
 <!--  -->
 
@@ -376,7 +376,7 @@ function add_comma(val){
 					<td><input type="submit" name="input_buy" value="바로구매"></td>
 				</tr>
 				<tr>
-					<td><input type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1'" value="장바구니"></td>
+					<td><input type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1';alert('장바구니에 해당상품을 옮겼습니다')" value="장바구니"></td>
 				</tr>
 			</table>
 		</td>

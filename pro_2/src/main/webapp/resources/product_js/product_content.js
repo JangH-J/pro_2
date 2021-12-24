@@ -17,4 +17,3 @@ function select_shirt_pants(my){
 
 
 
-
