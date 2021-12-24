@@ -14,19 +14,19 @@
 <table>
 <caption>주문번호 : ${cvo.cart_ordernum}</caption>
 	<tr>
-		<td><input type="radio" name="all_select" onclick="all_select()"></td>
+		<td><input type="checkbox" name="all_select" onclick="all_select()"></td>
 	</tr>
 	<c:forEach items="${clist}" var="cvo">
 	<tr>
 		<td>
-			<input type="radio" id="select" name="select">
+			<input type="checkbox" id="select" name="select">
 			<input type="hidden" id="cart_id" name="cart_group" value="${cvo.cart_group}">
 			<span><img></span><!-- 판매상품 이미지 구현 고민중 -->
 			<span id="cart_name">${cvo.cart_name}</span>
 			<span id="cart_count"> 
 				<select id="cart_count_select" name="cart_count_select">
 					<c:forEach begin="1" end="10" var="i">
-						<c:if test="${cvo.cart_count-(10-i)>0}">
+						<c:if test="${cvo.cart_count-(10-i)>1}">
 							<option>${cvo.cart_count-(10-i)}</option>
 						</c:if>	
 					</c:forEach>	

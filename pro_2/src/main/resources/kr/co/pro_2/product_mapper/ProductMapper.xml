@@ -30,7 +30,7 @@
   <update id="product_readnum">
    	update product set product_readnum=product_readnum+1 where product_id=#{param1}
   </update>
-  <select id="product_content" resultType="kr.co.pro_2.product_vo.ProductVO">
+  <select id="product_content"  resultType="kr.co.pro_2.product_vo.ProductVO" >
   	select * from product where product_id=#{param1}
   </select>
   <select id="product_call_member_id" resultType="Integer">
@@ -84,9 +84,6 @@
   <delete id="product_buy_done">
   	delete from cart where cart_group=#{param1}
   </delete>
-  <insert id="input_cart_information">
-  	insert into buy(cart_ordernum) values()
-  </insert>
   <select id="output_cart_ordernum">
   	select cart_ordernum from cart where cart_group=#{param1}
   </select>
