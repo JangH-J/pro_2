@@ -110,7 +110,7 @@ public class CustomServiceImpl implements CustomService{
 
 	@Override
 	public String custom_update_ok(CustomVO cvo, HttpSession session) {
-		if(session.getAttribute("custom_userid")==null)
+		if(session.getAttribute("member_userid")==null)
 		{
 			int chk=mapper.custom_ispwd(cvo.getCustom_id(),cvo.getCustom_pwd());	
 			if(chk==1) // 맞으면
