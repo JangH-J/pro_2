@@ -58,12 +58,12 @@
 	  var name=document.pwd_search.name.value;
 	  var email=document.pwd_search.email.value;
 	  var ps=new XMLHttpRequest();
-	  ps.open("get","pwd_search_ok?userid="+userid+"&name="+name+"&email="+email);
+	  ps.open("get","pwd_search_ok?member_userid="+userid+"&member_name="+name+"&member_email="+email);
 	  ps.send();
 	  ps.onreadystatechange=function()
 	  {
 		  if(ps.readyState==4)
-		  {
+		  { 
 		     if(ps.responseText==0)
 		     {
 		    	 alert("아이디,이름 혹은 이메일이 틀립니다.");

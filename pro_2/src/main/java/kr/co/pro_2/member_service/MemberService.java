@@ -18,5 +18,5 @@ public interface MemberService {
 	public String mypage_update(HttpSession session,Model model);
 	public String mypage_update_ok(MemberVO mvo,HttpSession session);
 	public String change_pwd(HttpServletRequest request,HttpSession session);
-	public String delete(int id);
+	public String delete(int member_id, HttpSession session);
 }

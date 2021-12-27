@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -14,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.pro_2.member_service.MemberService;
 import kr.co.pro_2.member_vo.MemberVO;
+import kr.co.pro_2.util.MailSend;
+ 
+ 
 
 @Controller
 @RequestMapping("/member")
@@ -77,23 +79,34 @@ public class MemberController {
 	@RequestMapping("/userid_search_ok")
 	public void userid_search_ok(MemberVO mvo,PrintWriter out)
 	{
-		String userid=mservice.userid_search_ok(mvo);
-		if(userid==null)
+		String member_userid=mservice.userid_search_ok(mvo);
+		if(member_userid==null)
 			out.print("0");
 		else
-		    out.print(userid);
+		    out.print(member_userid);
 	}
 	
 	
 	@RequestMapping("/pwd_search_ok")
-	public void pwd_search_ok(MemberVO mvo,PrintWriter out)
+	public void pwd_search_ok(MemberVO mvo,PrintWriter out) throws Exception
 	{
-		String pwd=mservice.pwd_search_ok(mvo);
-		if(pwd==null)
+		System.out.println("pwd_search_ok");
+		String member_pwd=mservice.pwd_search_ok(mvo);
+		System.out.println(mvo.getMember_email()+" "+mvo.getMember_name()+" "+mvo.getMember_userid());
+		if(member_pwd==null)
 			out.print("0");
 		else
-		    out.print(pwd);
-	}
+		{
+		    //out.print(member_pwd); 
+			// 이메일에 비밀번호 전송
+			MailSend ms=MailSend.getInstance();
+			String email=mvo.getMember_email();
+			String subject=mvo.getMember_name()+"님의 비밀번호 입니다";
+			String body="당신의 비밀번호는 "+member_pwd+"입니다";
+			ms.setEmail(email, subject, body);
+			out.print("1");
+		}
+	 }
 	
 	@RequestMapping("/mypage")
 	public String mypage(HttpSession session,Model model)
@@ -123,11 +136,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/delete")
-	public String delete(HttpServletRequest request)
+	public String delete(HttpServletRequest request, HttpSession session)
 	{
-		int id=Integer.parseInt(request.getParameter("member_id"));
+		int member_id=Integer.parseInt(request.getParameter("member_id"));
 		
-		return mservice.delete(id);
+		return mservice.delete(member_id,session);
 	}
 
 }
