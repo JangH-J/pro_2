@@ -11,7 +11,6 @@
 <body>
 
 <form method="post" action="product_payment_done">
-
 <input type="hidden" name="buy_userid" value="${mvo.member_userid}">
 <input type="hidden" name="buy_ordernum" value="${today*1000000+pvo.product_id+member_id+time}">
 <input type="hidden" name="buy_group" value="${cvo.cart_group}">

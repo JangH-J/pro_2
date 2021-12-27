@@ -91,6 +91,14 @@
         <td> ${mvo.member_phone} </td>
       </tr>
       <tr>
+        <td>
+         <input type="button" value="장바구니" onclick="location='/product/product_cart_list'">
+        </td>
+        <td>
+         <input type="button" value="주문확인" onclick="">
+        </td>
+      </tr>
+      <tr>
         <td colspan="2" align="center">
          <input type="button" value="회원정보수정" onclick="location='mypage_update'">
          <input type="button" value="비밀번호수정" onclick="change_pwd()">

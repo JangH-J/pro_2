@@ -32,9 +32,13 @@ public class ProductController {
 	public String product_content(Model model,HttpServletRequest request,HttpSession session) {
 		return service.product_content(model,request,session);
 	}
-	@RequestMapping("/product/product_cart")
-	public String product_cart(HttpServletRequest request,CartVO cvo,HttpSession session) {
-		return service.product_cart(request,cvo,session);
+	@RequestMapping("/product/product_cart0")
+	public String product_cart0(HttpServletRequest request,CartVO cvo,HttpSession session) {
+		return service.product_cart0(request,cvo,session);
+	}
+	@RequestMapping("/product/product_cart1")
+	public String product_cart1(HttpServletRequest request,CartVO cvo,HttpSession session) {
+		return service.product_cart1(request,cvo,session);
 	}
 	@RequestMapping("/product/product_payment")
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {
@@ -51,6 +55,10 @@ public class ProductController {
 	@RequestMapping("/product/product_cart_list")
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
 		return service.product_cart_list(model,session,mvo);
+	}
+	@RequestMapping("/product/product_cart_delete")
+	public String product_cart_delete(HttpServletRequest request) {
+		return service.product_cart_delete(request);
 	}
 
 }

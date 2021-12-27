@@ -41,7 +41,8 @@ public interface ProductMapper {
 	public CartVO cart_single_output(String cart_id);
 	public ArrayList<CartVO> cart_revenge_output(String cart_group);
 	public void input_recipient_member_information(String buy_ordernum,String buy_userid,String buy_order_phone,String buy_recipient_name,String buy_recipient_phone,String buy_recipient_address,String cart_id);
-	public int output_buy_id(String buy_etc);
 	public CartVO show_cart_information(String cart_id);
+	public int output_buy_id(String buy_etc);
 	public String output_member_userid(String buy_id);
+	public void product_cart_delete(String cart_id);
 }

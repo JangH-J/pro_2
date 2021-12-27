@@ -44,7 +44,6 @@ public class ProductServiceImpl implements ProductService {
 			     product_list4 guard
 			     product_list5 resinbag  
 			     product_list6 leathercream*/
-		
 		model.addAttribute("product_list0",pvo_product_glove_list);
 		model.addAttribute("product_list1",pvo_product_bat_list);
 		model.addAttribute("product_list2",pvo_product_shoes_list);
@@ -85,8 +84,81 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String product_cart(HttpServletRequest request,CartVO cvo,HttpSession session)  {
-		int boc=Integer.parseInt(request.getParameter("buy_or_cart"));
+	public String product_cart0(HttpServletRequest request,CartVO cvo,HttpSession session)  {
+		int cart_product_id=Integer.parseInt(request.getParameter("product_id"));
+		int cart_kinds=Integer.parseInt(request.getParameter("cart_kinds"));
+		int cart_count=Integer.parseInt(request.getParameter("cart_count"));
+		int cart_price=Integer.parseInt(request.getParameter("cart_price"));
+		
+		
+		
+		String cart_group=request.getParameter("cart_group");
+		String cart_name=request.getParameter("cart_name");
+		String cart_userid=session.getAttribute("member_userid").toString();
+		String cart_order_phone=mapper.get_member_phone(cart_userid);
+		String cart_writeday=request.getParameter("cart_writeday");
+			if(cart_kinds==0) {
+				String cart_size=request.getParameter("cart_size_0");
+				int cart_throw=Integer.parseInt(request.getParameter("cart_throw0"));
+				String cart_material=request.getParameter("cart_material_0");
+				String cart_color0=request.getParameter("cart_color0_0");
+				String cart_purpose=request.getParameter("cart_purpose_0");
+				
+				mapper.product_buy0(cart_kinds,cart_count,cart_name,cart_price,cart_size,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+
+			} else if(cart_kinds==1) {
+				String cart_size=request.getParameter("cart_size_1");
+				String cart_material=request.getParameter("cart_material_1");
+				String cart_color0=request.getParameter("cart_color0_1");
+				String cart_purpose=request.getParameter("cart_purpose_1");
+				
+				mapper.product_buy1(cart_kinds, cart_count, cart_name, cart_price, cart_size, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			} else if(cart_kinds==2) {
+				String cart_material=request.getParameter("cart_material_2");
+				String cart_color0=request.getParameter("cart_color0_2");
+				String cart_purpose=request.getParameter("cart_purpose_2");
+				String cart_size=request.getParameter("cart_size_2");
+
+				mapper.product_buy2(cart_kinds, cart_count, cart_name, cart_price,cart_size,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+				
+			} else if(cart_kinds==3) {
+				String cart_style0=request.getParameter("cart_style_0");
+				String cart_style1=request.getParameter("cart_style_1");
+				String cart_color0=request.getParameter("cart_color0_3");
+				String cart_color1=request.getParameter("cart_color1_3");
+				String cart_purpose=request.getParameter("cart_purpose_3");
+				String cart_size0=request.getParameter("cart_size_0_3");
+				String cart_size1=request.getParameter("cart_size_1_3");
+
+				mapper.product_buy3(cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1,cart_style0,cart_style1,cart_color0,cart_color1, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+				
+			} else if(cart_kinds==4) {
+				String cart_color0=request.getParameter("cart_color0_4");
+				String cart_purpose=request.getParameter("cart_purpose_4");
+
+				mapper.product_buy4(cart_kinds, cart_count,cart_name, cart_price,cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+				
+			} else if(cart_kinds==5) {
+				String cart_purpose=request.getParameter("cart_purpose_5");
+				String cart_material=request.getParameter("cart_material_5");
+
+				mapper.product_buy5(cart_kinds, cart_count, cart_name, cart_price,cart_material,cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			} else if(cart_kinds==6) {
+				String cart_material=request.getParameter("cart_material_6");
+
+				mapper.product_buy6(cart_kinds, cart_count, cart_name, cart_price,cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			} else if(cart_kinds==7) {
+				
+				mapper.product_buy7( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+				
+			}
+		
+			int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
+			return "redirect:/product/product_payment?cart_id="+cart_id;
+			
+	}
+	@Override
+	public String product_cart1(HttpServletRequest request,CartVO cvo,HttpSession session)  {
 		String product_id=request.getParameter("product_id");
 		int cart_product_id=Integer.parseInt(request.getParameter("product_id"));
 		int cart_kinds=Integer.parseInt(request.getParameter("cart_kinds"));
@@ -99,88 +171,65 @@ public class ProductServiceImpl implements ProductService {
 		String cart_order_phone=mapper.get_member_phone(cart_userid);
 		String cart_writeday=request.getParameter("cart_writeday");
 		
-		if(boc==0) {
-			if(cart_kinds==0) {
-				String cart_size=request.getParameter("cart_size_0");
-				int cart_throw=Integer.parseInt(request.getParameter("cart_throw0"));
-				String cart_material=request.getParameter("cart_material_0");
-				String cart_color0=request.getParameter("cart_color0_0");
-				String cart_purpose=request.getParameter("cart_purpose_0");
-				
-				mapper.product_buy0(cart_kinds,cart_count,cart_name,cart_price,cart_size,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==1) {
-				String cart_size=request.getParameter("cart_size_1");
-				String cart_material=request.getParameter("cart_material_1");
-				String cart_color0=request.getParameter("cart_color0_1");
-				String cart_purpose=request.getParameter("cart_purpose_1");
-				
-				mapper.product_buy1(cart_kinds, cart_count, cart_name, cart_price, cart_size, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==2) {
-				String cart_material=request.getParameter("cart_material_2");
-				String cart_color0=request.getParameter("cart_color0_2");
-				String cart_purpose=request.getParameter("cart_purpose_2");
-				String cart_size=request.getParameter("cart_size_2");
-
-				mapper.product_buy2(cart_kinds, cart_count, cart_name, cart_price,cart_size,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==3) {
-				String cart_style0=request.getParameter("cart_style_0");
-				String cart_style1=request.getParameter("cart_style_1");
-				String cart_color0=request.getParameter("cart_color0_3");
-				String cart_color1=request.getParameter("cart_color1_3");
-				String cart_purpose=request.getParameter("cart_purpose_3");
-				String cart_size0=request.getParameter("cart_size_0_3");
-				String cart_size1=request.getParameter("cart_size_1_3");
-
-				mapper.product_buy3(cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1,cart_style0,cart_style1,cart_color0,cart_color1, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==4) {
-				String cart_color0=request.getParameter("cart_color0_4");
-				String cart_purpose=request.getParameter("cart_purpose_4");
-
-				mapper.product_buy4(cart_kinds, cart_count,cart_name, cart_price,cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==5) {
-				String cart_purpose=request.getParameter("cart_purpose_5");
-				String cart_material=request.getParameter("cart_material_5");
-
-				mapper.product_buy5(cart_kinds, cart_count, cart_name, cart_price,cart_material,cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==6) {
-				String cart_material=request.getParameter("cart_material_6");
-
-				mapper.product_buy6(cart_kinds, cart_count, cart_name, cart_price,cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			} else if(cart_kinds==7) {
-				
-				mapper.product_buy7( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
-				int cart_id=mapper.output_cart_id(cart_count,cart_price,cart_name,cart_userid,cart_writeday);
-				
-				return "redirect:/product/product_payment?cart_id="+cart_id;
-			}
-		} else {
+		if(cart_kinds==0) {
+			String cart_size=request.getParameter("cart_size_0");
+			int cart_throw=Integer.parseInt(request.getParameter("cart_throw0"));
+			String cart_material=request.getParameter("cart_material_0");
+			String cart_color0=request.getParameter("cart_color0_0");
+			String cart_purpose=request.getParameter("cart_purpose_0");
 			
+			mapper.product_buy0(cart_kinds,cart_count,cart_name,cart_price,cart_size,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone,cart_writeday);
 			
-			return "redirect:/product/product_content?product_id="+product_id;
+		} else if(cart_kinds==1) {
+			String cart_size=request.getParameter("cart_size_1");
+			String cart_material=request.getParameter("cart_material_1");
+			String cart_color0=request.getParameter("cart_color0_1");
+			String cart_purpose=request.getParameter("cart_purpose_1");
+			
+			mapper.product_buy1(cart_kinds, cart_count, cart_name, cart_price, cart_size, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
+		} else if(cart_kinds==2) {
+			String cart_material=request.getParameter("cart_material_2");
+			String cart_color0=request.getParameter("cart_color0_2");
+			String cart_purpose=request.getParameter("cart_purpose_2");
+			String cart_size=request.getParameter("cart_size_2");
+			
+			mapper.product_buy2(cart_kinds, cart_count, cart_name, cart_price,cart_size,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
+		} else if(cart_kinds==3) {
+			String cart_style0=request.getParameter("cart_style_0");
+			String cart_style1=request.getParameter("cart_style_1");
+			String cart_color0=request.getParameter("cart_color0_3");
+			String cart_color1=request.getParameter("cart_color1_3");
+			String cart_purpose=request.getParameter("cart_purpose_3");
+			String cart_size0=request.getParameter("cart_size_0_3");
+			String cart_size1=request.getParameter("cart_size_1_3");
+			
+			mapper.product_buy3(cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1,cart_style0,cart_style1,cart_color0,cart_color1, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
+		} else if(cart_kinds==4) {
+			String cart_color0=request.getParameter("cart_color0_4");
+			String cart_purpose=request.getParameter("cart_purpose_4");
+			
+			mapper.product_buy4(cart_kinds, cart_count,cart_name, cart_price,cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
+		} else if(cart_kinds==5) {
+			String cart_purpose=request.getParameter("cart_purpose_5");
+			String cart_material=request.getParameter("cart_material_5");
+			
+			mapper.product_buy5(cart_kinds, cart_count, cart_name, cart_price,cart_material,cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
+		} else if(cart_kinds==6) {
+			String cart_material=request.getParameter("cart_material_6");
+			
+			mapper.product_buy6(cart_kinds, cart_count, cart_name, cart_price,cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
+		} else if(cart_kinds==7) {
+			
+			mapper.product_buy7( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday);
+			
 		}
-		
-		return null;
+		return "redirect:/product/product_content?product_id="+product_id+"&cart_chk=0";
 	}
 	@Override
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {
@@ -289,8 +338,17 @@ public class ProductServiceImpl implements ProductService {
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
 		ArrayList<CartVO> clist=mapper.product_cart_list(session.getAttribute("member_userid").toString());
 		model.addAttribute("clist",clist);
+		
 		return "/product/product_cart_list";
 	}
+
+	@Override
+	public String product_cart_delete(HttpServletRequest request) {
+		String cart_id=request.getParameter("cart_id");
+		mapper.product_cart_delete(cart_id);
+		return "redirect:/product/product_cart_list";
+	}
+	
 	
 
 	
