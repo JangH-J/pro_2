@@ -136,11 +136,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/delete")
-	public String delete(HttpServletRequest request)
+	public String delete(HttpServletRequest request, HttpSession session)
 	{
-		int id=Integer.parseInt(request.getParameter("member_id"));
+		int member_id=Integer.parseInt(request.getParameter("member_id"));
 		
-		return mservice.delete(id);
+		return mservice.delete(member_id,session);
 	}
 
 }

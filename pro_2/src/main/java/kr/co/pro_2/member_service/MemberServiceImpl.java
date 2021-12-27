@@ -100,10 +100,10 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String delete(int id) {
+	public String delete(int member_id, HttpSession session) {
 		// TODO Auto-generated method stub
-		mapper.delete(id);
-		
+		mapper.delete(member_id);
+		session.invalidate();
 		return "redirect:/";
 	}
 	
