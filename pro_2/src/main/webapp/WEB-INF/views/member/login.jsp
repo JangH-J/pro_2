@@ -9,6 +9,18 @@
    #userid_search,#pwd_search {
      display:none;
    }
+   #section {
+    margin-height:100%;
+	position:relative;
+	padding-bottom:100px;/* footer height */
+	width:1000px;
+    height:600px;
+	margin-top:60px;
+	margin-left: auto;   
+	margin-right: auto;   
+	margin-bottom: auto;
+	text-align:center;
+   }
  </style>
 <script>
  function view_us()
@@ -84,13 +96,13 @@
       <table width="400" align="center">
        <caption> <h3> 로그인</h3></caption>
         <tr>
-          <td> <input type="text" name="member_userid"> </td>
+          <td> <input type="text" name="member_userid" placeholder="아이디"> </td>
         </tr>
         <tr>
-          <td> <input type="password" name="member_pwd"> </td>
+          <td> <input type="password" name="member_pwd" placeholder="비밀번호"> </td>
         </tr>
         <tr>
-          <td> <input type="submit" value="로그인"> </td>
+          <td> <input type="submit" value="로그인"> <input type="button" onclick="location='/member/member_input'" value="회원가입"> </td>
         </tr>
       </table>
     </form>

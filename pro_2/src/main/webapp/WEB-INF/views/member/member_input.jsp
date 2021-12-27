@@ -173,7 +173,7 @@
        <td> <input type="text" name="member_phone" placeholder="01012345678"> </td>
      </tr>
      <tr>
-       <td> <input type="submit" value="회원가입"> </td>
+       <td> <input type="submit" value="회원가입"> <input type="button" onclick="location='/'" value="취소"> </td>
      </tr>
    </table>
   </form>
