@@ -1,12 +1,18 @@
 package kr.co.pro_2.review_vo;
 
 public class ReviewVO {
- private int review_id,review_bimil, review_readnum;
+ private int review_id,review_bimil, review_readnum, review_page;
  private String review_name, review_title, review_pwd, review_writeday, review_content, review_filename;
  
 
  
 
+public int getReview_page() {
+	return review_page;
+}
+public void setReview_page(int review_page) {
+	this.review_page = review_page;
+}
 public String getReview_filename() {
 	return review_filename;
 }

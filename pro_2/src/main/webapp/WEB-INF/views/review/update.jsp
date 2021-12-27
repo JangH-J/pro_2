@@ -18,7 +18,7 @@
 <body>
 	<h2>사용후기</h2>
 	<form enctype="multipart/form-data" method="post" action="update_ok" onsubmit="dummy()">
-	<input enctype = "multipart/form-data" type="hidden" name="review_id" value="${rvo.review_id}">
+	<input type="hidden" name="review_id" value="${rvo.review_id}">
 	 <input type="hidden" name="review_name" value="${member_userid}">
 	  제목<input type="text" name="review_title" size="50" value="${rvo.review_title}"><p>
 	  내용<textarea cols="60" rows="10" name="review_content">${rvo.review_content}

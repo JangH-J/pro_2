@@ -45,8 +45,9 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 	
 	@Override
-	public String list(Model model)
-	{
+	public String list(HttpServletRequest request, Model model)
+	{	
+		
 		ArrayList<ReviewVO> rlist=mapper.list();
 		model.addAttribute("rlist",rlist);
 		return module+"/list";
@@ -81,18 +82,14 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public String update_ok(ReviewVO rvo, HttpServletRequest request, HttpSession session)throws Exception {
-//		
-//		if(request.getParameter("review_filename") !=null)
-//		{
-//			
-//		}
-		
-		int review_id=Integer.parseInt(request.getParameter("review_id"));
-		ReviewVO rvo2=new ReviewVO();
-		if(request.getParameter("review_filename")!=null) {
+
 		String path=request.getRealPath("resources/img");
 		int max=1024*1024*25;
 		MultipartRequest multi=new MultipartRequest(request,path,max,"UTF-8",new DefaultFileRenamePolicy());
+		
+		int review_id=Integer.parseInt(multi.getParameter("review_id"));
+		ReviewVO rvo2=new ReviewVO();
+		if(multi.getFilesystemName("review_filename")!=null) {
 		rvo2.setReview_filename(multi.getFilesystemName("review_filename"));
 	    rvo2.setReview_id(Integer.parseInt(multi.getParameter("review_id")));
 		rvo2.setReview_title(multi.getParameter("review_title"));
@@ -100,8 +97,8 @@ public class ReviewServiceImpl implements ReviewService {
 		rvo2.setReview_name(multi.getParameter("review_name"));
 		mapper.update_ok(rvo2);
 		} else {
-			String title=request.getParameter("review_title");
-			String content=request.getParameter("review_content");
+			String title=multi.getParameter("review_title");
+			String content=multi.getParameter("review_content");
 			mapper.noimg_update_ok(title,content,review_id);
 		}
 		return "redirect:"+module+"/content?review_id="+review_id;

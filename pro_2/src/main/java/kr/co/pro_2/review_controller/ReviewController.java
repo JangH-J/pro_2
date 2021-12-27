@@ -38,9 +38,10 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("/list")
-	public String list(Model model) 
+	public String list(HttpServletRequest request ,Model model) 
 	{
-		return rservice.list(model);
+		
+		return rservice.list(request,model);
 	}
 	
 	@RequestMapping("/content")

@@ -12,6 +12,6 @@ public interface ReviewMapper {
 	public void readnum(int review_id);
 	public int ispwd(int review_id, String review_pwd);
 	public void update_ok(ReviewVO rvo2);
-	public void noimg_update_ok(String title,String content,String review_id);
+	public void noimg_update_ok(String title,String content,int review_id);
 	public void delete(int id);
 }

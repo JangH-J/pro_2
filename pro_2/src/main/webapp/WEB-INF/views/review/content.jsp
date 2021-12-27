@@ -6,6 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+	body{
+	font-family: 'Noto Sans KR', sans-serif;
+	}
+  </style>
  <script>
       function del()
       {
@@ -14,15 +22,17 @@
  </script>
 </head>
 <body>
+  <div class="titleArea" style="margin:42px auto; text-align: center;">
+  	<h2><font color="#555555">사용후기</font></h2>
+  </div>
 <table width="800" align="center" id="rcon">
-  <h2>사용후기</h2>
-    <tr>
+     <tr>
       <td>제목</td>
-      <td>${rvo.review_title}</td>
+      <td colspan="3">${rvo.review_title}</td>
     </tr>
     <tr>
       <td>작성자</td>
-      <td>${rvo.review_name}</td>
+      <td colspan="3">${rvo.review_name}</td>
     </tr>
     
     <tr>
@@ -32,11 +42,11 @@
       
       <td>${rvo.review_writeday }</td>
     <tr>
-      <td>${rvo.review_content}</td>
+      <td colspan="4">${rvo.review_content}</td>
     </tr>
     <c:if test="${rvo.review_filename!=null}">
 	   <tr>
-	     <td> <img src="../resources/img/${rvo.review_filename}">
+	     <td colspan="4"> <img src="../resources/img/${rvo.review_filename}">
 	   </tr>
     </c:if>
 </table>
