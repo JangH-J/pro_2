@@ -6,6 +6,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
+ <style>
+ 
+  body{
+	font-family: 'Noto Sans KR', sans-serif;
+	}
+ #section {
+    margin-height:100%;
+	position:relative;
+	padding-bottom:100px;/* footer height */
+	width:1000px;
+    height:420px;
+	margin-top:60px;
+	margin-left: auto;   
+	margin-right: auto;   
+	text-align:center;
+   }
+ </style>
   <script>
   	var uchk=1; // 아이디 중복체크 관련 변수
  	var pchk=1; // 비밀번호 일치 관련 변수

@@ -7,13 +7,57 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+  body{
+	font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	#custom-name ,td {
+		font-size:16px; font-weight:300;
+		border-collapse : collapse;
+	  	border-top-color: rgb(218, 218, 218);
+	    border-top-style: solid;
+	    border-top-width: 1px;
+	    border-right-color: initial;
+	    border-right-style: none;
+	    border-right-width: 0px;
+	    border-bottom-color: rgb(218, 218, 218);
+	    border-bottom-style: solid;
+	    border-bottom-width: 1px;
+	    border-left-color: initial;
+	    border-left-style: none;
+	    border-left-width: 0px;  
+	    padding: 10px 10px 10px; 
+	}
+	#custom-list td {
+		font-size:14px; 
+		font-weight:300;
+		border-collapse : collapse;
+	  	border-top-color: initial;
+	    border-top-style: none;
+	    border-top-width: 0px;
+	    border-right-color: initial;
+	    border-right-style: none;
+	    border-right-width: 0px;
+	    border-bottom-color: rgb(218, 218, 218);
+	    border-bottom-style: solid;
+	    border-bottom-width: 1px;
+	    border-left-color: initial;
+	    border-left-style: none;
+	    border-left-width: 0px;
+	    padding: 10px 10px 10px; 
+	}
+  
+</style>
 </head>
 <body>
   <div id="section">
      <table width="800" align="center" id="tab">
        <caption> <h3> 고객센터 </h3> </caption>
-       <tr>
+       <tr id="custom-name">
          <td> 제 목 </td>
          <td> 작성자 </td>
          <td> 조회수 </td>
@@ -24,7 +68,7 @@
        </tr>
        
       <c:forEach items="${custom_list}" var="cvo">
-       <tr>
+       <tr id="custom-list">
          <td>
          <c:if test="${cvo.custom_depth > 0}">
            <c:forEach begin="0" end="${cvo.custom_depth}">

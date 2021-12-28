@@ -6,25 +6,45 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
 <style>
+   body{
+	font-family: 'Noto Sans KR', sans-serif;
+	}
    #section {
      width:1000px;
      height:500px;
      margin:auto;
      margin-top:40px;
    }
-   table {
-     padding-top:20px;
-   }
-   td {
-     height:30px;
-   }
+   #section td {
+		font-size:14px; 
+		font-weight:300;
+		border-collapse : collapse;
+	  	border-top-color: initial;
+	    border-top-style: none;
+	    border-top-width: 0px;
+	    border-right-color: initial;
+	    border-right-style: none;
+	    border-right-width: 0px;
+	    border-bottom-color: rgb(218, 218, 218);
+	    border-bottom-style: solid;
+	    border-bottom-width: 1px;
+	    border-left-color: initial;
+	    border-left-style: none;
+	    border-left-width: 0px;
+	    padding: 10px 10px 10px; 
+	    
+	    text-align: center;
+	}
 </style>
 </head>
 <body>
   <div id="section">
     <table width="500" align="center">
-      <caption> <h3> 공지사항 내용보기</h3></caption>
+      <caption> <h3> 공지사항</h3></caption>
       <tr>
         <td> 제 목 </td>
         <td> ${mvo.gongji_title} </td>

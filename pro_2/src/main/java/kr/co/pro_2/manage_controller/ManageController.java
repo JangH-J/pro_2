@@ -69,7 +69,7 @@ public class ManageController {
 		return service.gongji_readnum(request);
 	}
 	
-	@RequestMapping("/manage/gongji/gongji_content")
+	@RequestMapping("/gongji/gongji_content")
 	public String gongji_content(HttpServletRequest request,Model model)
 	{
 		return service.gongji_content(request,model);

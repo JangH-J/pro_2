@@ -60,7 +60,7 @@ public class ManageServiceImpl implements ManageService {
 	public String gongji_readnum(HttpServletRequest request) {
 		String gongji_id=request.getParameter("gongji_id");
 		mapper.gongji_readnum(gongji_id);
-		return "redirect:"+module+"/gongji/gongji_content?gongji_id="+gongji_id;
+		return "redirect:/gongji/gongji_content?gongji_id="+gongji_id;
 	}
 
 	@Override
