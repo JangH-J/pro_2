@@ -53,12 +53,18 @@ public class ProductController {
 		return service.product_buy_done(request,model);
 	}
 	@RequestMapping("/product/product_cart_list")
-	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
-		return service.product_cart_list(model,session,mvo);
+	public String product_cart_list(Model model,HttpSession session,MemberVO mvo,HttpServletRequest request) {
+		return service.product_cart_list(model,session,mvo,request);
 	}
 	@RequestMapping("/product/product_cart_delete")
 	public String product_cart_delete(HttpServletRequest request) {
 		return service.product_cart_delete(request);
 	}
+	@RequestMapping("/product/product_cart_modify")
+	public String product_cart_modify(HttpServletRequest request) {
+		return service.product_cart_modify(request);
+	}
+	
+	
 
 }

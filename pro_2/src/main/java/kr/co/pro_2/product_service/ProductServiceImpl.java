@@ -233,6 +233,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public String product_payment(HttpServletRequest request,Model model,HttpSession session) {
+		String cart_userid=request.getParameter("cart_userid");
 		LocalDate today=LocalDate.now();
 		int year=today.getYear();
 		int month=today.getMonthValue();
@@ -241,9 +242,12 @@ public class ProductServiceImpl implements ProductService {
 		int hour=now_time.getHour();
 		int minute=now_time.getMinute();
 		int second=now_time.getSecond();
-		String cart_group=request.getParameter("cart_group");
-		
-		if(cart_group==null) {
+		String select_cart_list=request.getParameter("select_cart_list");
+		String[] select_cart = null;
+			for(int i=0;i<=select_cart_list.length();i++) {
+				select_cart=select_cart_list.split(",");
+			}
+		if(request.getParameter("select_cart_list")==null) {
 			String cart_id=request.getParameter("cart_id");
 			
 			CartVO cvo=mapper.cart_single_output(cart_id);
@@ -251,11 +255,19 @@ public class ProductServiceImpl implements ProductService {
 			
 			model.addAttribute("single_revenge",single_revenge);
 			model.addAttribute("cvo",cvo);
+		} else if(select_cart_list.length()==1)	{
 			
-		} else if(cart_group!=null) {
+			CartVO cvo=mapper.cart_single_output(select_cart[0]);
+			String single_revenge="0";
 			
-			ArrayList<CartVO> cvolist=mapper.product_payment(cart_group);
-			
+			model.addAttribute("single_revenge",single_revenge);
+			model.addAttribute("cvo",cvo);
+				
+		} else if(select_cart_list.length()>1) {
+		for(int i=0;i<=select_cart_list.length();i++) {
+				mapper.cart_single_output(select_cart[i]);
+			}
+			ArrayList<CartVO> cvolist=mapper.cart_revenge_output(cart_userid);
 			String single_revenge="1";
 			
 			model.addAttribute("single_revenge",single_revenge);
@@ -263,9 +275,6 @@ public class ProductServiceImpl implements ProductService {
 		}
 		
 		MemberVO mvo=mapper.show_member_information(session.getAttribute("member_userid").toString());
-		/*ProductVO pvo=mapper.product_content();*/
-		/*ArrayList<ProductVO> imglist=mapper.product_output_img(cart_id);*/
-		/*model.addAttribute("imglist",imglist);*/
 				
 		model.addAttribute("time",hour*10000+minute*100+second);
 		model.addAttribute("today",year*10000+month*100+day);
@@ -335,10 +344,10 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public String product_cart_list(Model model,HttpSession session,MemberVO mvo) {
-		ArrayList<CartVO> clist=mapper.product_cart_list(session.getAttribute("member_userid").toString());
-		model.addAttribute("clist",clist);
-		
+	public String product_cart_list(Model model,HttpSession session,MemberVO mvo,HttpServletRequest request) {
+			ArrayList<CartVO> clist=mapper.product_cart_list(session.getAttribute("member_userid").toString());
+			model.addAttribute("clist",clist);
+	
 		return "/product/product_cart_list";
 	}
 
@@ -348,6 +357,16 @@ public class ProductServiceImpl implements ProductService {
 		mapper.product_cart_delete(cart_id);
 		return "redirect:/product/product_cart_list";
 	}
+
+	@Override
+	public String product_cart_modify(HttpServletRequest request) {
+		int price=Integer.parseInt(request.getParameter("cart_price"));
+		int count=Integer.parseInt(request.getParameter("cart_count"));
+		String id=request.getParameter("cart_id");
+		mapper.product_cart_modify(count,count*price,id);
+		return "redirect:/product/product_cart_list";
+	}
+
 	
 	
 

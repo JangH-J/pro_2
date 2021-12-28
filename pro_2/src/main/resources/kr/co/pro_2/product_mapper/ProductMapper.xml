@@ -91,8 +91,8 @@
   	select * from cart where cart_id=#{param1}
   </select>
   <select id="cart_reverge_output" resultType="kr.co.pro_2.product_vo.CartVO">
-  	select * from cart where cart_group=#{param1}
-  </select>
+  	select * from cart where cart_group=1 and cart_userid=#{param1}
+  </select> 
   <insert id="input_recipient_member_information">
   	insert into buy(buy_ordernum,buy_userid,buy_order_phone,buy_recipient_name,buy_recipient_phone,buy_recipient_address,buy_etc) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
   </insert>
@@ -108,7 +108,13 @@
   <delete id="product_cart_delete">
   	delete from cart where cart_id=#{param1}
   </delete>
-  
+  <update id="product_cart_modify">
+  	update cart set cart_count=#{param1}, cart_price=#{param2} where cart_id=#{param3}
+  </update>
+  <update id="product_cart_input_group">
+  	update cart set cart_group=cart_group+1 where cart_id=#{param1}
+  </update>
+
 
 <!-- product_kinds=0 glove
 product_kinds=1 bat  

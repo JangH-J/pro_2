@@ -2,8 +2,16 @@ package kr.co.pro_2.product_vo;
 	
 	public class CartVO {
 		private int cart_id,cart_count,cart_price,cart_throw,cart_product_id;
-		private String cart_ordernum,cart_kinds,cart_name,cart_size0,cart_size1,cart_material,cart_style0,cart_style1,cart_color0,cart_color1,cart_purpose,cart_group,cart_userid,cart_writeday,cart_order_phone,cart_img,cart_inputdaytime;
+		private String cart_ordernum,cart_kinds,cart_name,cart_size0,cart_size1,cart_material,cart_style0,cart_style1,cart_color0,cart_color1,cart_purpose,cart_group,cart_userid,cart_writeday,cart_order_phone,cart_img,cart_inputdaytime,cart_checked;
 		
+		
+		
+		public String getCart_checked() {
+			return cart_checked;
+		}
+		public void setCart_checked(String cart_checked) {
+			this.cart_checked = cart_checked;
+		}
 		public String getCart_inputdaytime() {
 			return cart_inputdaytime;
 		}

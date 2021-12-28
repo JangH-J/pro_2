@@ -24,104 +24,107 @@ function all_select(){
 			</c:forEach>
 	 }
 }
-function cart_count_input(){
-	<c:set var="i" value="0"/>
-		<c:forEach items="${clist}" var="cvo">
-			var price0=document.getElementsByClassName("price_divide")[${i}].value;
-			var num=parseInt(document.getElementsByClassName("cart_count_select")[${i}].value);
-			document.getElementsByClassName("cart_price")[${i}].value=price0*num;
-			document.getElementsByClassName("cart_price_span")[${i}].innerText=add_comma(price0*num)+"원";
-		<c:set var="i" value="${i+1}"/>
-		</c:forEach>
+function cart_count_select(count,id,price,index_num){	
+	document.getElementById("cart_price")[index_num].value=price*count;
+	document.getElementById("product_price_div").innerText=add_comma(price*count)+"원";
+	location.href="product_cart_modify?cart_count="+count+"&cart_price"+price+"&cart_id"+id
 }
 function add_comma(val){
-	return new Intl.NumberFormat().format(val);
+	   return new Intl.NumberFormat().format(val);
 }
-function select_cart_check(){
-	<c:set var="i" value="0"/>
-		<c:forEach items="${clist}" var="cvo">
-			if(document.getElementsByClassName("select")[${i}].checked==true){
-				location.href="product_payment?cart_id"
-			}
-		<c:set var="i" value="${i+1}"/>
-		</c:forEach>
+
+function load_information(){
+	var checkedInput = document.querySelectorAll("input[type='checkbox']:checked");
+	var str = "";
+	for(var i=0; i<checkedInput .length; i++){
+	    str  += checkedInput [i].value + ",";
+	}
+	document.getElementById("select_cart_list").value=str;
+	
 }
+
 </script>
 <script src="/resources/product_js/product_cart_list.js"></script>
 <link href="/resources/product_css/product_cart_list.css" rel="stylesheet">
 </head>
-<body>
-<form method="post" id="product_cart_list_form" action="product_payment">
-<table id="cart_list_table">
-<caption>주문번호 : ${cvo.cart_ordernum}</caption>
+<body onload="load_information()">
+<form method="post" action="product_payment">
+<input type="hidden" name="select_cart_list" id="select_cart_list">
+<table>
+<caption>장바구니</caption>
 	<tr>
 		<td colspan="2"><input type="checkbox" id="input_all_select" onclick="all_select()"></td>
 	</tr>
-	<c:set var="cart_group" value="0"/>
+<c:set var="i" value="0"/>
 	<c:forEach items="${clist}" var="cvo">
-		<input type="hidden" class="price_divide" name="price_divide" value="${cvo.cart_price/cvo.cart_count}">
-		<input type="hidden" class="cart_price" name="cart_price" value="${cvo.cart_price}">
-		<input type="hidden" class="cart_id" name="cart_id" value="${cvo.cart_id}">
-		<input type="hidden" class="cart_group" name="cart_group" value="${cart_group+1}">
-			<tr>
-				<td>
-					<input type="checkbox" class="select">
-						<span><img></span><!-- 판매상품 이미지 구현 고민중 -->
-							<span class="cart_name">${cvo.cart_name}</span>
-								<span class="cart_count"> 
-									<select class="cart_count_select" name="cart_count_select" onchange="cart_count_input()">
-										<c:forEach begin="1" end="10" var="i">
-											<c:if test="${cvo.cart_count-(10-i)>1}">
-												<option>${cvo.cart_count-(10-i)}</option>
-											</c:if>	
-										</c:forEach>	
-												<option>${cvo.cart_count}</option>
-										<c:forEach begin="1" end="9" var="j"> 		
-												<option>${cvo.cart_count+j}</option>
-										</c:forEach>		
-									</select>
-							</span>
-					<span class="cart_price_span"><fmt:formatNumber value="${cvo.cart_price}"/>원</span>
-				</td>
-				<td>
-						<c:if test="${cvo.cart_size0!=null}">
-							사이즈 : ${cvo.cart_size0}
-						</c:if>
-						<c:if test="${cvo.cart_size1!=null}">
-						 	, ${cvo.cart_size1} 
-						</c:if>
-						<c:if test="${cvo.cart_throw=null}">
-							/ 좌투&우투 : ${cvo.cart_throw} 
-						</c:if>
-						<c:if test="${cvo.cart_material!=null}">
-							/ 소재 : ${cvo.cart_material} 
-						</c:if>
-						<c:if test="${cvo.cart_style0!=null}">
-							/ 스타일 : ${cvo.cart_style0} 
-						</c:if>
-						<c:if test="${cvo.cart_style1!=null}">
-							, ${cvo.cart_style1} 
-						</c:if>
-						<c:if test="${cvo.cart_color0!=null}">
-							/ 색상 : ${cvo.cart_color0} 
-						</c:if>
-						<c:if test="${cvo.cart_color1!=null}">
-							, ${cvo.cart_color1} 
-						</c:if>
-						<c:if test="${cvo.cart_purpose!=null}">
-							/ 용도 : ${cvo.cart_purpose}
-						</c:if>
-					</td>
-				<td>
-					<input type="button" onclick="location.href='/product/product_cart_delete?cart_id=${cvo.cart_id}'" value="삭제"> 
-				</td>
-			</tr>
+	<input type="hidden" name="cart_price" class="cart_price"  value="${cvo.cart_price}">
+	<input type="hidden" name="cart_userid"   value="${cvo.cart_userid}">
+	<tr>
+		<td>
+			<input type="checkbox" class="select" name="cart_id" value="${cvo.cart_id}">
+				<span><img></span><!-- 판매상품 이미지 구현 고민중 -->
+					<span class="cart_name">${cvo.cart_name}</span>
+					<select name="cart_count" onchange="cart_count_select(this.value,${cvo.cart_id},${cvo.cart_price/cvo.cart_count},${i})">
+						<c:forEach begin="1" end="9" var="i">
+							<c:if test="${cvo.cart_count-(10-i)>=1}">
+								<option value="${cvo.cart_count-(10-i)}">${cvo.cart_count-(10-i)}</option>
+							</c:if>
+						</c:forEach>
+							<option value="${cvo.cart_count}" selected>${cvo.cart_count} </option>
+						<c:forEach begin="1" end="10" var="i"> 
+							<c:if test="${cvo.cart_count+i<=10}">
+								<option value="${cvo.cart_count+i}">${cvo.cart_count+i}</option>	
+							</c:if>
+						</c:forEach>
+					</select>
+			<span class="cart_price_span"><fmt:formatNumber value="${cvo.cart_price}"/>원</span>
+		</td>
+		<td>
+				<c:if test="${cvo.cart_size0!=null}">
+					사이즈 : ${cvo.cart_size0}
+				</c:if>
+				<c:if test="${cvo.cart_size1!=null}">
+				 	, ${cvo.cart_size1} 
+				</c:if>
+				<c:if test="${cvo.cart_throw!=null}">
+					<c:if test="${cvo.cart_throw==0}">
+					/ 좌투용
+					</c:if>
+					<c:if test="${cvo.cart_throw==1}">
+					/ 우투용
+					</c:if>
+				</c:if>
+				<c:if test="${cvo.cart_material!=null}">
+					/ 소재 : ${cvo.cart_material} 
+				</c:if>
+				<c:if test="${cvo.cart_style0!=null}">
+					/ 스타일 : ${cvo.cart_style0} 
+				</c:if>
+				<c:if test="${cvo.cart_style1!=null}">
+					, ${cvo.cart_style1} 
+				</c:if>
+				<c:if test="${cvo.cart_color0!=null}">
+					/ 색상 : ${cvo.cart_color0} 
+				</c:if>
+				<c:if test="${cvo.cart_color1!=null}">
+					, ${cvo.cart_color1} 
+				</c:if>
+				<c:if test="${cvo.cart_purpose!=null}">
+					/ 용도 : ${cvo.cart_purpose}
+				</c:if>
+			</td>
+		<td>
+			<input type="button" onclick="location.href='/product/product_cart_delete?cart_id=${cvo.cart_id}'" value="삭제">
+		</td>
+	</tr>
+<c:set var="i" value="${i+1}"/>
 	</c:forEach>
-			<tr>
-				<td>
-					<input type="button" onclick="select_cart_check()" value="전체구매">
-				</td>
-			</tr>
+	<tr>
+		<td>
+			<div id="sell_count_div"></div>
+			<input type="submit" onclick="select_cart_check()" value="구매">
+		</td>
+	</tr>
 </table>
 </form>
 </body>

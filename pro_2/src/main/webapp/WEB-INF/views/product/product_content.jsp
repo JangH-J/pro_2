@@ -141,8 +141,8 @@ function add_comma(val){
 						<tr>
 							<td>
 							<div onclick="select_shirt_pants(this)">
-								상의<input type="radio" name="cart_style0" id="shirt" value="0" id="cart_style0" onclick="select_show_product(0)">
-								하의<input type="radio" name="cart_style1" id="pants" value="1" id="cart_style1" onclick="select_show_product(1)">
+								상의<input type="radio" name="cart_style0" id="shirt" value="상의" id="cart_style0" onclick="select_show_product(0)">
+								하의<input type="radio" name="cart_style1" id="pants" value="하의" id="cart_style1" onclick="select_show_product(1)">
 							</div>
 							</td>
 						</tr>
