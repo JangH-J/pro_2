@@ -11,9 +11,9 @@
 <body>
 
 <form method="post" action="product_payment_done">
+<input type="hidden" name="single_revenge" value="${single_revenge}">
 <input type="hidden" name="buy_userid" value="${mvo.member_userid}">
 <input type="hidden" name="buy_ordernum" value="${today*1000000+pvo.product_id+member_id+time}">
-<input type="hidden" name="buy_group" value="${cvo.cart_group}">
 <table>
 <caption>주문번호  ${today*1000000+pvo.product_id+member_id+time}</caption>
 	<tr>
@@ -37,7 +37,6 @@
 	
 	<c:if test="${single_revenge==0}">
 		<input type="hidden" name="product_id" value="${pvo.product_id}">
-		<input type="hidden" name="single_revenge" value="0">
 		<input type="hidden" name="cart_id" value="${cvo.cart_id}">
 	
 		<tr>
@@ -74,10 +73,14 @@
 						<c:if test="${cvo.cart_size1!=null}">
 						 	, ${cvo.cart_size1} 
 						</c:if>
-						<c:if test="${cvo.cart_throw=null}">
-							_좌투&우투 : ${cvo.cart_throw} 
+						<c:if test="${cvo.cart_throw!=null}">
+							<c:if test="${cvo.cart_throw==0}">
+							/ 좌투용
+							</c:if>
+							<c:if test="${cvo.cart_throw==1}">
+							/ 우투용
+							</c:if>
 						</c:if>
-					
 						<c:if test="${cvo.cart_material!=null}">
 							_소재 : ${cvo.cart_material} 
 						</c:if>
@@ -101,7 +104,6 @@
 	</c:if>
 	<c:if test="${single_revenge==1}">
 	<input type="hidden" name="buy_group">
-	<input type="hidden" name="single_revenge" value="1">
 		<c:forEach items="${cvolist}" var="cvo">
 		<tr>
 			<td>
@@ -119,12 +121,10 @@
 					<td>
 						<div>
 							<b>${cvo.cart_name}</b>
-							<input >
 						</div>
 						<div>
 							<span class="total_price">
 								${cvo.cart_price}
-								
 							</span>
 							<span>${cvo.cart_count}</span>
 						</div>
@@ -135,10 +135,14 @@
 						<c:if test="${cvo.cart_size1!=null}">
 						 	, ${cvo.cart_size1} 
 						</c:if>
-						<c:if test="${cvo.cart_throw=null}">
-							_좌투&우투 : ${cvo.cart_throw} 
+						<c:if test="${cvo.cart_throw!=null}">
+							<c:if test="${cvo.cart_throw==0}">
+							/ 좌투용
+							</c:if>
+							<c:if test="${cvo.cart_throw==1}">
+							/ 우투용
+							</c:if>
 						</c:if>
-					
 						<c:if test="${cvo.cart_material!=null}">
 							_소재 : ${cvo.cart_material} 
 						</c:if>

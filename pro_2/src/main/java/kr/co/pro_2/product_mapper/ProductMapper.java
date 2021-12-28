@@ -26,27 +26,37 @@ public interface ProductMapper {
 	public void product_buy5 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_material, String cart_purpose, String cart_group,   String cart_userid,    int cart_product_id,String cart_order_phone,String cart_writeday);
 	public void product_buy6 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_material, String cart_group,   String cart_userid,  int cart_product_id,   String cart_order_phone,String cart_writeday);
 	public void product_buy7 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_group,    String cart_userid,  int cart_product_id, String cart_order_phone,String cart_writeday);
-	public int product_call_member_id ();
-	public void cart_input_ordernum ();
-	public ArrayList<CartVO> product_payment (String cart_group);
+	public int output_cart_id(int cart_count, int cart_price, String cart_name, String cart_userid,String cart_writeday);
+	public CartVO cart_single_output(String cart_id);
+	public ArrayList<CartVO> cart_revenge_output();
 	public MemberVO show_member_information (String member_userid);
-	public void input_member_information (MemberVO mvo);
-	public String get_member_phone (String member_userid);
+	public void input_recipient_member_information0(String buy_ordernum,String buy_userid,String buy_order_phone,String buy_recipient_name,String buy_recipient_phone,String buy_recipient_address,String buy_id);
+	public void input_recipient_member_information1(String buy_ordernum,String buy_userid,String buy_order_phone,String buy_recipient_name,String buy_recipient_phone,String buy_recipient_address,String revenge_cart_id);
+	public void cart_checked(String cart_id);
+	public void cart_unchecked(String cart_id);
+	public int count_checked();
+	public String[] output_revenge_cart_id();
+	public CartVO show_cart_information(String cart_id);
+	public String output_member_userid(String buy_id);
 	public ArrayList<CartVO> product_cart_list(String member_userid);
+	public void product_cart_delete(String cart_id);
+	public void product_cart_modify(int cart_count,int cart_pirce,String cart_id);
+	public ArrayList<CartVO> product_payment (String cart_group);
+	public String get_member_phone (String member_userid);
+	public String output_buy_id0(String cart_id);
+	public String[] output_buy_id1(String revenge_cart_id);
+	public BuyVO show_buy_information0(String buy_ordernum);
+	public ArrayList<BuyVO> show_buy_information1(String buy_ordernum);
+	public void input_buy_ordernum(String buy_odrernum,String revenge_cart_id);
+	public ArrayList<CartVO> product_buy_done_revenge(String buy_ordernum);
+	public void input_cart_information(CartVO cvo);
+	public void input_revenge_cart_information(CartVO cvo);
+	public CartVO[] show_revenge_cart_information(String revenge_cart_id);
+	
+/*	public int product_call_member_id ();
+	public void input_member_information (MemberVO mvo);
 	public ArrayList<ProductVO> product_output_img(String cart_group);
 	public void product_buy_done(String cart_group);
 	public CartVO output_cart_ordernum(String cart_group);
-	public int output_cart_id(int cart_count, int cart_price, String cart_name, String cart_userid,String cart_writeday);
-	public CartVO cart_single_output(String cart_id);
-	public CartVO cart_single_output_each(String cart_id);
-	public ArrayList<CartVO> cart_revenge_output(String cart_userid);
-	public void input_recipient_member_information(String buy_ordernum,String buy_userid,String buy_order_phone,String buy_recipient_name,String buy_recipient_phone,String buy_recipient_address,String cart_id);
-	public CartVO show_cart_information(String cart_id);
-	public int output_buy_id(String buy_etc);
-	public String output_member_userid(String buy_id);
-	public void product_cart_delete(String cart_id);
-	public void product_cart_modify(int cart_count,int cart_pirce,String cart_id);
-	public void product_cart_input_group (String cart_id);
-
-	/*public void product_add_group(String[])*/
+	public void product_cart_input_group (String cart_id);*/
 }

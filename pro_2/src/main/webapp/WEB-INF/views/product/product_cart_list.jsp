@@ -32,24 +32,35 @@ function cart_count_select(count,id,price,index_num){
 function add_comma(val){
 	   return new Intl.NumberFormat().format(val);
 }
-
-function load_information(){
-	var checkedInput = document.querySelectorAll("input[type='checkbox']:checked");
-	var str = "";
-	for(var i=0; i<checkedInput .length; i++){
-	    str  += checkedInput [i].value + ",";
-	}
-	document.getElementById("select_cart_list").value=str;
-	
+function cart_all_checked(){
+		<c:set var="i" value="0"/>
+		<c:forEach items="${clist}" var="cvo">
+			var cart_id=document.getElementsByClassName("cart_id")[${i}].value;
+			location.href="cart_all_checked?cart_id="+cart_id;
+		<c:set var="i" value="${i+1}"/>
+		</c:forEach>
 }
-
+function cart_all_unchecked(){
+		<c:set var="i" value="0"/>
+		<c:forEach items="${clist}" var="cvo">
+			var cart_id=document.getElementsByClassName("cart_id")[${i}].value;
+			location.href="cart_all_unchecked?cart_id="+cart_id;
+		<c:set var="i" value="${i+1}"/>
+		</c:forEach>
+}
+function cart_checked(id){
+	location.href="product_cart_checked?cart_id="+id;
+}
+function cart_unchecked(id){
+	location.href="product_cart_unchecked?cart_id="+id;	
+}
 </script>
 <script src="/resources/product_js/product_cart_list.js"></script>
 <link href="/resources/product_css/product_cart_list.css" rel="stylesheet">
 </head>
 <body onload="load_information()">
 <form method="post" action="product_payment">
-<input type="hidden" name="select_cart_list" id="select_cart_list">
+<input type="hidden" name="single_revenge" value="1">
 <table>
 <caption>장바구니</caption>
 	<tr>
@@ -59,9 +70,15 @@ function load_information(){
 	<c:forEach items="${clist}" var="cvo">
 	<input type="hidden" name="cart_price" class="cart_price"  value="${cvo.cart_price}">
 	<input type="hidden" name="cart_userid"   value="${cvo.cart_userid}">
+	<input type="hidden" name="cart_id" class="cart_id"   value="${cvo.cart_id}">
 	<tr>
 		<td>
-			<input type="checkbox" class="select" name="cart_id" value="${cvo.cart_id}">
+			<c:if test="${cvo.cart_checked==0}">
+				<input type="checkbox" class="select" onclick="cart_checked(${cvo.cart_id})">
+			</c:if>
+			<c:if test="${cvo.cart_checked==1}">
+				<input type="checkbox" class="select" onclick="cart_unchecked(${cvo.cart_id})" checked>
+			</c:if>
 				<span><img></span><!-- 판매상품 이미지 구현 고민중 -->
 					<span class="cart_name">${cvo.cart_name}</span>
 					<select name="cart_count" onchange="cart_count_select(this.value,${cvo.cart_id},${cvo.cart_price/cvo.cart_count},${i})">
@@ -71,7 +88,7 @@ function load_information(){
 							</c:if>
 						</c:forEach>
 							<option value="${cvo.cart_count}" selected>${cvo.cart_count} </option>
-						<c:forEach begin="1" end="10" var="i"> 
+						<c:forEach begin="1" end="10" var="i">
 							<c:if test="${cvo.cart_count+i<=10}">
 								<option value="${cvo.cart_count+i}">${cvo.cart_count+i}</option>	
 							</c:if>

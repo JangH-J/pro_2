@@ -51,6 +51,7 @@ function add_comma(val){
 	<input type="hidden" name="cart_price" id="cart_price" value="${pvo.product_price}">
 	<input type="hidden" name="cart_img" id="cart_img" value="${pvo.product_img}">
 	<input type="hidden" name="cart_kinds" id="cart_kinds" value="${pvo.product_kinds}">
+	<input type="hidden" name="single_revenge" value="0">
 	<c:set var="cart_writeday" value='${today*100000+time}'/>
 	<input type="hidden" name="cart_writeday" value="${cart_writeday}">
 

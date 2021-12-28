@@ -33,12 +33,6 @@
   <select id="product_content"  resultType="kr.co.pro_2.product_vo.ProductVO" >
   	select * from product where product_id=#{param1}
   </select>
-  <select id="product_call_member_id" resultType="Integer">
-  	select member_id from member where member_userid=#{param1}
-  </select>
-  <insert id="cart_input_ordernum">
-  	insert into cart(cart_ordernum) values(#{param1})
-  </insert>
   <insert id="product_buy0">
   	insert into cart(cart_kinds,cart_count,cart_name,cart_price,cart_size0,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3}, #{param4},#{param5}, #{param6}, #{param7}, #{param8}	 ,#{param9},  #{param10},  #{param11},#{param12}, #{param13},#{param14})
   </insert>
@@ -66,44 +60,46 @@
   <select id="output_cart_id" resultType="Integer">
   	select cart_id from cart where cart_count=#{param1} and cart_price=#{param2} and cart_name=#{param3} and cart_userid=#{param4} and cart_writeday=#{param5}
   </select>
-  <select id="product_payment" parameterType="String" resultType="kr.co.pro_2.product_vo.CartVO">
-  	select * from cart where cart_group=#{param1} order by cart_id desc
-  </select>
-  <select id="show_member_information" resultType="kr.co.pro_2.member_vo.MemberVO">
-  	select * from member where member_userid=#{param1}
-  </select>
-  <select id="get_member_phone" resultType="String">
-  	select member_phone from member where member_userid=#{param1}
-  </select>
-  <select id="product_output_img" resultType="kr.co.pro_2.product_vo.ProductVO" >
-  	select product_img from product join cart on cart.cart_product_id=product.product_id where cart.cart_group=#{param1}
-  </select>
-  <select id="product_cart_list" resultType="kr.co.pro_2.product_vo.CartVO" parameterType="String">
-  	select * from cart where cart_userid=#{parame1}
-  </select>
-  <delete id="product_buy_done">
-  	delete from cart where cart_group=#{param1}
-  </delete>
-  <select id="output_cart_ordernum">
-  	select cart_ordernum from cart where cart_group=#{param1}
-  </select>
   <select id="cart_single_output" resultType="kr.co.pro_2.product_vo.CartVO">
   	select * from cart where cart_id=#{param1}
   </select>
-  <select id="cart_reverge_output" resultType="kr.co.pro_2.product_vo.CartVO">
-  	select * from cart where cart_group=1 and cart_userid=#{param1}
+  <select id="cart_revenge_output" resultType="kr.co.pro_2.product_vo.CartVO">
+  	select * from cart where cart_checked=1
   </select> 
-  <insert id="input_recipient_member_information">
-  	insert into buy(buy_ordernum,buy_userid,buy_order_phone,buy_recipient_name,buy_recipient_phone,buy_recipient_address,buy_etc) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
-  </insert>
+  <select id="show_member_information" resultType="kr.co.pro_2.member_vo.MemberVO">
+  	select * from member where member_userid=#{param1}
+  </select>
+  
+  <update id="input_recipient_member_information0">
+  	update buy set buy_ordernum=#{param1}, buy_userid=#{param2}, buy_order_phone=#{param3}, buy_recipient_name=#{param4}, buy_recipient_phone=#{param5}, buy_recipient_address=#{param6} where buy_etc=#{param7}
+  </update>
+  <update id="input_recipient_member_information1">
+  	update buy set buy_ordernum=#{param1}, buy_userid=#{param2}, buy_order_phone=#{param3}, buy_recipient_name=#{param4}, buy_recipient_phone=#{param5}, buy_recipient_address=#{param6} where buy_etc=#{param7}
+  </update>
+  
+  <update id="cart_checked">
+  	update cart set cart_checked=cart_checked+1 where cart_id=#{param1}
+  </update>
+  <update id="cart_unchecked">
+  	update cart set cart_checked=cart_checked-1 where cart_id=#{param1}
+  </update>
+  <select id="count_checked" resultType="Integer"> 
+  	select count(*) from cart where cart_checked=1
+  </select>
+  <select id="output_revenge_cart_id" resultType="String">
+  	select cart_id from cart where cart_checked=1
+  </select>
   <select id="show_cart_information" resultType="kr.co.pro_2.product_vo.CartVO">
   	select * from cart where cart_id=#{param1}
   </select>
-  <select id="output_buy_id" resultType="Integer">
-  	select buy_id from buy where buy_etc=#{param1}
+  <select id="show_revenge_cart_information" resultType="kr.co.pro_2.product_vo.CartVO">
+  	select * from cart where cart_id=#{param1}
   </select>
   <select id="output_member_userid" resultType="String">
   	select buy_userid from buy where buy_id=#{param1}
+  </select>
+  <select id="product_cart_list" resultType="kr.co.pro_2.product_vo.CartVO" parameterType="String">
+  	select * from cart where cart_userid=#{parame1}
   </select>
   <delete id="product_cart_delete">
   	delete from cart where cart_id=#{param1}
@@ -111,10 +107,53 @@
   <update id="product_cart_modify">
   	update cart set cart_count=#{param1}, cart_price=#{param2} where cart_id=#{param3}
   </update>
+  <select id="product_payment" parameterType="String" resultType="kr.co.pro_2.product_vo.CartVO">
+  	select * from cart where cart_group=#{param1} order by cart_id desc
+  </select>
+  <select id="get_member_phone" resultType="String">
+  	select member_phone from member where member_userid=#{param1}
+  </select>
+  <select id="output_buy_id0" resultType="String">
+  	select buy_id from buy where buy_etc=#{param1}
+  </select>
+  <select id="output_buy_id1" resultType="String">
+  	select buy_id from buy where buy_etc=#{param1}
+  </select>
+  <select id="show_buy_information0" resultType="kr.co.pro_2.product_vo.BuyVO">
+  	select * from buy where buy_ordernum=#{param1}
+  </select>
+  <select id="show_buy_information1" resultType="kr.co.pro_2.product_vo.BuyVO">
+  	select * from buy where buy_ordernum=#{param1}
+  </select>
+  <update id="input_buy_ordernum">
+  	update cart set cart_ordernum=#{param1} where cart_id=#{param2}
+  </update>
+  <select id="product_buy_done_revenge" resultType="kr.co.pro_2.product_vo.CartVO">
+  	select * from cart where cart_ordernum=#{param1}
+  </select>
+  <insert id="input_cart_information" parameterType="kr.co.pro_2.product_vo.CartVO">
+  	insert into buy(buy_kinds,buy_count,buy_name,buy_price,buy_size0,buy_size1,buy_throw,buy_material,buy_style0,buy_style1,buy_color0,buy_color1,buy_purpose,buy_etc) values(#{cart_kinds},#{cart_count},#{cart_name},#{cart_price},#{cart_size0},#{cart_size1},#{cart_throw},#{cart_material},#{cart_style0},#{cart_style1},#{cart_color0},#{cart_color1},#{cart_purpose},#{cart_id})
+  </insert>
+  <insert id="input_revenge_cart_information" parameterType="kr.co.pro_2.product_vo.CartVO">
+  	insert into buy(buy_kinds,buy_count,buy_name,buy_price,buy_size0,buy_size1,buy_throw,buy_material,buy_style0,buy_style1,buy_color0,buy_color1,buy_purpose,buy_etc) values(#{cart_kinds},#{cart_count},#{cart_name},#{cart_price},#{cart_size0},#{cart_size1},#{cart_throw},#{cart_material},#{cart_style0},#{cart_style1},#{cart_color0},#{cart_color1},#{cart_purpose},#{cart_id})
+  </insert>
+  
+  
+<!--   <select id="product_call_member_id" resultType="Integer">
+  	select member_id from member where member_userid=#{param1}
+  </select>
+  <select id="product_output_img" resultType="kr.co.pro_2.product_vo.ProductVO" >
+  	select product_img from product join cart on cart.cart_product_id=product.product_id where cart.cart_group=#{param1}
+  </select>
+  <delete id="product_buy_done">
+  	delete from cart where cart_group=#{param1}
+  </delete>
+  <select id="output_cart_ordernum">
+  	select cart_ordernum from cart where cart_group=#{param1}
+  </select>
   <update id="product_cart_input_group">
   	update cart set cart_group=cart_group+1 where cart_id=#{param1}
-  </update>
-
+  </update> -->
 
 <!-- product_kinds=0 glove
 product_kinds=1 bat  

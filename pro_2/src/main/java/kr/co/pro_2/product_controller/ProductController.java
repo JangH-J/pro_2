@@ -64,6 +64,22 @@ public class ProductController {
 	public String product_cart_modify(HttpServletRequest request) {
 		return service.product_cart_modify(request);
 	}
+	@RequestMapping("/product/product_cart_checked")
+	public String product_cart_checked(HttpServletRequest request) {
+		return service.product_cart_checked(request);
+	}
+	@RequestMapping("/product/product_cart_unchecked")
+	public String product_cart_unchecked(HttpServletRequest request) {
+		return service.product_cart_unchecked(request);
+	}
+	@RequestMapping("/product/product_cart_all_checked")
+	public String product_cart_all_checked(HttpServletRequest request) {
+		return service.product_cart_all_checked(request);
+	}
+	@RequestMapping("/product/product_cart_all_unchecked")
+	public String product_cart_all_unchecked(HttpServletRequest request) {
+		return service.product_cart_all_unchecked(request);
+	}
 	
 	
 

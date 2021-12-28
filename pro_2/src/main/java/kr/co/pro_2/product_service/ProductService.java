@@ -22,5 +22,9 @@ public interface ProductService {
 	public String product_cart_list(Model model,HttpSession session,MemberVO mvo,HttpServletRequest request);
 	public String product_cart_delete(HttpServletRequest request);
 	public String product_cart_modify(HttpServletRequest request);
+	public String product_cart_checked(HttpServletRequest request);
+	public String product_cart_unchecked(HttpServletRequest request);
+	public String product_cart_all_checked(HttpServletRequest request);
+	public String product_cart_all_unchecked(HttpServletRequest request);
 
 }
