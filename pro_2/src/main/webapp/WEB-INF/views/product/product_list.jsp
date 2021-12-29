@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>야구야 상품 판매</title> 
- <script src="/resources/product_js/product_list.js"></script>
+<script src="/resources/product_js/product_list.js"></script>
 <link href="/resources/product_css/product_list.css" rel="stylesheet"/>
 </head>
 <body>
@@ -56,7 +56,7 @@
 </table>
 <table id="bat_lists">
 		<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list1}" var="product">
 			<td>
 				<table>
 					<tr>
@@ -89,7 +89,7 @@
 </table>
 <table id="shoes_lists">
 		<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list2}" var="product">
 			<td>
 				<table>
 					<tr>
@@ -122,7 +122,7 @@
 </table>
 <table id="uniform_lists">
 		<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list3}" var="product">
 			<td>
 				<table>
 					<tr>
@@ -155,7 +155,7 @@
 </table>
 <table id="equipment_lists">
 		<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list4}" var="product">
 			<td>
 				<table>
 					<tr>
@@ -186,7 +186,7 @@
 	</c:forEach>
 	</tr>
 			<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list5}" var="product">
 			<td>
 				<table>
 					<tr>
@@ -217,7 +217,7 @@
 	</c:forEach>
 	</tr>
 			<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list6}" var="product">
 			<td>
 				<table>
 					<tr>
@@ -248,7 +248,7 @@
 	</c:forEach>
 	</tr>
 			<tr>
-		<c:forEach items="${product_list0}" var="product">
+		<c:forEach items="${product_list7}" var="product">
 			<td>
 				<table>
 					<tr>

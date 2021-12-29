@@ -52,6 +52,8 @@ public interface ProductMapper {
 	public void input_cart_information(CartVO cvo);
 	public void input_revenge_cart_information(CartVO cvo);
 	public CartVO[] show_revenge_cart_information(String revenge_cart_id);
+	public int match_cart_product_id(int cart_product_id);
+	public void input_match_product_countup(int cart_count,int product_id);
 	
 /*	public int product_call_member_id ();
 	public void input_member_information (MemberVO mvo);

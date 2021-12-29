@@ -22,7 +22,7 @@
 	</c:if>
 	<c:if test="${single_revenge==1}">
 		<table>
-			<c:forEach items="${bvolist}" var="cvo">
+			<c:forEach items="${bvolist}" var="bvo">
 				<tr>
 					<td>
 							제품 ${bvo.buy_name} 주문이 완료 되셨습니다<!-- 장바구니로 주문한 복수의 제품 어떻게 출력할지 고민 -->

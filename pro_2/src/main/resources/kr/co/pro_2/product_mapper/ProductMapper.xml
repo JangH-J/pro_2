@@ -25,7 +25,7 @@
     select * from product where product_kinds=6 order by product_id desc
   </select>
   <select id="ball_list" resultType="kr.co.pro_2.product_vo.ProductVO">
-    select * from product where product_kinds=6 order by product_id desc
+    select * from product where product_kinds=7 order by product_id desc
   </select>
   <update id="product_readnum">
    	update product set product_readnum=product_readnum+1 where product_id=#{param1}
@@ -137,6 +137,13 @@
   <insert id="input_revenge_cart_information" parameterType="kr.co.pro_2.product_vo.CartVO">
   	insert into buy(buy_kinds,buy_count,buy_name,buy_price,buy_size0,buy_size1,buy_throw,buy_material,buy_style0,buy_style1,buy_color0,buy_color1,buy_purpose,buy_etc) values(#{cart_kinds},#{cart_count},#{cart_name},#{cart_price},#{cart_size0},#{cart_size1},#{cart_throw},#{cart_material},#{cart_style0},#{cart_style1},#{cart_color0},#{cart_color1},#{cart_purpose},#{cart_id})
   </insert>
+  <select id="match_cart_product_id" resultType="Integer">
+  	select count(*) from cart where cart_product_id=#{param1}
+  </select>
+  <update id="input_match_product_countup">
+  	update cart set cart_count=cart_count+#{param1} where cart_product_id=#{param2}
+  </update>
+ 
   
   
 <!--   <select id="product_call_member_id" resultType="Integer">
