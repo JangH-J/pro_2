@@ -16,6 +16,18 @@
      visibility:hidden;
      background:white;
    }
+     #cart,#order_chk,#mupdate,#pwdupdate,#quit {
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+    }
  </style>
   <script>
 	 function change_pwd()
@@ -92,17 +104,17 @@
       </tr>
       <tr>
         <td>
-         <input type="button" value="장바구니" onclick="location='/product/product_cart_list'">
+         <input type="button" id="cart" value="장바구니" onclick="location='/product/product_cart_list'">
         </td>
         <td>
-         <input type="button" value="주문확인" onclick="">
+         <input type="button" id="order_chk" value="주문확인" onclick="">
         </td>
       </tr>
       <tr>
         <td colspan="2" align="center">
-         <input type="button" value="회원정보수정" onclick="location='mypage_update'">
-         <input type="button" value="비밀번호수정" onclick="change_pwd()">
-         <input type="button" value="회원탈퇴하기" onclick="member_delete()">
+         <input type="button" value="회원정보수정" id="mupdate" onclick="location='mypage_update'">
+         <input type="button" value="비밀번호수정" id="pwdupdate" onclick="change_pwd()">
+         <input type="button" value="회원탈퇴하기" id="quit" onclick="member_delete()">
         </td>
       </tr>
     </table>

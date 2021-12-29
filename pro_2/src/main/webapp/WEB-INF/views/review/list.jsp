@@ -49,7 +49,19 @@
 	    
 	    text-align: center;
 	}
-	 
+  	#btn_rwrite {
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+	    
+    }	 
   </style>
 </head>
 <body>
@@ -79,7 +91,7 @@
     </div>
     <c:if test="${member_userid!=null}">
     <tr>
-      <td colspan="3"><a href="write">글쓰기</a></td>
+      <td colspan="3"><a href="write" id="btn_rwrite">글쓰기</a></td>
     </tr>
     </c:if>
   </table>

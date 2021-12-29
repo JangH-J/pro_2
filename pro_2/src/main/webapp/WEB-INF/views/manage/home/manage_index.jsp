@@ -6,18 +6,29 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Insert title here</title>
 		<style>
-		
+		#manage {
+  		display: inline-block;
+    	padding: 40px 50px 42px;
+	    background: #E0E0E0;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+    }
 		</style>
 	</head>
 	<body>
-		<table align="center" width="700px">
+		<table align="center" width="1000px">
 			<tr>
-				<td><a href="member_manage">회원관리</a></td>
-				<td><a href="review_manage">후기관리</a></td>
+				<td id="manage"><a href="member_manage">회원관리</a></td>
+				<td id="manage"><a href="review_manage">후기관리</a></td>
 			</tr>
 			<tr>
-				<td><a href="product_manage">상품관리</a></td>
-				<td><a href="gongji_manage">공지사항관리</a></td>
+				<td id="manage"><a href="product_manage">상품관리</a></td>
+				<td id="manage"><a href="gongji_manage">공지사항관리</a></td>
 			</tr>
 		</table>
 	</body>

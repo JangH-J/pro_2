@@ -28,6 +28,19 @@
 	margin-bottom: auto;
 	text-align:center;
    }
+   #login,#join{
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+    }
+    
  </style>
 <script>
  function view_us()
@@ -109,12 +122,13 @@
           <td> <input type="password" name="member_pwd" placeholder="비밀번호"> </td>
         </tr>
         <tr>
-          <td> <input type="submit" value="로그인"> <input type="button" onclick="location='/member/member_input'" value="회원가입"> </td>
-        </tr>
+          <td> <input type="submit" value="로그인" id="login"> 
+          <input type="button" onclick="location='/member/member_input'" value="회원가입" id="join"> </td>
+        </tr> 
       </table>
     </form>
      <div align="center" >
-       <span onclick="view_us()"> 아이디 찾기 </span> 
+       <span onclick="view_us()"> 아이디 찾기 </span>        
        <span onclick="view_ps()"> 비밀번호 찾기 </span>
     </div>
     <form name="userid_search" id="userid_search">

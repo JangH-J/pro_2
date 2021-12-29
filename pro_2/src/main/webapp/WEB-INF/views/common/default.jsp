@@ -9,6 +9,14 @@
 <title>Insert title here</title>
 <script src="<c:url value='/resources/main_js/default.js'/>"></script>
 <link href="<c:url value='/resources/main_css/default.css'/>" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
+<style>
+	body{
+	font-family: 'Noto Sans KR', sans-serif;
+	}
+</style>
 </head>
 <decorator:head/>
 <body>
