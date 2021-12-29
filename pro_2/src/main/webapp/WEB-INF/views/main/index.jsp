@@ -56,18 +56,7 @@ $(".bx-start").click(function(){	//시작버튼 눌렀을때
     <div>
       <img src="/resources/img/front_ad04.jpg">
     </div>
-<!--    <div>
-      <img class="front_adimg" src="/resources/img/front_ad01.jpg">
-    </div>
-    <div>
-      <img class="front_adimg" src="/resources/img/front_ad02.jpg">
-    </div>
-    <div>
-      <img class="front_adimg" src="/resources/img/front_ad03.jpg">
-    </div>
-    <div>
-      <img class="front_adimg" src="/resources/img/front_ad04.jpg">
-    </div> -->
 </div>
+<h1 align="center" style="padding:50px;"><b>야구야 야구쇼핑몰에 오신걸 환영합니다</b></h1>
 </body>
 </html>
