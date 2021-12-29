@@ -35,7 +35,40 @@ function count_change_input(){
 function add_comma(val){
 	   return new Intl.NumberFormat().format(val);
 }
+function product_check0(){
+	if(${pvo.product_kinds==0}){
+		var throw_value0=document.getElementById("cart_throw0").value;
+		var throw_value1=document.getElementById("cart_throw1").value;
+		
+		if( throw_value0!=0 && throw_value1!=1){
+			alert("손잡이 방향을 정해 주세요!");
+		} 
+		
 
+	}
+	for(var i=0;i<21;i++){
+		var select_value=document.getElementsByTagName("select")[i].value;
+			if(select_value==0){
+				alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+			}
+	}
+}
+function product_check1(){
+	if(${pvo.product_kinds==0}){
+		var throw_value0=document.getElementById("cart_throw0").value;
+		var throw_value1=document.getElementById("cart_throw1").value;
+		
+		if( throw_value0!=0 && throw_value1!=1){
+			alert("손잡이 방향을 정해 주세요!");
+		} 
+	}
+	for(var i=0;i<21;i++){
+		var select_value=document.getElementsByTagName("select")[i].value;
+			if(select_value==0){
+				alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+			}
+	}
+}
 </script>
 <script src="/resources/product_js/product_content.js"></script>
 <link href="/resources/product_css/product_content.css" rel="stylesheet">
@@ -71,8 +104,8 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td colspan="2">
-								좌투<input type="radio" name="cart_throw0" id="cart_throw0" value="0"><!-- 좌투 -->
-								우투<input type="radio" name="cart_throw0" id="cart_throw1" value="1"><!-- 우투 -->
+								좌투<input type="radio" name="cart_throw0" id="cart_throw0" onclick="radio_on0()"><!-- 좌투 -->
+								우투<input type="radio" name="cart_throw0" id="cart_throw1" onclick="radio_on1()"><!-- 우투 -->
 							</td>
 						</tr>
 					</c:if>
@@ -80,7 +113,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td>
-								<select name="cart_material_0" id="cart_material_0">
+								<select name="cart_material_0" id="cart_material_0" required>
 									<option value="0">선택</option>								
 									<option value="돈피">돈피</option>
 									<option value="우피">우피</option>
@@ -92,7 +125,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==1}">
 						<tr>
 							<td>
-								<select name="cart_material_1" onchange="select_color_formaterial(this)" id="cart_material_1">
+								<select  name="cart_material_1" onchange="select_color_formaterial(this)" id="cart_material_1" required>
 									<option value="0">선택</option>
 									<option value="나무">나무</option>
 									<option value="알루미늄">알루미늄</option>
@@ -104,7 +137,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==2}">
 						<tr>
 							<td>
-								<select name="cart_material_2" id="cart_material_2"> 
+								<select name="cart_material_2" id="cart_material_2" required> 
 									<option value="0">선택</option>							
 									<option value="소가죽">소가죽</option>
 									<option value="합성섬유">합성섬유</option>
@@ -116,7 +149,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==5}">
 						<tr>
 							<td>
-								<select name="cart_material_5" id="cart_material_5">
+								<select name="cart_material_5" id="cart_material_5" required>
 									<option value="0">선택</option>								
 									<option value="달걀껍질">달걀껍질</option>
 									<option value="분말">분말</option>
@@ -128,7 +161,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==6}">
 						<tr>
 							<td>
-								<select name="cart_material_6" id="cart_material_6">
+								<select name="cart_material_6" id="cart_material_6" required>
 									<option value="0">선택</option>
 									<option value="경화지방산">경화지방산</option>
 									<option value="동물성지방">동물성지방</option>
@@ -153,7 +186,7 @@ function add_comma(val){
  					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td>
-								<select name="cart_color0_0" id="cart_color0_0">
+								<select name="cart_color0_0" id="cart_color0_0" required>
 									<option value="0">선택</option>									
 									<option value="갈색">갈색</option>
 									<option value="적색">적색</option>
@@ -167,7 +200,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==1}">
 						<tr>
 							<td>
-								<select name="cart_color0_1" id="cart_color0_1">
+								<select name="cart_color0_1" id="cart_color0_1" required>
 									<option value="0">선택</option>								
 									<option value="은색">은색</option>
 									<option value="흑색">흑색</option>
@@ -179,7 +212,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==2}">
 						<tr>
 							<td>
-								<select name="cart_color0_2" id="cart_color0_2">
+								<select name="cart_color0_2" id="cart_color0_2" required>
 									<option value="0">선택</option>								
 									<option value="백색">백색</option>
 									<option value="연갈색">연갈색</option>
@@ -195,7 +228,7 @@ function add_comma(val){
 						<tr>
 							<td>
 								<div class="select_shirt">
-									상의색상<select name="cart_color0_3" id="cart_color0_3">
+									상의색상<select name="cart_color0_3" id="cart_color0_3" required>
 										<option value="0">선택</option>
 										<option value="갈색">갈색</option>
 										<option value="백적색">백적색</option>
@@ -248,7 +281,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==1}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_1"  id="cart_purpose_1">
+								<select name="cart_purpose_1"  id="cart_purpose_1" required>
 									<option value="0">선택</option>
 									<option value="밸런스">밸런스</option>
 									<option value="미들밸런스">미들밸런스</option>
@@ -275,7 +308,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==3}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_3" id="cart_purpose_3">
+								<select name="cart_purpose_3" id="cart_purpose_3" required>
 									<option value="0">선택</option>
 									<option value="동계용">동계용</option>
 									<option value="하계용">하계용</option>
@@ -286,7 +319,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==4}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_4" id="cart_purpose_4">
+								<select name="cart_purpose_4" id="cart_purpose_4" required>
 									<option value="0">선택</option>
 									<option value="암가드">암가드</option>
 									<option value="풋가드">풋가드</option>
@@ -297,7 +330,7 @@ function add_comma(val){
 					<c:if test="${pvo.product_kinds==5}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_5" id="cart_purpose_5">
+								<select name="cart_purpose_5" id="cart_purpose_5" required>
 									<option value="0">선택</option>
 									<option value="타자용">타자용</option>
 									<option value="투수용">투수용</option>
@@ -309,7 +342,7 @@ function add_comma(val){
 					<tr>
 						<td>
 							<c:if test="${pvo.product_kinds==0}">
-								<select name="cart_size_0" id="cart_size_0">
+								<select name="cart_size_0" id="cart_size_0" required>
 									<option value="0">선택</option>
 									<option value="11.5">11.5인치</option>
 									<option value="12">12인치</option>
@@ -318,7 +351,7 @@ function add_comma(val){
 								</select>
 							</c:if>
 							<c:if test="${pvo.product_kinds==1}">
-								<select name="cart_size_1" id="cart_size_1">
+								<select name="cart_size_1" id="cart_size_1" required>
 									<option value="0">선택</option>
 									<option value="32">32인치</option>
 									<option value="33">33인치</option>
@@ -326,7 +359,7 @@ function add_comma(val){
 								</select>
 							</c:if>
 							<c:if test="${pvo.product_kinds==2}">
-								<select name="cart_size_2" id="cart_size_2">
+								<select name="cart_size_2" id="cart_size_2" required>
 									<option value="0">선택</option>
 									<option value="245">245</option>
 									<option value="250">250</option>
@@ -341,7 +374,7 @@ function add_comma(val){
 							</c:if>
 							<c:if test="${pvo.product_kinds==3}">
 								<div class="select_shirt" id="select_shirt">
-									<select name="cart_size_0_3" id="cart_size_0_3">
+									<select name="cart_size_0_3" id="cart_size_0_3" required>
 										<option value="0">선택</option>
 										<option value="95">95</option>
 										<option value="100">100</option>
@@ -352,7 +385,7 @@ function add_comma(val){
 									</select>
 								</div>
 								<div class="select_pants" id="select_shirt">
-									<select name="cart_size_1_3" id="cart_size_1_3">
+									<select name="cart_size_1_3" id="cart_size_1_3" required>
 										<option value="0">선택</option>
 										<option value="30">30</option>
 										<option value="32">32</option>
@@ -374,16 +407,23 @@ function add_comma(val){
 						</td>
 					</tr> 
 				<tr>
-					<td><input type="submit" name="input_buy" value="바로구매"></td>
+					<td><input onmouseover="product_check0()" type="submit" name="input_buy" value="바로구매"></td>
 				</tr>
 				<tr>
-					<td><input type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1';alert('장바구니에 해당상품을 옮겼습니다')" value="장바구니"></td>
+					<td><input onmouseover="product_check1()" type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1';alert('장바구니에 담았습니다')" value="장바구니"></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td>${pvo.product_detail}</td>
+		<td>
+		상세페이지
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="/resources/img/${pvo.product_detail}"/>
+		</td>
 	</tr>
 </table>
 <div>${pvo.product_readnum}</div>

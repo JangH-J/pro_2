@@ -9,19 +9,65 @@
 <title>Insert title here</title>
 <script src="<c:url value='/resources/main_js/main_index.js'/>"></script>
 <link href="<c:url value='/resources/main_css/main_index.css'/>" rel="stylesheet"/>
-</head>
-<body onload="moving_front_ad()">
-<div id="show_front_ad">
-</div>
-<div id="front_ad">
-<img src="resources/img/front_ad01.jpg" id="front_adimg01">
-<img src="resources/img/front_ad02.jpg" id="front_adimg02">
-<img src="resources/img/front_ad03.jpg" id="front_adimg03">
-<img src="resources/img/front_ad04.jpg" id="front_adimg04">
-</div>
-<div>
-최근 본 추천 상품	
-</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"> 
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script> 
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+<script> 
+$(document).ready(function(){ 
+    var main = $('.slider').bxSlider({ 
+    mode: 'fade', 
+    auto: true,	//자동으로 슬라이드 
+    controls : true,	//좌우 화살표	
+    autoControls: true,	//stop,play 
+    pager:true,	//페이징 
+    pause: 3000, 
+    autoDelay: 0,	
+    slideWidth: 2000, 
+    speed: 500, 
+    stopAutoOnclick:true 
+}); 
+   
+$(".bx-stop").click(function(){	// 중지버튼 눌렀을때 
+    main.stopAuto(); 
+    $(".bx-stop").hide(); 
+    $(".bx-start").show(); 
+    return false; 
+}); 
 
+$(".bx-start").click(function(){	//시작버튼 눌렀을때 
+    main.startAuto(); 
+    $(".bx-start").hide(); 
+    $(".bx-stop").show(); 
+    return false; 
+}); 
+
+  $(".bx-start").hide();	//onload시 시작버튼 숨김. 
+}); 
+</script> 
+</head>
+<body>
+<div class="slider">
+    <div>
+      <img src="/resources/img/front_ad02.jpg">
+    </div>
+    <div>
+      <img src="/resources/img/front_ad03.jpg">
+    </div>
+    <div>
+      <img src="/resources/img/front_ad04.jpg">
+    </div>
+<!--    <div>
+      <img class="front_adimg" src="/resources/img/front_ad01.jpg">
+    </div>
+    <div>
+      <img class="front_adimg" src="/resources/img/front_ad02.jpg">
+    </div>
+    <div>
+      <img class="front_adimg" src="/resources/img/front_ad03.jpg">
+    </div>
+    <div>
+      <img class="front_adimg" src="/resources/img/front_ad04.jpg">
+    </div> -->
+</div>
 </body>
 </html>

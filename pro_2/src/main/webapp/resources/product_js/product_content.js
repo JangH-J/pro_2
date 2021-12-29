@@ -14,6 +14,13 @@ function select_shirt_pants(my){
 		document.getElementsByClassName("select_pants").style.display="block-inline";
 	}
 }
+function radio_on0(){
+	document.getElementById("cart_throw0").value="0";
+}
+function radio_on1(){
+	document.getElementById("cart_throw1").value="1";
+}
+
 
 
 

@@ -20,7 +20,7 @@
 		<li><input type="button" name="product_equipment" id="product_equipment" onclick="product_equipment_show()" value="야구용품"></li>
 	</ul>
 </div>
-<c:set var="i" value="${0}"/>
+<c:set var="i" value="0"/>
 <table id="glove_lists">
 		<tr>
 		<c:forEach items="${product_list0}" var="product">
@@ -30,7 +30,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/glove.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -54,6 +54,7 @@
 	</c:forEach>
 	</tr>
 </table>
+<c:set var="j" value="0"/>
 <table id="bat_lists">
 		<tr>
 		<c:forEach items="${product_list1}" var="product">
@@ -63,7 +64,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/bat.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -79,14 +80,15 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
+		<c:set var="j" value="${j+1}"/>
+		<c:if test="${j%5==0}">
 			</tr>
 			<tr>	
 		</c:if>
 	</c:forEach>
 	</tr>
 </table>
+<c:set var="k" value="0"/>
 <table id="shoes_lists">
 		<tr>
 		<c:forEach items="${product_list2}" var="product">
@@ -96,7 +98,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/shoes.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -112,14 +114,15 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
+		<c:set var="k" value="${k+1}"/>
+		<c:if test="${k%5==0}">
 			</tr>
 			<tr>	
 		</c:if>
 	</c:forEach>
 	</tr>
 </table>
+<c:set var="l" value="0"/>
 <table id="uniform_lists">
 		<tr>
 		<c:forEach items="${product_list3}" var="product">
@@ -129,7 +132,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/uniform.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -145,16 +148,18 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
+		<c:set var="l" value="${l+1}"/>
+		<c:if test="${l%5==0}">
 			</tr>
 			<tr>	
 		</c:if>
 	</c:forEach>
 	</tr>
 </table>
-<table id="equipment_lists">
-		<tr>
+<c:set var="m" value="0"/>
+<div  id="equipment_lists">
+<table>
+	<tr>
 		<c:forEach items="${product_list4}" var="product">
 			<td>
 				<table>
@@ -162,7 +167,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/guard.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -178,14 +183,17 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
-			</tr>
-			<tr>	
-		</c:if>
-	</c:forEach>
-	</tr>
-			<tr>
+		<c:set var="m" value="${m+1}"/>
+			<c:if test="${m%5==0}">
+				</tr>
+				<tr>	
+			</c:if>
+		</c:forEach>
+		</tr>
+</table>
+<table>
+		<c:set var="n" value="0"/>
+		<tr>
 		<c:forEach items="${product_list5}" var="product">
 			<td>
 				<table>
@@ -193,7 +201,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/loginbag.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -209,22 +217,26 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
+		<c:set var="n" value="${n+1}"/>
+		<c:if test="${n%5==0}">
 			</tr>
-			<tr>	
+			<tr> 
 		</c:if>
 	</c:forEach>
 	</tr>
-			<tr>
-		<c:forEach items="${product_list6}" var="product">
+</table >
+
+<table>
+	<c:set var="o" value="0"/>
+	<tr>
+	<c:forEach items="${product_list6}" var="product">
 			<td>
 				<table>
 					<tr>
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/leathercream.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -240,13 +252,17 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
+		<c:set var="o" value="${o+1}"/>
+		<c:if test="${o%5==0}">
 			</tr>
 			<tr>	
 		</c:if>
 	</c:forEach>
 	</tr>
+</table>
+
+<table>
+	<c:set var="p" value="0"/>
 			<tr>
 		<c:forEach items="${product_list7}" var="product">
 			<td>
@@ -255,7 +271,7 @@
 						<td>${product.product_id+10000}</td>
 					</tr>				
 					<tr>
-						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/${product.product_img}" width="300px" class="img"></a></td>
+						<td><a href="product_readnum?product_id=${product.product_id}"><img src="../resources/img/ball.jpg" width="300px" class="img"></a></td>
 					</tr>
 					<tr>
 						<td><a href="product_readnum?product_id=${product.product_id}">${product.product_name}</a></td>
@@ -271,13 +287,14 @@
 					</tr>
 				</table> 	
 			</td>
-		<c:set var="i" value="${i+1}"/>
-		<c:if test="${i%5==0}">
+		<c:set var="p" value="${p+1}"/>
+		<c:if test="${p%5==0}">
 			</tr>
 			<tr>	
 		</c:if>
 	</c:forEach>
 	</tr>
 </table>
+</div>
 </body>
 </html>

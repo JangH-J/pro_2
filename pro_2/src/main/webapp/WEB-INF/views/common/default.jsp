@@ -13,15 +13,6 @@
 <decorator:head/>
 <body>
 <div id="top_top_wrapper">
-			<div id="top_top_left">
-				<ul id="top_top_ul_left">
-					<li class="top_index"><a href="../gongji/gongji_list">공지사항</a></li>
-					<li class="top_index"><a href="../custom/custom_list">고객센터</a></li>
-					<li class="top_index"><a href="event">이벤트</a></li>
-					<li class="top_index"><a href="../review/list">후기</a></li>
-					<li class="top_index"><a href="../product/product_list">구매</a></li>
-				</ul>
-			</div>
 			<div id="top_top_right">
 				<ul id="top_top_ul_right">
 					<c:if test="${member_userid==null}">
@@ -43,61 +34,15 @@
 			<div id="logodiv">
 				<a href="/"><img src="../resources/img/yaguya_main.png" id="logo"></a>
 			</div>
-			<div id="searchdiv">
-				<form method="post" action="product" id="searchform">
-					<input type="text" name="search">
-					<input type="submit" value="검색">
-				</form>
-			</div>
-			<div id="event_smalldiv">
-				<a href=""><img src="" id="event_small">이벤트 작게</a>
+			<div id="top_top_left">
+				<ul id="top_top_ul_left">
+					<li class="top_index"><b><a href="../gongji/gongji_list">공지사항</a></b></li>
+					<li class="top_index"><b><a href="../product/product_list">상품구매</a></b></li>
+					<li class="top_index"><b><a href="../review/list">후기</a></b></li>
+					<li class="top_index"><b><a href="../custom/custom_list">고객센터</a></b></li>
+				</ul>
 			</div>
 		</div>
-		<div id="top_bottom">
-			<ul id="top_bottom_ul1">
-				<li class="top_menu" onmouseover="show_detail_all()" onmouseout="hide_detail()">전체상품</li>
-			</ul>
-			<ul id="top_bottom_ul2">
-				<li class="top_menu" onmouseover="show_detail_recommended()" onmouseout="hide_detail()">추천상품</li>
-			</ul>
-			<ul id="top_bottom_ul3">
-				<li class="top_menu" onmouseover="show_detail_sale()" onmouseout="hide_detail()">특가할인</li>
-			</ul>
-			<ul id="top_bottom_ul4">
-				<li class="top_menu" onmouseover="show_detail_used()" onmouseout="hide_detail()">중고장터
-					<span id="all_menu_detail">
-						<br>
-						글러브<br>
-						배트<br>
-						신발<br>
-						유니폼<br>
-						기타1
-					</span>
-					<span id="recommended_menu_detail">
-						<br>
-						글러브<br>
-						배트<br>
-						신발<br>
-						기타2
-					</span>
-					<span id="sale_menu_detail">
-						<br>
-						글러브<br>
-						배트<br>
-						신발<br>
-						기타3
-					</span>
-					<span id="used_menu_detail">
-						<br>
-						글러브<br>
-						배트<br>
-						신발<br>
-						기타4
-					</span>
-				</li>
-			</ul>
-		</div>
-		
 </body>
 <decorator:body/>
 <div id="bottom">

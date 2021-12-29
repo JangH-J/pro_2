@@ -11,12 +11,12 @@
 				padding-top:3px;
 			}
 			#top_top_left{
-				width: 49%;
-				text-align: left;
+				width: 100%;
+				text-align:  left;
 				display: inline-block;
 			}
 			#top_top_right{
-				width: 49%;
+				width: 99%;
 				text-align: right;
 				display: inline-block;
 			}
@@ -42,6 +42,7 @@
 				padding: 0;
 				display: inline-block;
 				vertical-align: middle;
+				font-size:28px;
 			}
 			#top_top_ul_right{
 				height: 30px;
@@ -93,7 +94,7 @@
 				padding: 0;
 			}
 			#bottom{
-				background: lightgrey;
+				background: white;
 			}
 			#bottom_link_ul{
 				margin: 0;
