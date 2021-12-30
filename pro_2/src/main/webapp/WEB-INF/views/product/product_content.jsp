@@ -43,14 +43,55 @@ function product_check0(){
 		if( throw_value0!=0 && throw_value1!=1){
 			alert("손잡이 방향을 정해 주세요!");
 		} 
-		
-
+		for(var i=0;i<4;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==1}){
+		for(var i=0;i<4;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==2}){
+		for(var i=0;i<4;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==3}){
+		for(var i=0;i<1;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==4}){
+		for(var i=0;i<1;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==5}){
+		for(var i=0;i<2;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
 	}
-	for(var i=0;i<21;i++){
-		var select_value=document.getElementsByTagName("select")[i].value;
-			if(select_value==0){
-				alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
-			}
+	if(${pvo.product_kinds==6}){
+		for(var i=0;i<1;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
 	}
 }
 function product_check1(){
@@ -61,12 +102,55 @@ function product_check1(){
 		if( throw_value0!=0 && throw_value1!=1){
 			alert("손잡이 방향을 정해 주세요!");
 		} 
+		for(var i=0;i<4;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==1}){
+		for(var i=0;i<4;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==2}){
+		for(var i=0;i<4;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==3}){
+		for(var i=0;i<1;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==4}){
+		for(var i=0;i<1;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
+	} else if(${pvo.product_kinds==5}){
+		for(var i=0;i<2;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
 	}
-	for(var i=0;i<21;i++){
-		var select_value=document.getElementsByTagName("select")[i].value;
-			if(select_value==0){
-				alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
-			}
+	if(${pvo.product_kinds==6}){
+		for(var i=0;i<1;i++){
+			var select_value=document.getElementsByTagName("select")[i].value;
+				if(select_value==0){
+					alert("구매자님께서 원하시는 옵션을 선택해주세요 ")
+				}
+		}
 	}
 }
 </script>
