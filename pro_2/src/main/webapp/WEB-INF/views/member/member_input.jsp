@@ -25,6 +25,18 @@
 	margin-right: auto;   
 	text-align:center;
    }
+   #btn_join, #btn_cancle{
+	display: inline-block;
+   	padding: 10px 20px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;
+   }
  </style>
   <script>
   	var uchk=1; // 아이디 중복체크 관련 변수
@@ -143,9 +155,9 @@
    <table width="500">
      <span>이용 약관</span>
        <p> 
-         <label for="agreement1">아래 사항에 동의 합니다.</label> <br/>
-           <input id="agreement1" type="checkbox" name="agreement1"/> 
-             <textarea id="text1" readonly> 이용약관 </textarea> 
+         <textarea id="text1" readonly> 이용약관 </textarea>
+          <label for="agreement1">아래 사항에 동의 합니다.</label> <br/>
+           <input id="agreement1" type="checkbox" name="agreement1"/>  
        </p>
    </table>
    <table width="500">
@@ -193,7 +205,7 @@
        <td> <input type="text" name="member_phone" placeholder="01012345678"> </td>
      </tr>
      <tr>
-       <td> <input type="submit" value="회원가입"> <input type="button" onclick="location='/'" value="취소"> </td>
+       <td> <input type="submit" value="회원가입" id="btn_join"> <input type="button" onclick="location='/'" value="취소" id="btn_cancle"> </td>
      </tr>
    </table>
   </form>

@@ -28,19 +28,22 @@
 	margin-bottom: auto;
 	text-align:center;
    }
-   #login,#join{
-  		display: inline-block;
-    	padding: 10px 20px 12px;
-	    background: #fff;
-	    border: 1px solid #ccc;
-	    border-radius: 2px;
-	    color: #555;
-	    text-align: center;
-	    line-height: 11px;
-	    transition: background 0.3s;
-	    vertical-align: middle;
+   #login,#join,#btn_findid,#btn_findpwd{
+	display: inline-block;
+   	padding: 10px 20px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;
     }
-    
+   #find_id, #find_pwd{
+   	font-weight:300;
+   	font-size:13px;
+   } 
  </style>
 <script>
  function view_us()
@@ -127,9 +130,9 @@
         </tr> 
       </table>
     </form>
-     <div align="center" >
-       <span onclick="view_us()"> 아이디 찾기 </span>        
-       <span onclick="view_ps()"> 비밀번호 찾기 </span>
+     <div align="center" > 
+       <span onclick="view_us()" id="find_id"> 아이디 찾기 ┃</span>      
+       <span onclick="view_ps()" id="find_pwd"> 비밀번호 찾기 </span>
     </div>
     <form name="userid_search" id="userid_search">
       <table width="400" align="center">
@@ -141,7 +144,8 @@
          <td> <input type="text" name="email" placeholder="이메일"> </td>
        </tr>
        <tr>
-         <td> <input type="button" value="아이디찾기" onclick="userid_search_fn()"> </td>
+         <td> <input type="button" value="아이디찾기" onclick="userid_search_fn()" id="btn_findid"> </td>
+         
        </tr>
      </table>
     </form>
@@ -158,7 +162,7 @@
          <td> <input type="text" name="email" placeholder="이메일"> </td>
        </tr>
        <tr>
-         <td> <input type="button" value="비밀번호찾기" onclick="pwd_search_fn()"> </td>
+         <td> <input type="button" value="비밀번호찾기" onclick="pwd_search_fn()" id="btn_findpwd"> </td>
        </tr>
      </table>
     </form>

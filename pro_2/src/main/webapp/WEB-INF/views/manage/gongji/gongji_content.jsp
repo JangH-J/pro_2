@@ -19,9 +19,9 @@
      margin:auto;
      margin-top:40px;
    }
-   #section td {
+   #section, th, td {
 		font-size:14px; 
-		font-weight:300;
+		font-weight:400;
 		border-collapse : collapse;
 	  	border-top-color: initial;
 	    border-top-style: none;
@@ -39,35 +39,46 @@
 	    
 	    text-align: center;
 	}
+	#gongji_list{
+		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+	}
 </style>
 </head>
 <body>
+<div style="margin:42px auto; text-align: center;">
+<h2><font color="#555555">공지사항</font></h2>
+<%-- <caption> <h3> 공지사항</h3></caption> --%>
   <div id="section">
-    <table width="500" align="center">
-      <caption> <h3> 공지사항</h3></caption>
+    <table width="1000" align="center" id="gongji">
       <tr>
-        <td> 제 목 </td>
-        <td> ${mvo.gongji_title} </td>
+        <th> 제 목 </th>
+        <td colspan="3"> ${mvo.gongji_title} </td>
       </tr>
       <tr>
-        <td> 작성자 </td>
-        <td> 관리자 </td>
+        <th > 작성자 </th>
+        <td colspan="3"> 관리자 </td>
       </tr>
       <tr>
-        <td> 내 용 </td>
-        <td> ${mvo.gongji_content} </td>
-      </tr>
-      <tr>
-        <td> 조회수 </td>
+        <th> 조회수 </th>
         <td> ${mvo.gongji_readnum} </td>
-      </tr>
-      <tr>
-        <td> 작성일 </td>
+        <th> 작성일 </th>
         <td> ${mvo.gongji_writeday} </td>
       </tr>
       <tr>
-        <td colspan="2" align="center">
-          <a href="/gongji/gongji_list"> 목록 가기 </a>
+        <td colspan="4"> ${mvo.gongji_content} </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <a href="/gongji/gongji_list" id="gongji_list"> 목록 가기 </a>
         </td>
       </tr>
     </table>

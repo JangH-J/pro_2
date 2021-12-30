@@ -13,7 +13,7 @@
 	body{
 	font-family: 'Noto Sans KR', sans-serif;
 	}
-	#review_content, th {
+	#review_content, th ,td{
 		font-size:14px; 
   		font-weight:400;
   		border-collapse : collapse;
@@ -31,24 +31,6 @@
   	    border-left-width: 0px;
   	    padding: 10px 10px 10px;   	
 	}
-	td {
-  		font-size:14px; 
-  		font-weight:400;
-  		border-collapse : collapse;
-  	  	border-top-color: initial;
-  	    border-top-style: none;
-  	    border-top-width: 0px;
-  	    border-right-color: initial;
-  	    border-right-style: none;
-  	    border-right-width: 0px;
-  	    border-bottom-color: rgb(218, 218, 218);
-  	    border-bottom-style: solid;
-  	    border-bottom-width: 1px;
-  	    border-left-color: initial;
-  	    border-left-style: none;
-  	    border-left-width: 0px;
-  	    padding: 10px 10px 10px;  	  
-  	}
   	#btn_rlist,#btn_rupdate,#btn_rdelete {
   		display: inline-block;
     	padding: 10px 20px 12px;
@@ -71,7 +53,7 @@
  </script>
 </head>
 <body>
-  <div class="titleArea" style="margin:42px auto; text-align: center;">
+  <div style="margin:42px auto; text-align: center;">
   	<h2><font color="#555555">사용후기</font></h2>
   </div>
    <table id="review_content" width="1000" align="center" id="rcon">

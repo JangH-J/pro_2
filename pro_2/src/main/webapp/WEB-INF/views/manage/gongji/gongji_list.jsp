@@ -26,7 +26,7 @@
    td {
      height:30px;
    }
-   #gongji-name ,td {
+   #gongji-name td  {
 		font-size:16px; font-weight:300;
 		border-collapse : collapse;
 	  	border-top-color: rgb(218, 218, 218);
@@ -64,7 +64,18 @@
 	    
 	    text-align: center;
 	}
-
+  	#gwrite {
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+    }
 </style>
 </head>
 <body>
@@ -94,7 +105,7 @@
      <c:if test="${member_userid=='admin'}">
       <tr>
         <td colspan="4" align="center">
-          <a href="gongji_write"> 글쓰기 </a>
+          <a href="gongji_write" id="gwrite"> 글쓰기 </a>
         </td>
       </tr>
      </c:if>
