@@ -152,22 +152,6 @@
 <body>
  <div id="section">
   <form method="post" action="member_input_ok" onsubmit="return send(this)" align="center">
-   <table width="500">
-     <span>이용 약관</span>
-       <p> 
-         <textarea id="text1" readonly> 이용약관 </textarea>
-          <label for="agreement1">아래 사항에 동의 합니다.</label> <br/>
-           <input id="agreement1" type="checkbox" name="agreement1"/>  
-       </p>
-   </table>
-   <table width="500">
-     <span>개인정보 취급방침</span>
-       <p> 
-         <label for="agreement2">아래 사항에 동의 합니다.</label> <br/>
-           <input id="agreement2" type="checkbox" name="agreement2"/> 
-             <textarea id="text1" readonly> 개인정보 방침 및 안내 </textarea> 
-       </p>
-   </table>
    <table width="500" align="center">
      <tr>
        <td> <input type="text" name="member_userid" placeholder="아이디" onblur="userid_check(this.value)">
@@ -204,6 +188,29 @@
      <tr>
        <td> <input type="text" name="member_phone" placeholder="01012345678"> </td>
      </tr>
+     </table>
+    <div style="width:50%;float:left;">
+    <table width="100">
+     <span>이용 약관</span>
+       <p> 
+         <textarea id="text1" readonly> 이용약관 </textarea> <br/>
+          <label for="agreement1">위 사항에 동의 합니다.</label>
+           <input id="agreement1" type="checkbox" name="agreement1"/>  
+       </p>
+   </table>
+   </div>
+   <div style="width:50%;float:right;">
+   <table width="100">
+     <span>개인정보 취급방침</span>
+       <p> 
+         <textarea id="text1" readonly> 개인정보 방침 및 안내 </textarea> <br/>
+         <label for="agreement2">위 사항에 동의 합니다.</label>
+         <input id="agreement2" type="checkbox" name="agreement2"/>             
+       </p>
+   </table>
+   </div>
+     <br/>
+     <table align="center">
      <tr>
        <td> <input type="submit" value="회원가입" id="btn_join"> <input type="button" onclick="location='/'" value="취소" id="btn_cancle"> </td>
      </tr>
