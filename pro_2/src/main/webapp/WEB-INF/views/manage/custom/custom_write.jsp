@@ -12,6 +12,18 @@
      height:500px;
      margin:auto;
    }
+   #btn_cwrite{
+	   display: inline-block;
+	   padding: 10px 20px 12px;
+	   background: #fff;
+	   border: 1px solid #ccc;
+	   border-radius: 2px;
+	   color: #555;
+	   text-align: center;
+	   line-height: 11px;
+	   transition: background 0.3s;
+	   vertical-align: middle;
+   }
  </style>
  <script>
 function check(){
@@ -46,6 +58,9 @@ function check2(){
 </script>
 </head>
 <body>
+<div style="margin:42px auto; text-align: center;">
+  	<h2><font color="#555555">문의하기</font></h2>
+  </div>
   <div id="section">
     <c:if test="${member_userid == null}">
     <form method="post" action="custom_write_ok" onsubmit="return check()">
@@ -91,7 +106,7 @@ function check2(){
           <td> <textarea cols="50"  rows="6" name="custom_content"></textarea> </td>
         </tr> 
         <tr>
-          <td colspan="2" align="center"> <input type="submit" value="저장"> </td>
+          <td colspan="2" align="center"> <input type="submit" value="저장" id="btn_cwrite"> </td>
         </tr> 
       </table> 
     </form>

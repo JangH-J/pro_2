@@ -15,7 +15,7 @@
 	font-family: 'Noto Sans KR', sans-serif;
 	}
 	
-	#custom-name ,td {
+	#tab th {
 		font-size:16px; font-weight:300;
 		border-collapse : collapse;
 	  	border-top-color: rgb(218, 218, 218);
@@ -50,21 +50,34 @@
 	    border-left-width: 0px;
 	    padding: 10px 10px 10px; 
 	}
-  
+  	#cwrite {
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;   
+    }
 </style>
 </head>
 <body>
+  <div style="margin:42px auto; text-align: center;">
+  	<h2><font color="#555555">고객센터</font></h2>
+  </div>
   <div id="section">
      <table width="800" align="center" id="tab">
-       <caption> <h3> 고객센터 </h3> </caption>
        <tr id="custom-name">
-         <td> 제 목 </td>
-         <td> 작성자 </td>
-         <td> 조회수 </td>
-         <td> 작성일 </td>
-         <td> grp </td>
-         <td> seq </td>
-         <td> depth </td>
+         <th> 제 목 </th>
+         <th> 작성자 </th>
+         <th> 조회수 </th>
+         <th> 작성일 </th>
+         <th> grp </th>
+         <th> seq </th>
+         <th> depth</th>
        </tr>
        
       <c:forEach items="${custom_list}" var="cvo">
@@ -86,11 +99,10 @@
        </tr>
       </c:forEach>
       <tr>
-        <td colspan="4" align="center">
-          <a href="custom_write"> 글쓰기 </a>
+        <td colspan="3">
+          <a href="custom_write" id="cwrite"> 글쓰기 </a>
         </td>
-      </tr>
-       
+      </tr>  
      </table>
   </div>
 </body>

@@ -79,9 +79,11 @@
 </style>
 </head>
 <body>
+  <div style="margin:42px auto; text-align: center;">
+  	<h2><font color="#555555">공지사항</font></h2>
+  </div>
   <div id="section">
     <table id="gongji" width="700" align="center">
-      <caption> <h3> 공지사항 </h3> </caption>
       <tr id="gongji-name">
         <td> 작성자 </td>
         <td> 제 목 </td>

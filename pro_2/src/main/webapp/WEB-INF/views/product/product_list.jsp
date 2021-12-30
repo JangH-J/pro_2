@@ -9,15 +9,21 @@
 <title>야구야 상품 판매</title> 
 <script src="/resources/product_js/product_list.js"></script>
 <link href="/resources/product_css/product_list.css" rel="stylesheet"/>
+<style>
+
+
+</style>
 </head>
 <body>
 <div id="product_top_list">
 	<ul>
-		<li><input type="button" name="product_glove" id="product_glove" onclick="product_glove_show()" value="글러브"></li>
-		<li><input type="button" name="product_bat" id="product_bat" onclick="product_bat_show()" value="배트"></li>
-		<li><input type="button" name="product_shoes" id="product_shoes" onclick="product_shoes_show()" value="야구화"></li>
-		<li><input type="button" name="product_uniform" id="product_uniform" onclick="product_uniform_show()" value="유니폼"></li>
-		<li><input type="button" name="product_equipment" id="product_equipment" onclick="product_equipment_show()" value="야구용품"></li>
+		<li>
+		<input type="button" name="product_glove" id="product_glove" onclick="product_glove_show()" value="글러브">
+		<input type="button" name="product_bat" id="product_bat" onclick="product_bat_show()" value="배트">
+		<input type="button" name="product_shoes" id="product_shoes" onclick="product_shoes_show()" value="야구화">
+		<input type="button" name="product_uniform" id="product_uniform" onclick="product_uniform_show()" value="유니폼">
+		<input type="button" name="product_equipment" id="product_equipment" onclick="product_equipment_show()" value="야구용품">
+		</li>
 	</ul>
 </div>
 <c:set var="i" value="0"/>

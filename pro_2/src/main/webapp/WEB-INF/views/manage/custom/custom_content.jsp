@@ -45,7 +45,7 @@
 </head>
 <body>
   <div id="section">
-    <table width="600" align="center" id="tab">
+    <table width="1000" align="center" id="tab">
       <caption> <h3> 내용 보기 </h3></caption>
       <tr>
         <td> 제 목 </td>

@@ -17,16 +17,33 @@
      background:white;
    }
      #cart,#order_chk,#mupdate,#pwdupdate,#quit {
-  		display: inline-block;
-    	padding: 10px 20px 12px;
-	    background: #fff;
-	    border: 1px solid #ccc;
-	    border-radius: 2px;
-	    color: #555;
-	    text-align: center;
-	    line-height: 11px;
-	    transition: background 0.3s;
-	    vertical-align: middle;
+	display: inline-block;
+   	padding: 10px 20px 12px;
+   	height:50px;
+   	width:600px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;
+    }
+    #changepwd{
+	display: inline-block;
+   	padding: 10px 20px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;
+    }
+    .order{
+    margin:0 auto;
     }
  </style>
   <script>
@@ -70,9 +87,9 @@
       <input type="password" name="before_pwd" placeholder="이전 비밀번호"><p>
       <input type="password" name="pwd" placeholder="새 비밀번호"> <p>
       <input type="password" name="pwd2" placeholder="새 비밀번호 확인"> <p>
-      <input type="submit" value="비밀번호 변경">
+      <input type="submit" value="비밀번호 변경" id="changepwd">
     </form>
-    <table width="400" align="center">
+    <table width="500" align="center">
       <caption> <h3> ${member_name}님의 회원정보</h3></caption>
       <tr>
         <td> 회원아이디</td>
@@ -103,17 +120,26 @@
         <td> ${mvo.member_phone} </td>
       </tr>
       <tr>
-        <td>
+        <td colspan="2" align="center">
          <input type="button" id="cart" value="장바구니" onclick="location='/product/product_cart_list'">
         </td>
-        <td>
+      <tr>  
+        <td colspan="2" align="center"> 
          <input type="button" id="order_chk" value="주문확인" onclick="">
         </td>
       </tr>
       <tr>
         <td colspan="2" align="center">
          <input type="button" value="회원정보수정" id="mupdate" onclick="location='mypage_update'">
+      	</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">   
          <input type="button" value="비밀번호수정" id="pwdupdate" onclick="change_pwd()">
+      	</td>
+      </tr>	
+      <tr>
+        <td colspan="2" align="center">   
          <input type="button" value="회원탈퇴하기" id="quit" onclick="member_delete()">
         </td>
       </tr>

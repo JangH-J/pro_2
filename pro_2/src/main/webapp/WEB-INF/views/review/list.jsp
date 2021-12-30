@@ -13,7 +13,7 @@
 	body{
 	font-family: 'Noto Sans KR', sans-serif;
 	}
-	#review ,th {
+	#review th {
 		font-size:16px; font-weight:300;
 		border-collapse : collapse;
 	  	border-top-color: rgb(218, 218, 218);
@@ -59,14 +59,13 @@
 	    text-align: center;
 	    line-height: 11px;
 	    transition: background 0.3s;
-	    vertical-align: middle;
-	    
+	    vertical-align: middle;   
     }	 
   </style>
 </head>
 <body>
 
-  <div class="titleArea" style="margin:42px auto; text-align: center;">
+  <div style="margin:42px auto; text-align: center;">
   	<h2><font color="#555555">사용후기</font></h2>
   </div>
   <table id="review" width="800" align="center">
