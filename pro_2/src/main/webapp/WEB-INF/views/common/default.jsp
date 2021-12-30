@@ -45,7 +45,9 @@
 			<div id="top_top_left">
 				<ul id="top_top_ul_left">
 					<li class="top_index"><b><a href="../gongji/gongji_list">공지사항</a></b></li>
+				<c:if test="${member_userid!=null}">
 					<li class="top_index"><b><a href="../product/product_list">상품구매</a></b></li>
+				</c:if>
 					<li class="top_index"><b><a href="../review/list">후기</a></b></li>
 					<li class="top_index"><b><a href="../custom/custom_list">고객센터</a></b></li>
 				</ul>
