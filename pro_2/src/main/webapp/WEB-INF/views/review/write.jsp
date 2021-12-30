@@ -26,10 +26,15 @@
     }
 </style>
 <script>
-function title_check(){
+function title_check(my){
 	var title=document.getElementById("review_title").value;
 	if(title==""){
 		alert("제목을 입력해주세요");
+		return false;
+	}
+	else
+	{
+		return true;
 	}
 }
 </script>
@@ -38,7 +43,7 @@ function title_check(){
   <div class="titleArea" style="margin:42px auto; text-align: center;">
   	<h2><font color="#555555">사용후기</font></h2>
   </div>
-	<form enctype="multipart/form-data" method="post" action="write_ok">
+	<form enctype="multipart/form-data" method="post" action="write_ok" onsubmit="return title_check(this)">
 	 <table width="800" align="center">
 	 	<tr>
 	 	  <td>제목</td>
@@ -54,7 +59,7 @@ function title_check(){
 		</tr>
 		<tr>
 		 <td colspan="2"><input type="button" value="목록"  onclick="location.href='list'" id="rfile">
-		 <input type="submit" value="등록" onclick="title_check()" id="rsubmit">
+		 <input type="submit" value="등록" id="rsubmit">
 		 <input type="reset" value="취소" id="rcancel"></td>
 		 <input type="hidden" name="review_name" value="${member_userid}">
 		 </tr>
