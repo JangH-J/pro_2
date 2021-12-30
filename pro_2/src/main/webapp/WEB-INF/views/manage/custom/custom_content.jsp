@@ -75,8 +75,11 @@
         <a href="custom_update?custom_id=${cvo.custom_id}"> 수정</a>
         <a href="custom_delete?custom_id=${cvo.custom_id}&tt=1"> 삭제</a>
         </c:if>
-        <c:if test="${cvo.custom_pwd!=null}"> <!-- 현재 로그인하지 않은 상태로 비회원이 적은글 -->
+        <c:if test="${cvo.custom_pwd!=null && member_userid==null}"> <!-- 현재 로그인하지 않은 상태로 비회원이 적은글 -->
         <a href="custom_update?custom_id=${cvo.custom_id}"> 수정</a>
+        <a href="javascript:custom_del()"> 삭제</a>
+        </c:if>
+        <c:if test="${cvo.custom_pwd!=null && member_userid!=null}"> <!-- 현재 로그인한 상태로 비회원이 적은글 -->
         <a href="javascript:custom_del()"> 삭제</a>
         </c:if>
         <a href="custom_rewrite?custom_grp=${cvo.custom_grp}&custom_seq=${cvo.custom_seq}&custom_depth=${cvo.custom_depth}"> 답글달기</a> <!-- grp,seq,depth -->

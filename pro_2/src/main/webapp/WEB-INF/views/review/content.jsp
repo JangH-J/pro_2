@@ -80,7 +80,7 @@
     </tr>
     <tr>
 	   <td><a href="list" id="btn_rlist">목록</a>
-	 <c:if test="${member_userid==rvo.review_name}"> 
+	 <c:if test="${member_userid==rvo.review_name || member_userid=='admin'}"> 
   	   <a href="update?review_id=${rvo.review_id}" id="btn_rupdate">수정</a>
  	   <a onclick="var cf=confirm('정말로 삭제하시겠습니까?');if(cf==false){loaction.href='content?review_id=${rvo.review_id}'};location.href='delete?review_id=${rvo.review_id}&tt=1'" id="btn_rdelete">삭제</a></td>
  	 </c:if>
