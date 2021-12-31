@@ -70,7 +70,7 @@
   </div>
   <div id="section">
      <table width="800" align="center" id="tab">
-       <tr id="custom-name">
+       <tr id="custom-name"  align="left">
          <th> 제 목 </th>
          <th> 작성자 </th>
          <th> 조회수 </th>
