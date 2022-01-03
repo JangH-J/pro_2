@@ -60,19 +60,7 @@ img, .img {
     }
 
     caption {
-    	font-size:30px; 
-    	font-weight:300;
-		border-collapse : collapse;
-	  	border-top-color: rgb(218, 218, 218);
-	    border-top-style: solid;
-	    border-top-width: 1px;
-	    border-right-color: initial;
-	    border-right-style: none;
-	    border-right-width: 0px;
-	    border-bottom-color: rgb(218, 218, 218);
-	    border-bottom-style: solid;
-	    border-bottom-width: 1px;
-	    border-left-color: initial;
-	    border-left-style: none;
-	    border-left-width: 0px;  	
+    	font-weight:300;	
+	    
+	    color:#555555;
     }

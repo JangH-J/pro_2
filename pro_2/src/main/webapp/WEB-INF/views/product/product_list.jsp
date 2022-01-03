@@ -26,7 +26,7 @@
 <c:set var="i" value="0"/>
 <div id="glove_lists"  align="center">
 <table >
-<caption>글러브</caption>
+<caption><h2>글러브</h2></caption>
 		<tr>
 		<c:forEach items="${product_list0}" var="product">
 			<td>
@@ -60,7 +60,7 @@
 <c:set var="j" value="0"/>
 <div  id="bat_lists" align="center">
 <table align="center">
-<caption>배트</caption>
+<caption><h2>배트</h2></caption>
 		<tr>
 		<c:forEach items="${product_list1}" var="product">
 			<td>
@@ -94,7 +94,7 @@
 <c:set var="k" value="0"/>
 <div  id="shoes_lists" align="center">
 <table align="center">
-<caption>야구화</caption>
+<caption><h2>야구화</h2></caption>
 		<tr>
 		<c:forEach items="${product_list2}" var="product">
 			<td>		
@@ -128,7 +128,7 @@
 <c:set var="l" value="0"/>
 <div id="uniform_lists"  align="center">
 <table align="center">
-<caption>유니폼</caption>
+<caption><h2>유니폼</h2></caption>
 		<tr>
 		<c:forEach items="${product_list3}" var="product">
 			<td>
@@ -162,7 +162,7 @@
 <c:set var="m" value="0"/>
 <div  id="equipment_lists" align="center">
 <table>
-<caption>보호대</caption>
+<caption><h2>보호대</h2></caption>
 	<tr>
 		<c:forEach items="${product_list4}" var="product">
 			<td>
@@ -193,7 +193,7 @@
 		</tr>
 </table>
 <table>
-<caption>송진백</caption>
+<caption><h2>송진백</h2></caption>
 		<c:set var="n" value="0"/>
 		<tr>
 		<c:forEach items="${product_list5}" var="product">
@@ -225,7 +225,7 @@
 	</tr>
 </table>
 <table>
-<caption>가죽크림</caption>
+<caption><h2>가죽크림</h2></caption>
 	<c:set var="o" value="0"/>
 	<tr>
 	<c:forEach items="${product_list6}" var="product">
@@ -257,7 +257,7 @@
 	</tr>
 </table>
 <table>
-<caption>볼</caption>
+<caption><h2>볼</h2></caption>
 	<c:set var="p" value="0"/>
 			<tr>
 		<c:forEach items="${product_list7}" var="product">
