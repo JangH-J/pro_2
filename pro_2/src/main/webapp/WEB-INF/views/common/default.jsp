@@ -53,8 +53,10 @@
 				</ul>
 			</div>
 		</div>
+		
 </body>
 <decorator:body/>
+<hr/>
 <div id="bottom">
 			<div id="bottom_link">
 				<ul id="bottom_link_ul">
@@ -66,6 +68,7 @@
 					<li class="bottom_index">광고/제휴 문의</li>
 				</ul>
 			</div>
+			<hr/>
 			<div id="bottom_info">
 				<div id="bottom_info_container">
 					<div id="contact">

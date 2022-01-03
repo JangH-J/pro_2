@@ -97,11 +97,11 @@ function check2(){
       <input type="hidden" name="custom_seq" value="0">
       <input type="hidden" name="custom_depth" value="0">
       <table width="600" align="center">
-        <tr>
+        <tr align="center">
           <td> 제 목 </td>
           <td> <input type="text" id="custom_title" name="custom_title" size="50"> </td>
         </tr> 
-        <tr>
+        <tr align="center">
           <td> 내용 </td>
           <td> <textarea cols="50"  rows="6" name="custom_content"></textarea> </td>
         </tr> 

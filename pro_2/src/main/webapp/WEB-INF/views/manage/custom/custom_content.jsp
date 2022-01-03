@@ -41,6 +41,18 @@
    #tab {
      margin-top:50px;
    }
+   #reply, #c_nmdelete, #c_nldelete, #c_nlupdate, #c_mdelete, #c_mupdate, #clist{
+   		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+   }
  </style>
 </head>
 <body>
@@ -48,45 +60,44 @@
     <table width="1000" align="center" id="tab">
       <caption> <h3> 내용 보기 </h3></caption>
       <tr>
-        <td> 제 목 </td>
+        <td colspan="3"> 제 목 </td>
         <td> ${cvo.custom_title} </td>
       </tr>
       <tr>
-        <td> 작성자 </td>
+        <td colspan="3"> 작성자 </td>
         <td> ${cvo.custom_userid} </td>
       </tr>
       <tr>
-        <td> 내 용</td>
-        <td> ${cvo.custom_content} </td>
-      </tr>
-      <tr>
-        <td> 조회수 </td>
+        <td colspan="3"> 조회수 </td>
         <td> ${cvo.custom_readnum} </td>
       </tr>
       <tr>
-        <td> 작성일 </td>
+        <td colspan="3"> 작성일 </td>
         <td> ${cvo.custom_writeday} </td>
       </tr>
+            <tr>
+        <td colspan="4"> ${cvo.custom_content} </td>
+      </tr>
       <tr>  
-        <td colspan="2" align="center">
-        <a href="custom_list"> 목록보기 </a>
+        <td colspan="4" align="center">
+        <a href="custom_list" id="clist"> 목록 </a>
         <!-- 삭제시 회원인 경우와 비회원인 경우를 구분하여야 함 -->
         <c:if test="${cvo.custom_pwd==null && cvo.custom_userid==member_userid}"> <!-- 로그인한 회원이 적은글 -->
-        <a href="custom_update?custom_id=${cvo.custom_id}"> 수정</a>
-        <a href="custom_delete?custom_id=${cvo.custom_id}&tt=1"> 삭제</a>
+        <a href="custom_update?custom_id=${cvo.custom_id}" id="c_mupdate"> 수정</a>
+        <a href="custom_delete?custom_id=${cvo.custom_id}&tt=1" id="c_mdelete"> 삭제</a>
         </c:if>
         <c:if test="${cvo.custom_pwd!=null && member_userid==null}"> <!-- 현재 로그인하지 않은 상태로 비회원이 적은글 -->
-        <a href="custom_update?custom_id=${cvo.custom_id}"> 수정</a>
-        <a href="javascript:custom_del()"> 삭제</a>
+        <a href="custom_update?custom_id=${cvo.custom_id}" id="c_nlupdate"> 수정</a>
+        <a href="javascript:custom_del()" id="c_nldelete"> 삭제</a>
         </c:if>
         <c:if test="${cvo.custom_pwd!=null && member_userid!=null}"> <!-- 현재 로그인한 상태로 비회원이 적은글 -->
-        <a href="javascript:custom_del()"> 삭제</a>
+        <a href="javascript:custom_del()" id="c_nmdelete"> 삭제</a>
         </c:if>
-        <a href="custom_rewrite?custom_grp=${cvo.custom_grp}&custom_seq=${cvo.custom_seq}&custom_depth=${cvo.custom_depth}"> 답글달기</a> <!-- grp,seq,depth -->
+        <a href="custom_rewrite?custom_grp=${cvo.custom_grp}&custom_seq=${cvo.custom_seq}&custom_depth=${cvo.custom_depth}" id="reply"> 답글달기</a> <!-- grp,seq,depth -->
         </td>
       </tr>
       <tr id="custom_del" style="display:none;"> <!-- 삭제를 위한 비밀번호 입력폼 -->
-        <td colspan="2" align="center">
+        <td colspan="4" align="center">
           <form method="post" action="custom_delete">
             <input type="hidden" name="custom_id" value="${cvo.custom_id}">
             <input type="password" name="custom_pwd" placeholder="비밀번호" size="4">

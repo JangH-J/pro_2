@@ -26,6 +26,18 @@
   td {
    cellspacing:20px;
   }
+  	#gwrite {
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+    }
  </style>
  <script>
  function check(){
@@ -43,10 +55,12 @@
  </script>
 </head>
 <body>
+  <div style="margin:42px auto; text-align: center;">
+  	<h2><font color="#555555">공지사항</font></h2>
   <div id="section">
    <form method="post" action="gongji_write_ok" id="form" onsubmit="return check()">
     <table width="700" align="center" cellspacing="15">
-      <caption> <h3> 공지사항 글쓰기 </h3></caption>
+
       <tr align="center">
         <td> <input type="text" id="gongji_title" name="gongji_title" placeholder="제 목"> </td>
       </tr>
@@ -54,7 +68,7 @@
         <td> <textarea cols="40" rows="5" name="gongji_content" placeholder="내 용"></textarea> </td>
       </tr> 
       <tr align="center">
-        <td> <input type="submit" value="글쓰기"> </td>
+        <td> <input type="submit" value="글쓰기" id="gwrite"> </td>
       </tr>
     </table>
    </form>

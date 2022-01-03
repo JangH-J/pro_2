@@ -45,20 +45,21 @@ function title_check(my){
   </div>
 	<form enctype="multipart/form-data" method="post" action="write_ok" onsubmit="return title_check(this)">
 	 <table width="800" align="center">
-	 	<tr>
+	 	<tr align="center">
 	 	  <td>제목</td>
 	 	  <td><input type="text" name="review_title" id="review_title" size="50"></td>
 	 	</tr>
-	  	<tr>
+	  	<tr align="center">
 	 	  <td>내용</td>
 	 	  <td><textarea cols="60" rows="10" name="review_content"></textarea></td>
 	 	</tr>
-		<tr>
+		<tr align="center">
 		  <td>첨부파일</td>
 		  <td><input type="file" name="review_filename"></td>
 		</tr>
 		<tr>
-		 <td colspan="2"><input type="button" value="목록"  onclick="location.href='list'" id="rfile">
+		 <td colspan="2" align="center">
+		 <input type="button" value="목록"  onclick="location.href='list'" id="rfile">
 		 <input type="submit" value="등록" id="rsubmit">
 		 <input type="reset" value="취소" id="rcancel"></td>
 		 <input type="hidden" name="review_name" value="${member_userid}">
