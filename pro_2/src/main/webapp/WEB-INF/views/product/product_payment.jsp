@@ -7,6 +7,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>야구야 상품 결제</title>
+<style>
+#section {
+    margin-height:100%;
+	position:relative;
+	padding-bottom:100px;/* footer height */
+	width:800px;
+    height:420px;
+	margin-top:60px;
+	margin-left: auto;   
+	margin-right: auto;   
+	}
+#pay {
+	display: inline-block;
+   	padding: 10px 20px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;  
+    margin:0 auto;
+
+}
+#order_no{
+	align:center;
+	background: #ccc;
+	padding:10px;
+}
+</style>
 </head>
 <body>
 
@@ -14,13 +45,13 @@
 <input type="hidden" name="single_revenge" value="${single_revenge}">
 <input type="hidden" name="buy_userid" value="${mvo.member_userid}">
 <input type="hidden" name="buy_ordernum" value="${today*1000000+pvo.product_id+member_id+time}">
-<table>
-<caption>주문번호  ${today*1000000+pvo.product_id+member_id+time}</caption>
+<table id="section">
+<caption id="order_no">주문번호  ${today*1000000+pvo.product_id+member_id+time}</caption>
 	<tr>
 		<td>
 			<div>
 			주문자명 : ${mvo.member_name} |			
-			<input type="text" name="buy_order_phone" value="${mvo.member_phone}"></div>
+			전화번호 : <input type="text" name="buy_order_phone" value="${mvo.member_phone}"></div>
 			<div>이메일주소 : ${mvo.member_email}</div>
 		</td>
 	</tr>
@@ -29,7 +60,7 @@
 			<div>
 				<div>
 				수령인명 : <input type="text" name="buy_recipient_name" value="${mvo.member_name}">
-				| <input type="text" name="buy_recipient_phone" value="${mvo.member_phone}"></div>
+				| 전화번호: <input type="text" name="buy_recipient_phone" value="${mvo.member_phone}"></div>
 				<div> 주소 : <input type="text" name="buy_recipient_address" size="30"></div>
 			</div>
 		</td>
@@ -209,8 +240,8 @@
 			</select>
 		</td>
 	</tr>
-	<tr>
-		<td><input type="submit" value="결제하기"></td>
+	<tr align="center">
+		<td><input type="submit" value="결제하기" id="pay"></td>
 	</tr>
 </table>
 </form>

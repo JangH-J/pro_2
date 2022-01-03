@@ -7,8 +7,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>야구야 상품 주문완료</title>
+<style>
+#go_tomain{
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #A0A0A0;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #fff;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;
+}
+</style>
 </head>
 <body>
+<div style="margin:42px auto; text-align: center;">
 <h1>감사합니다 주문이 완료되었습니다</h1>
 	<c:if test="${single_revenge==0}">
 	
@@ -31,7 +46,10 @@
 			</c:forEach>	
 		</table>
 	</c:if>
-
+	<tr>
+      <td><a href="../main/index" id="go_tomain">메인으로</a></td>
+    </tr>
+</div>
 
 </body>
 </html>

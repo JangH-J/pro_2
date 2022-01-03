@@ -6,8 +6,42 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400&display=swap" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>야구야 상품페이지</title>
+<style>
+ #pro_buy{
+  	color:white;
+	display: inline-block;
+   	padding: 10px 40px 12px;
+    background: #BE1631;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 30px;
+    transition: background 0.3s;
+    vertical-align: middle;
+ }
+ #pro_cart{
+ 	color:white;
+ 	display: inline-block;
+   	padding: 10px 40px 12px;
+    background: #A0A0A0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 30px;
+    transition: background 0.3s;
+    vertical-align: middle;
+ }
+ #pro_info{
+	border:solid 1px #ccc;
+	padding-left: 30px;
+
+ }
+</style>
 <script>
 var price0=${pvo.product_price};
 function count_change_push(chk){
@@ -172,14 +206,13 @@ function product_check1(){
 	<c:set var="cart_writeday" value='${today*100000+time}'/>
 	<input type="hidden" name="cart_writeday" value="${cart_writeday}">
 
-<table>
-	<caption>상품번호${pvo.product_id+10000}</caption>
+<table  style="width:1200px; height:100%; border:solid 1px #ccc; border-left-style: solid; border-right-style: solid; border-left-width: 0px;border-right-width: 0px; padding:15px; margin-bottom:50px; margin:0 auto;">
 	<tr>
 		<td><img src="/resources/img/${pvo.product_img}"></td>
-		<td>
+		<td id="pro_info">
 			<table>
 				<tr>
-					<td>${pvo.product_name}</td>
+					<td><h2>${pvo.product_name}</h2></td>
 				</tr>
 				<tr>
 					<td><div id="product_price_div" ><fmt:formatNumber value='${pvo.product_price}'/>원</div></td>
@@ -197,7 +230,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td>
-								<select name="cart_material_0" id="cart_material_0" required>
+								가죽<select name="cart_material_0" id="cart_material_0" required>
 									<option value="0">선택</option>								
 									<option value="돈피">돈피</option>
 									<option value="우피">우피</option>
@@ -209,7 +242,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==1}">
 						<tr>
 							<td>
-								<select  name="cart_material_1" onchange="select_color_formaterial(this)" id="cart_material_1" required>
+								재질<select  name="cart_material_1" onchange="select_color_formaterial(this)" id="cart_material_1" required>
 									<option value="0">선택</option>
 									<option value="나무">나무</option>
 									<option value="알루미늄">알루미늄</option>
@@ -221,7 +254,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==2}">
 						<tr>
 							<td>
-								<select name="cart_material_2" id="cart_material_2" required> 
+								가죽<select name="cart_material_2" id="cart_material_2" required> 
 									<option value="0">선택</option>							
 									<option value="소가죽">소가죽</option>
 									<option value="합성섬유">합성섬유</option>
@@ -233,7 +266,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==5}">
 						<tr>
 							<td>
-								<select name="cart_material_5" id="cart_material_5" required>
+								재료<select name="cart_material_5" id="cart_material_5" required>
 									<option value="0">선택</option>								
 									<option value="달걀껍질">달걀껍질</option>
 									<option value="분말">분말</option>
@@ -245,7 +278,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==6}">
 						<tr>
 							<td>
-								<select name="cart_material_6" id="cart_material_6" required>
+								분류<select name="cart_material_6" id="cart_material_6" required>
 									<option value="0">선택</option>
 									<option value="경화지방산">경화지방산</option>
 									<option value="동물성지방">동물성지방</option>
@@ -270,7 +303,7 @@ function product_check1(){
  					<c:if test="${pvo.product_kinds==0}">
 						<tr>
 							<td>
-								<select name="cart_color0_0" id="cart_color0_0" required>
+								색상<select name="cart_color0_0" id="cart_color0_0" required>
 									<option value="0">선택</option>									
 									<option value="갈색">갈색</option>
 									<option value="적색">적색</option>
@@ -284,7 +317,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==1}">
 						<tr>
 							<td>
-								<select name="cart_color0_1" id="cart_color0_1" required>
+								색상<select name="cart_color0_1" id="cart_color0_1" required>
 									<option value="0">선택</option>								
 									<option value="은색">은색</option>
 									<option value="흑색">흑색</option>
@@ -296,7 +329,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==2}">
 						<tr>
 							<td>
-								<select name="cart_color0_2" id="cart_color0_2" required>
+								색상<select name="cart_color0_2" id="cart_color0_2" required>
 									<option value="0">선택</option>								
 									<option value="백색">백색</option>
 									<option value="연갈색">연갈색</option>
@@ -351,7 +384,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==0}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_0">
+								포지션별<select name="cart_purpose_0">
 									<option value="0">선택</option>
 									<option value="투수용">투수용(올라운드)</option>
 									<option value="포수용">포수용</option>
@@ -365,7 +398,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==1}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_1"  id="cart_purpose_1" required>
+								분류<select name="cart_purpose_1"  id="cart_purpose_1" required>
 									<option value="0">선택</option>
 									<option value="밸런스">밸런스</option>
 									<option value="미들밸런스">미들밸런스</option>
@@ -378,7 +411,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==2}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_2"  name="cart_purpose_2">
+								분류<select name="cart_purpose_2"  name="cart_purpose_2">
 									<option value="0">선택</option>
 									<option value="일체형">일체형</option>
 									<option value="교체형">교체형</option>
@@ -392,7 +425,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==3}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_3" id="cart_purpose_3" required>
+								계절별<select name="cart_purpose_3" id="cart_purpose_3" required>
 									<option value="0">선택</option>
 									<option value="동계용">동계용</option>
 									<option value="하계용">하계용</option>
@@ -403,7 +436,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==4}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_4" id="cart_purpose_4" required>
+								착용부위별<select name="cart_purpose_4" id="cart_purpose_4" required>
 									<option value="0">선택</option>
 									<option value="암가드">암가드</option>
 									<option value="풋가드">풋가드</option>
@@ -414,7 +447,7 @@ function product_check1(){
 					<c:if test="${pvo.product_kinds==5}">	
 						<tr>
 							<td>
-								<select name="cart_purpose_5" id="cart_purpose_5" required>
+								포지션별<select name="cart_purpose_5" id="cart_purpose_5" required>
 									<option value="0">선택</option>
 									<option value="타자용">타자용</option>
 									<option value="투수용">투수용</option>
@@ -426,7 +459,7 @@ function product_check1(){
 					<tr>
 						<td>
 							<c:if test="${pvo.product_kinds==0}">
-								<select name="cart_size_0" id="cart_size_0" required>
+								사이즈<select name="cart_size_0" id="cart_size_0" required>
 									<option value="0">선택</option>
 									<option value="11.5">11.5인치</option>
 									<option value="12">12인치</option>
@@ -435,7 +468,7 @@ function product_check1(){
 								</select>
 							</c:if>
 							<c:if test="${pvo.product_kinds==1}">
-								<select name="cart_size_1" id="cart_size_1" required>
+								사이즈<select name="cart_size_1" id="cart_size_1" required>
 									<option value="0">선택</option>
 									<option value="32">32인치</option>
 									<option value="33">33인치</option>
@@ -443,7 +476,7 @@ function product_check1(){
 								</select>
 							</c:if>
 							<c:if test="${pvo.product_kinds==2}">
-								<select name="cart_size_2" id="cart_size_2" required>
+								사이즈<select name="cart_size_2" id="cart_size_2" required>
 									<option value="0">선택</option>
 									<option value="245">245</option>
 									<option value="250">250</option>
@@ -458,7 +491,7 @@ function product_check1(){
 							</c:if>
 							<c:if test="${pvo.product_kinds==3}">
 								<div class="select_shirt" id="select_shirt">
-									<select name="cart_size_0_3" id="cart_size_0_3" required>
+									사이즈<select name="cart_size_0_3" id="cart_size_0_3" required>
 										<option value="0">선택</option>
 										<option value="95">95</option>
 										<option value="100">100</option>
@@ -469,7 +502,7 @@ function product_check1(){
 									</select>
 								</div>
 								<div class="select_pants" id="select_shirt">
-									<select name="cart_size_1_3" id="cart_size_1_3" required>
+									사이즈<select name="cart_size_1_3" id="cart_size_1_3" required>
 										<option value="0">선택</option>
 										<option value="30">30</option>
 										<option value="32">32</option>
@@ -491,26 +524,23 @@ function product_check1(){
 						</td>
 					</tr> 
 				<tr>
-					<td><input onmouseover="product_check0()" type="submit" name="input_buy" value="바로구매"></td>
-				</tr>
-				<tr>
-					<td><input onmouseover="product_check1()" type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1';alert('장바구니에 담았습니다')" value="장바구니"></td>
+					<td><input onmouseover="product_check0()" type="submit" name="input_buy" value="바로구매" id="pro_buy">
+					<input onmouseover="product_check1()" type="submit"  name="input_cart" onclick="javascript:document.getElementById('product_content_form').action='product_cart1';alert('장바구니에 담았습니다')" value="장바구니" id="pro_cart"></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td>
-		상세페이지
+		<td colspan="2" style="width:100%; border:solid 1px #ccc; border-left-style: solid; border-right-style: solid; border-left-width: 0px;border-right-width: 0px; margin-bottom:50px; text-align:center;">
+		<h2><font color="#000000">상세보기</font></h2>
 		</td>
 	</tr>
 	<tr>
-		<td>
+		<td colspan="2">
 			<img src="/resources/img/${pvo.product_detail}"/>
 		</td>
 	</tr>
 </table>
-<div>${pvo.product_readnum}</div>
 </form>
 </body>
 </html>

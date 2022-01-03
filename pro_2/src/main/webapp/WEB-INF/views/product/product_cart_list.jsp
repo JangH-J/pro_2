@@ -7,6 +7,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>야구야 장바구니</title>
+<style>
+	#cart_list{
+	margin:0 auto;
+	}
+  	c_itemdel {
+	display: inline-block;
+   	padding: 10px 20px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #555;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;   
+    }
+    #c_itempur{
+   	display: inline-block;
+   	padding: 10px 20px 12px;
+    background: #A0A0A0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    line-height: 11px;
+    transition: background 0.3s;
+    vertical-align: middle;
+    }
+</style>
 <script>
 function all_select(){
 	 var chk=document.getElementById("input_all_select").checked;
@@ -59,24 +88,31 @@ function cart_unchecked(id){
 <link href="/resources/product_css/product_cart_list.css" rel="stylesheet">
 </head>
 <body onload="load_information()">
+  <div style="margin:42px auto; text-align: center;">
+  	<h2><font color="#555555">장바구니</font></h2>
+  </div>
 <form method="post" action="product_payment">
 <input type="hidden" name="single_revenge" value="1">
-<table>
-<caption>장바구니</caption>
+<table id="cart_list">
+
 <c:set var="i" value="0"/>
 	<c:forEach items="${clist}" var="cvo">
 	<input type="hidden" name="cart_price" class="cart_price"  value="${cvo.cart_price}">
 	<input type="hidden" name="cart_userid"   value="${cvo.cart_userid}">
 	<input type="hidden" name="cart_id" class="cart_id"   value="${cvo.cart_id}">
 	<tr>
-		<td>
+		<td rowspan="2">
 			<c:if test="${cvo.cart_checked==0}">
 				<input type="checkbox" class="select" onclick="cart_checked(${cvo.cart_id})">
 			</c:if>
 			<c:if test="${cvo.cart_checked==1}">
 				<input type="checkbox" class="select" onclick="cart_unchecked(${cvo.cart_id})" checked>
 			</c:if>
-				<span><img src="../resources/img/${cvo.cart_product_img}"></span><!-- 판매상품 이미지 구현 고민중 -->
+		</td>
+		<td rowspan="2">	
+				<span><img src="../resources/img/${cvo.cart_product_img}" width="60px"></span><!-- 판매상품 이미지 구현 고민중 -->
+		</td>	
+		<td>
 					<span class="cart_name">${cvo.cart_name}</span>
 					<select name="cart_count" onchange="cart_count_select(this.value,${cvo.cart_id},${cvo.cart_price/cvo.cart_count},${i})">
 						<c:forEach begin="1" end="9" var="i">
@@ -93,6 +129,7 @@ function cart_unchecked(id){
 					</select>
 			<span class="cart_price_span"><fmt:formatNumber value="${cvo.cart_price}"/>원</span>
 		</td>
+	<tr>
 		<td>
 				<c:if test="${cvo.cart_size0!=null}">
 					사이즈 : ${cvo.cart_size0}
@@ -126,17 +163,17 @@ function cart_unchecked(id){
 				<c:if test="${cvo.cart_purpose!=null}">
 					/ 용도 : ${cvo.cart_purpose}
 				</c:if>
-			</td>
+		</td>
 		<td>
-			<input type="button" onclick="location.href='/product/product_cart_delete?cart_id=${cvo.cart_id}'" value="삭제">
+			<input type="button" onclick="location.href='/product/product_cart_delete?cart_id=${cvo.cart_id}'" value="삭제" id="c_itemdel">
 		</td>
 	</tr>
 <c:set var="i" value="${i+1}"/>
 	</c:forEach>
 	<tr>
-		<td>
+		<td colspan="4" align="center">
 			<div id="sell_count_div"></div>
-			<input type="submit" onclick="select_cart_check()" value="구매">
+			<input type="submit" onclick="select_cart_check()" value="구매" id="c_itempur">
 		</td>
 	</tr>
 </table>
