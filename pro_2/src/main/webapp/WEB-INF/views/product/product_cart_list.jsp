@@ -63,9 +63,6 @@ function cart_unchecked(id){
 <input type="hidden" name="single_revenge" value="1">
 <table>
 <caption>장바구니</caption>
-	<tr>
-		<td colspan="2"><input type="checkbox" id="input_all_select" onclick="all_select()"></td>
-	</tr>
 <c:set var="i" value="0"/>
 	<c:forEach items="${clist}" var="cvo">
 	<input type="hidden" name="cart_price" class="cart_price"  value="${cvo.cart_price}">
