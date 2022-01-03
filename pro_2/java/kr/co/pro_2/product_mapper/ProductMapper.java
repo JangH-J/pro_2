@@ -18,14 +18,14 @@ public interface ProductMapper {
 	public ArrayList<ProductVO> ball_list();
 	public void product_readnum (int id);
 	public ProductVO product_content (int id);
-	public void product_buy0 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    int cart_throw,      String cart_material,String cart_color0,    String cart_purpose,String cart_group, String cart_userid,  int cart_product_id,String cart_order_phone,String cart_writeday);
-	public void product_buy1 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    String cart_material,String cart_color0,  String cart_purpose,   String cart_group,  String cart_userid,int cart_product_id, String cart_order_phone,String cart_writeday);
-	public void product_buy2 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    String cart_material,String cart_color0,  String cart_purpose,   String cart_group,  String cart_userid,int cart_product_id, String cart_order_phone,String cart_writeday);
-	public void product_buy3 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    String cart_size1,   String cart_style0,  String cart_style1,    String cart_color0, String cart_color1,String cart_purpose ,String cart_group,  String cart_userid,     int cart_product_id,String cart_order_phone,String cart_writeday);
-	public void product_buy4 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_color0,   String cart_purpose, String cart_group,   String cart_userid,    int cart_product_id,String cart_order_phone,String cart_writeday);
-	public void product_buy5 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_material, String cart_purpose, String cart_group,   String cart_userid,    int cart_product_id,String cart_order_phone,String cart_writeday);
-	public void product_buy6 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_material, String cart_group,   String cart_userid,  int cart_product_id,   String cart_order_phone,String cart_writeday);
-	public void product_buy7 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_group,    String cart_userid,  int cart_product_id, String cart_order_phone,String cart_writeday);
+	public void product_buy0 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    int cart_throw,      String cart_material,String cart_color0,    String cart_purpose,String cart_group, String cart_userid,  int cart_product_id,String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy1 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    String cart_material,String cart_color0,  String cart_purpose,   String cart_group,  String cart_userid,int cart_product_id, String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy2 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    String cart_material,String cart_color0,  String cart_purpose,   String cart_group,  String cart_userid,int cart_product_id, String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy3 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_size0,    String cart_size1,   String cart_style0,  String cart_style1,    String cart_color0, String cart_color1,String cart_purpose ,String cart_group,  String cart_userid,     int cart_product_id,String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy4 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_color0,   String cart_purpose, String cart_group,   String cart_userid,    int cart_product_id,String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy5 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_material, String cart_purpose, String cart_group,   String cart_userid,    int cart_product_id,String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy6 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_material, String cart_group,   String cart_userid,  int cart_product_id,   String cart_order_phone,String cart_product_img,String cart_writeday);
+	public void product_buy7 (int cart_kinds,int cart_count,String cart_name,int cart_price,String cart_group,    String cart_userid,  int cart_product_id, String cart_order_phone,String cart_product_img,String cart_writeday);
 	public int output_cart_id(int cart_count, int cart_price, String cart_name, String cart_userid,String cart_writeday);
 	public CartVO cart_single_output(String cart_id);
 	public ArrayList<CartVO> cart_revenge_output();
@@ -55,10 +55,4 @@ public interface ProductMapper {
 	public int match_cart_product_id(int cart_product_id);
 	public void input_match_product_countup(int cart_count,int product_id);
 	
-/*	public int product_call_member_id ();
-	public void input_member_information (MemberVO mvo);
-	public ArrayList<ProductVO> product_output_img(String cart_group);
-	public void product_buy_done(String cart_group);
-	public CartVO output_cart_ordernum(String cart_group);
-	public void product_cart_input_group (String cart_id);*/
 }

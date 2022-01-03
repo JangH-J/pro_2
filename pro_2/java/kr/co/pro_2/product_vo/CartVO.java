@@ -2,7 +2,7 @@ package kr.co.pro_2.product_vo;
 	
 	public class CartVO {
 		private int cart_id,cart_count,cart_price,cart_throw,cart_product_id;
-		private String cart_ordernum,cart_kinds,cart_name,cart_size0,cart_size1,cart_material,cart_style0,cart_style1,cart_color0,cart_color1,cart_purpose,cart_group,cart_userid,cart_writeday,cart_order_phone,cart_img,cart_inputdaytime,cart_checked;
+		private String cart_ordernum,cart_kinds,cart_name,cart_size0,cart_size1,cart_material,cart_style0,cart_style1,cart_color0,cart_color1,cart_purpose,cart_group,cart_userid,cart_writeday,cart_order_phone,cart_product_img,cart_inputdaytime,cart_checked;
 		
 		
 		
@@ -18,11 +18,11 @@ package kr.co.pro_2.product_vo;
 		public void setCart_inputdaytime(String cart_inputdaytime) {
 			this.cart_inputdaytime = cart_inputdaytime;
 		}
-		public String getCart_img() {
-			return cart_img;
+		public String getCart_product_img() {
+			return cart_product_img;
 		}
-		public void setCart_img(String cart_img) {
-			this.cart_img = cart_img;
+		public void setCart_product_img(String cart_img) {
+			this.cart_product_img = cart_img;
 		}
 		public String getCart_order_phone() {
 			return cart_order_phone;

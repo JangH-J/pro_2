@@ -76,7 +76,7 @@ function cart_unchecked(id){
 			<c:if test="${cvo.cart_checked==1}">
 				<input type="checkbox" class="select" onclick="cart_unchecked(${cvo.cart_id})" checked>
 			</c:if>
-				<span><img></span><!-- 판매상품 이미지 구현 고민중 -->
+				<span><img src="../resources/img/${cvo.cart_product_img}"></span><!-- 판매상품 이미지 구현 고민중 -->
 					<span class="cart_name">${cvo.cart_name}</span>
 					<select name="cart_count" onchange="cart_count_select(this.value,${cvo.cart_id},${cvo.cart_price/cvo.cart_count},${i})">
 						<c:forEach begin="1" end="9" var="i">

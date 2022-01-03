@@ -34,29 +34,29 @@
   	select * from product where product_id=#{param1}
   </select>
   <insert id="product_buy0">
-  	insert into cart(cart_kinds,cart_count,cart_name,cart_price,cart_size0,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3}, #{param4},#{param5}, #{param6}, #{param7}, #{param8}	 ,#{param9},  #{param10},  #{param11},#{param12}, #{param13},#{param14})
+  	insert into cart(cart_kinds,cart_count,cart_name,cart_price,cart_size0,cart_throw,cart_material,cart_color0,cart_purpose,cart_group,cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3}, #{param4},#{param5}, #{param6}, #{param7}, #{param8}	 ,#{param9},  #{param10},  #{param11},#{param12}, #{param13},#{param14},#{param15})
   </insert>
-  <insert id="product_buy1">
-  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
+   <insert id="product_buy1">
+  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_material, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13},#{param14})
   </insert>
   <insert id="product_buy2">
-    insert into cart( cart_kinds, cart_count, cart_name, cart_price,cart_size0,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
+    insert into cart( cart_kinds, cart_count, cart_name, cart_price,cart_size0,cart_material,cart_color0,cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13},#{param14})
   </insert>
   <insert id="product_buy3">
-  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1, cart_style0, cart_style1, cart_color0, cart_color1, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13},#{param14},#{param15},#{param16})
+  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_size0, cart_size1, cart_style0, cart_style1, cart_color0, cart_color1, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13},#{param14},#{param15},#{param16},#{param17})
   </insert>
   <insert id="product_buy4">
-  	insert into cart( cart_kinds, cart_count,cart_name, cart_price, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11})  
+  	insert into cart( cart_kinds, cart_count,cart_name, cart_price, cart_color0, cart_purpose, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12})
   </insert>
   <insert id="product_buy5">
-	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_material, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11})
+	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_material, cart_purpose , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12})
   </insert>
   <insert id="product_buy6">
-  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10})
+  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_material , cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11})
   </insert>
   <insert id="product_buy7">
-  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9})
-  </insert>
+  	insert into cart( cart_kinds, cart_count, cart_name, cart_price, cart_group, cart_userid,cart_product_id,cart_order_phone,cart_product_img,cart_writeday) values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},#{param9},#{param10})
+  </insert> 
   <select id="output_cart_id" resultType="Integer">
   	select cart_id from cart where cart_count=#{param1} and cart_price=#{param2} and cart_name=#{param3} and cart_userid=#{param4} and cart_writeday=#{param5}
   </select>
@@ -144,24 +144,6 @@
   	update cart set cart_count=cart_count+#{param1} where cart_product_id=#{param2}
   </update>
  
-  
-  
-<!--   <select id="product_call_member_id" resultType="Integer">
-  	select member_id from member where member_userid=#{param1}
-  </select>
-  <select id="product_output_img" resultType="kr.co.pro_2.product_vo.ProductVO" >
-  	select product_img from product join cart on cart.cart_product_id=product.product_id where cart.cart_group=#{param1}
-  </select>
-  <delete id="product_buy_done">
-  	delete from cart where cart_group=#{param1}
-  </delete>
-  <select id="output_cart_ordernum">
-  	select cart_ordernum from cart where cart_group=#{param1}
-  </select>
-  <update id="product_cart_input_group">
-  	update cart set cart_group=cart_group+1 where cart_id=#{param1}
-  </update> -->
-
 <!-- product_kinds=0 glove
 product_kinds=1 bat  
 product_kinds=2 shoes  

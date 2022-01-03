@@ -166,7 +166,7 @@ function product_check1(){
 	<input type="hidden" name="buy_or_cart" id="buy_or_cart"> 
 	<input type="hidden" name="cart_name" id="cart_name" value="${pvo.product_name}">
 	<input type="hidden" name="cart_price" id="cart_price" value="${pvo.product_price}">
-	<input type="hidden" name="cart_img" id="cart_img" value="${pvo.product_img}">
+	<input type="hidden" name="cart_product_img" id="cart_img" value="${pvo.product_img}">
 	<input type="hidden" name="cart_kinds" id="cart_kinds" value="${pvo.product_kinds}">
 	<input type="hidden" name="single_revenge" value="0">
 	<c:set var="cart_writeday" value='${today*100000+time}'/>
