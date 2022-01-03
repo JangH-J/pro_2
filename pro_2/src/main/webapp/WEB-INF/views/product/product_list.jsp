@@ -9,66 +9,6 @@
 <title>야구야 상품 판매</title> 
 <script src="/resources/product_js/product_list.js"></script>
 <link href="/resources/product_css/product_list.css" rel="stylesheet"/>
-<style>
-	body{
-		font-family: 'Noto Sans KR', sans-serif;
-	}
-	table td {
-		font-size:14px; 
-		font-weight:300;
-		border-collapse : collapse;
-	  	border-top-color: initial;
-	    border-top-style: none;
-	    border-top-width: 0px;
-	    border-right-color: initial;
-	    border-right-style: none;
-	    border-right-width: 0px;
-	    border-bottom-color: rgb(218, 218, 218);
-	    border-bottom-style: solid;
-	    border-bottom-width: 0px;
-	    border-left-color: initial;
-	    border-left-style: none;
-	    border-left-width: 0px;
-	    padding: 1px 10px 1px;
-	    text-align: center;	
-	}
-	.inner_table{	
-	    margin: 10px;
-	}
-	.btn {
-  		display: inline-block;
-    	padding: 10px 20px 12px;
-	    background: #fff;
-	    border: 1px solid #ccc;
-	    border-radius: 2px;
-	    color: #555;
-	    text-align: center;
-	    line-height: 11px;
-	    transition: background 0.3s;
-	    vertical-align: middle;   
-    }	
-    ul, li {
-   		list-style:none;
-    }
-
-    caption {
-    	font-size:30px; 
-    	font-weight:300;
-		border-collapse : collapse;
-	  	border-top-color: rgb(218, 218, 218);
-	    border-top-style: solid;
-	    border-top-width: 1px;
-	    border-right-color: initial;
-	    border-right-style: none;
-	    border-right-width: 0px;
-	    border-bottom-color: rgb(218, 218, 218);
-	    border-bottom-style: solid;
-	    border-bottom-width: 1px;
-	    border-left-color: initial;
-	    border-left-style: none;
-	    border-left-width: 0px;  	
-    }
-</style>
 </head>
 <body>
 <div id="product_list" align="center">
@@ -84,8 +24,8 @@
 	</ul>
 </div>
 <c:set var="i" value="0"/>
-<div  align="center">
-<table id="glove_lists">
+<div id="glove_lists"  align="center">
+<table >
 <caption>글러브</caption>
 		<tr>
 		<c:forEach items="${product_list0}" var="product">
@@ -118,8 +58,8 @@
 </table>
 </div>
 <c:set var="j" value="0"/>
-<div  align="center">
-<table id="bat_lists" align="center">
+<div  id="bat_lists" align="center">
+<table align="center">
 <caption>배트</caption>
 		<tr>
 		<c:forEach items="${product_list1}" var="product">
@@ -152,8 +92,8 @@
 </table>
 </div>
 <c:set var="k" value="0"/>
-<div  align="center">
-<table id="shoes_lists" align="center">
+<div  id="shoes_lists" align="center">
+<table align="center">
 <caption>야구화</caption>
 		<tr>
 		<c:forEach items="${product_list2}" var="product">
@@ -186,8 +126,8 @@
 </table>
 </div>
 <c:set var="l" value="0"/>
-<div  align="center">
-<table id="uniform_lists" align="center">
+<div id="uniform_lists"  align="center">
+<table align="center">
 <caption>유니폼</caption>
 		<tr>
 		<c:forEach items="${product_list3}" var="product">
