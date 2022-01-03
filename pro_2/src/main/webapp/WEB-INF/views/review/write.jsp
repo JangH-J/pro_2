@@ -24,6 +24,7 @@
 	    transition: background 0.3s;
 	    vertical-align: middle;
     }
+
 </style>
 <script>
 function title_check(my){
@@ -44,7 +45,7 @@ function title_check(my){
   	<h2><font color="#555555">사용후기</font></h2>
   </div>
 	<form enctype="multipart/form-data" method="post" action="write_ok" onsubmit="return title_check(this)">
-	 <table width="800" align="center">
+	 <table width="800" align="center" margin="0 auto">
 	 	<tr align="center">
 	 	  <td>제목</td>
 	 	  <td><input type="text" name="review_title" id="review_title" size="50"></td>
