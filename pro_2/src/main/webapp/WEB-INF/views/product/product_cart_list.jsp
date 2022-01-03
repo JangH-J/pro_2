@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>야구야 장바구니</title>
 <script>
 function all_select(){
 	 var chk=document.getElementById("input_all_select").checked;

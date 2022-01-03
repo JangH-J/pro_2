@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>야구야 상품페이지</title>
 <script>
 var price0=${pvo.product_price};
 function count_change_push(chk){

@@ -14,9 +14,7 @@
 #equipment_lists{
 	display:none;
 }
-table, tr, td {
-	border:1px solid black;
-}
+
 img, .img {
-	width:100px;
+	width:190px;
 }
