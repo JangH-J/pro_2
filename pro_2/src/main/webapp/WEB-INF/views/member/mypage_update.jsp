@@ -30,22 +30,24 @@
      <tr>
        <td>아이디</td>
        <td>
-        ${member_userid}
+        ${mvo.member_userid}
        </td>
      </tr>
      <tr>
        <td>이름</td>
-       <td> ${member_name} </td>
+       <td> ${mvo.member_name} </td>
      </tr>
      <tr>
        <td>닉네임</td>
-       <td> ${member_nickname} </td>
+       <td> ${mvo.member_nickname} </td>
      </tr>
      <tr>
-       <td> ${member_gender} </td>
+       <td>성별</td>
+       <td> ${mvo.member_gender} </td>
      </tr>
      <tr>
-       <td> ${member_birthday} </td>
+       <td>생일</td>
+       <td> ${mvo.member_birthday} </td>
      </tr>
      <tr>
        <td colspan="2"> <input type="text" name="email" placeholder="이메일" value="${mvo.member_email}" > </td>

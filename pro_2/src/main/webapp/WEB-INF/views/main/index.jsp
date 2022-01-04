@@ -4,6 +4,20 @@
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<style>
+	.btn {
+  		display: inline-block;
+    	padding: 10px 20px 12px;
+	    background: #fff;
+	    border: 1px solid #ccc;
+	    border-radius: 2px;
+	    color: #555;
+	    text-align: center;
+	    line-height: 11px;
+	    transition: background 0.3s;
+	    vertical-align: middle;   
+    }	
+</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -58,5 +72,6 @@ $(".bx-start").click(function(){	//시작버튼 눌렀을때
     </div>
 </div>
 <h1 align="center" style="padding:50px;"><b>야구야 야구쇼핑몰에 오신걸 환영합니다</b></h1>
+<div align="center"><h2><input class="btn" type="button" value="야구야"></h2></div>
 </body>
 </html>
